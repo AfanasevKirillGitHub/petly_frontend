@@ -1,1 +1,7 @@
-{}
+{
+  "navigation": {
+    "News": "Новини",
+    "Find pet": "Знайди друга",
+    "Our friends": "Партнери"
+  }
+}

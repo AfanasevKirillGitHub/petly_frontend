@@ -1,1 +1,7 @@
-{}
+{
+  "navigation": {
+    "News": "News",
+    "Find pet": "Find pet",
+    "Our friends": "Our friends"
+  }
+}
