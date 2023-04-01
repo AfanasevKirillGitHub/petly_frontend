@@ -21,7 +21,7 @@ export const NewsList = () => {
           <h3>{title['en'] ? title['en'] : title['ua']}</h3>
           <img src={img} alt={title['en'] ? title['en'] : title['ua']} />
           <p>{description['en'] ? description['en'] : description['ua']}</p>
-          <a href={link} target="_blank">
+          <a href={link} target="_blank" rel="noopener noreferrer">
             {t('Read more')}
           </a>
           <p>{date}</p>
