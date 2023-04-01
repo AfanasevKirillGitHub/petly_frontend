@@ -12,7 +12,7 @@ export const SearchBar = () => {
       (value: string) => setSearchParams({ lang, key: value }),
       500
     );
-  }, [setSearchParams]);
+  }, [setSearchParams, lang]);
 
   const handleFilterChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const { value } = evt.target as HTMLInputElement;
