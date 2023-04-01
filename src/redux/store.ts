@@ -8,15 +8,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { newsApi } from './news/newsOperations';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [newsApi.reducerPath]: newsApi.reducer,
+  },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+    newsApi.middleware,
   ],
 });
 
