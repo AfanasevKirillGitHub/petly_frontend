@@ -5,7 +5,7 @@ import {
 } from '../../helpers/interfaces/mainNav/newsApiInterface';
 interface IData {
   lang: string;
-  keyWord?: string;
+  keyword?: string;
 }
 
 export const newsApi = createApi({
@@ -16,9 +16,9 @@ export const newsApi = createApi({
   tagTypes: ['news'],
   endpoints: builder => ({
     fetchNews: builder.query<INews[], IData>({
-      query: ({ lang = 'en', keyWord = '' }) => ({
+      query: ({ lang = 'en', keyword = '' }) => ({
         method: 'GET',
-        url: `/?lang=${lang}&key=${keyWord}`,
+        url: `/?lang=${lang}&key=${keyword}`,
       }),
       transformResponse: (response: INewsApi) => response.news,
       providesTags: ['news'],
