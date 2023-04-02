@@ -2,8 +2,11 @@
   "navigation": {
     "News": "News",
     "Find pet": "Find pet",
-    "Our friends": "Our friends"
+    "Our friends": "Our friends",
+    "Login": "Login",
+    "Registration": "Registration"
   },
   "News": "News",
-  "Read more": "Read more"
+  "Read more": "Read more",
+  "Search": "Search"
 }

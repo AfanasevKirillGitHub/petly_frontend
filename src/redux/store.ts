@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
+  persistReducer,
   persistStore,
   FLUSH,
   REHYDRATE,
@@ -8,11 +9,20 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { newsApi } from './news/newsOperations';
+import { authSlice } from './auth/authReducer';
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 export const store = configureStore({
   reducer: {
     [newsApi.reducerPath]: newsApi.reducer,
+    auth: persistReducer(authPersistConfig, authSlice.reducer)!,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({

@@ -2,8 +2,11 @@
   "navigation": {
     "News": "Новини",
     "Find pet": "Знайди друга",
-    "Our friends": "Партнери"
+    "Our friends": "Партнери",
+    "Login": "Логін",
+    "Registration": "Реєстрація"
   },
   "News": "Новини",
-  "Read more": "Дивитись повну версію"
+  "Read more": "Дивитись повну версію",
+  "Search": "Пошук"
 }
