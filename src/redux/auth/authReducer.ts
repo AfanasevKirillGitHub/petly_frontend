@@ -2,14 +2,26 @@ import { createSlice } from '@reduxjs/toolkit';
 import { signUp, signIn, logOut, refreshUser } from './authOperations';
 
 interface IInitialState {
-  user: { name: null | string; email: null | string };
+  user: {
+    name: null | string;
+    email: null | string;
+    birthday: null | string;
+    phone: null | string;
+    avatarURL: null | string;
+  };
   token: null | string;
   isLoggedIn: boolean;
   isRefreshing: boolean;
 }
 
 const initialState: IInitialState = {
-  user: { name: null, email: null },
+  user: {
+    name: null,
+    email: null,
+    birthday: null,
+    phone: null,
+    avatarURL: null,
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -23,31 +35,37 @@ export const authSlice = createSlice({
     builder
       .addCase(signUp.pending, (state, _) => state)
       .addCase(signUp.rejected, (state, _) => {
-        state.user = { name: null, email: null };
+        state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
       })
       .addCase(signUp.fulfilled, (state, { payload }) => {
         state.user.name = payload.dataUser.name;
         state.user.email = payload.dataUser.email;
+        state.user.birthday = payload.dataUser.birthday;
+        state.user.phone = payload.dataUser.phone;
+        state.user.avatarURL = payload.dataUser.avatarURL;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
       .addCase(signIn.pending, (state, _) => state)
       .addCase(signIn.rejected, (state, _) => {
-        state.user = { name: null, email: null };
+        state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
       })
       .addCase(signIn.fulfilled, (state, { payload }) => {
         state.user.name = payload.dataUser.name;
         state.user.email = payload.dataUser.email;
+        state.user.birthday = payload.dataUser.birthday;
+        state.user.phone = payload.dataUser.phone;
+        state.user.avatarURL = payload.dataUser.avatarURL;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
       .addCase(logOut.pending, (state, _) => state)
       .addCase(logOut.fulfilled, (state, _) => {
-        state.user = { name: null, email: null };
+        state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
         state.isRefreshing = false;
@@ -56,13 +74,16 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.rejected, (state, _) => {
-        state.user = { name: null, email: null };
+        state.user = initialState.user;
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.dataUser.name;
         state.user.email = payload.dataUser.email;
+        state.user.birthday = payload.dataUser.birthday;
+        state.user.phone = payload.dataUser.phone;
+        state.user.avatarURL = payload.dataUser.avatarURL;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;

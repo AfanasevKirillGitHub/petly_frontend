@@ -10,5 +10,8 @@ export interface IAuth {
     name: string;
     email: string;
     token: string;
+    birthday: string;
+    phone: string;
+    avatarURL: string;
   };
 }
