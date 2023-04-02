@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/446.82ee34a9.chunk.js","mappings":"oLAAaA,EAAc,WACzB,OACE,+BACE,wCAGL,C","sources":["pages/FriendsPage/FriendsPage.tsx"],"sourcesContent":["export const FriendsPage = () => {\n  return (\n    <>\n      <p>FriendsPage</p>\n    </>\n  );\n};\n"],"names":["FriendsPage"],"sourceRoot":""}
