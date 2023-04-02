@@ -1,9 +1,11 @@
 import { ChangeEvent, useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { debounce } from 'ts-debounce';
 import { GrFormSearch } from 'react-icons/gr';
 import { useGetSearchParams } from '../../huks/useGetSearchParams';
 
 export const SearchBar = () => {
+  const { t } = useTranslation();
   const { lang, keyword, setSearchParams } = useGetSearchParams();
   const [query, setQuery] = useState(keyword);
 
@@ -22,7 +24,12 @@ export const SearchBar = () => {
 
   return (
     <>
-      <input type="text" value={query} onChange={handleFilterChange} />
+      <input
+        type="text"
+        placeholder={t('Search')!}
+        value={query}
+        onChange={handleFilterChange}
+      />
       <div>{<GrFormSearch size={24} />}</div>
     </>
   );

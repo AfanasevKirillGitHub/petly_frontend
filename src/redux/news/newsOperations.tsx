@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   INews,
   INewsApi,
-} from '../../helpers/interfaces/mainNav/newsApiInterface';
+} from '../../helpers/interfaces/newsApiInterface/newsApiInterface';
 interface IData {
   lang: string;
   keyword?: string;
