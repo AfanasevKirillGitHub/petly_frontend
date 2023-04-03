@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[628],{6628:function(n,e,r){r.r(e),r.d(e,{LoginPage:function(){return u}});var t=r(3329),u=function(){return(0,t.jsx)(t.Fragment,{children:(0,t.jsx)("p",{children:"LoginPage"})})}}}]);
-//# sourceMappingURL=628.57049051.chunk.js.map
