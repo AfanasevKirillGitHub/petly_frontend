@@ -12,7 +12,7 @@ export const RegisterForm = () => {
         signUp({
         name: form.elements.name.value,
         email: form.elements.email.value,
-        password: form.elements.password.value,
+        password: form.elements.password.value.toLowerCase(),
         city: form.elements.city.value,
         phone: form.elements.phone.value,
       })
