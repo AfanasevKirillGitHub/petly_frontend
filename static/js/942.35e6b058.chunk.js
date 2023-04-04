@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[942],{7942:function(n,e,t){t.r(e),t.d(e,{FindPetPage:function(){return u}});var r=t(3329),u=function(){return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)("p",{children:"FindPetPage"})})}}}]);
-//# sourceMappingURL=942.35e6b058.chunk.js.map

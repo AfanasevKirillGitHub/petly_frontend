@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[189],{6189:function(n,e,t){t.r(e),t.d(e,{LostFoundPage:function(){return r}});var u=t(3329),r=function(){return(0,u.jsx)("p",{children:"LostFoundPage"})}}}]);
+//# sourceMappingURL=189.ae3d76e9.chunk.js.map

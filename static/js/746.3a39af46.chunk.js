@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[746],{3746:function(n,e,t){t.r(e),t.d(e,{MyAdsPage:function(){return u}});var r=t(3329),u=function(){return(0,r.jsx)("p",{children:"MyAdsPage"})}}}]);
+//# sourceMappingURL=746.3a39af46.chunk.js.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/942.35e6b058.chunk.js","mappings":"oLAAaA,EAAc,WACzB,OACE,+BACE,wCAGL,C","sources":["pages/FindPetPage/FindPetPage.tsx"],"sourcesContent":["export const FindPetPage = () => {\n  return (\n    <>\n      <p>FindPetPage</p>\n    </>\n  );\n};\n"],"names":["FindPetPage"],"sourceRoot":""}
