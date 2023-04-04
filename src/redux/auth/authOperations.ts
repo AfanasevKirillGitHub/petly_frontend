@@ -7,7 +7,7 @@ import {
 import { selectToken } from './authSelectors';
 import { RootState } from '../store';
 
-axios.defaults.baseURL = 'http://localhost:3000/api/users';
+axios.defaults.baseURL = 'https://your-pets.onrender.com/api/users';
 
 const setAuthHeader = (token: String): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -26,7 +26,7 @@ export const signUp = createAsyncThunk<
   try {
     const { data } = await axios.post<IAuth>('/register', credentials);
     setAuthHeader(data.dataUser.token);
-    console.log(data)
+
     return data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.message);
@@ -43,7 +43,7 @@ export const signIn = createAsyncThunk<
   try {
     const { data } = await axios.post<IAuth>('/login', credentials);
     setAuthHeader(data.dataUser.token);
-    console.log(data)
+
     return data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.message);
