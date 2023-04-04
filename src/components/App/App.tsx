@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '../Layout/Layout';
+// import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 
 const NewsPage = lazy(() =>
   import('../../pages/NewsPage/NewsPage').then(module => ({
