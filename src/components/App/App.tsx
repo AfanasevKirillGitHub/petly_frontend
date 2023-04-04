@@ -8,7 +8,7 @@ import { useAuth } from '../../huks/useAuth';
 import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
 
-// import { PrivateRout } from '../PrivateRoute/PrivateRoute';
+import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 
 const NewsPage = lazy(() =>
   import('../../pages/NewsPage/NewsPage').then(module => ({
@@ -104,8 +104,21 @@ export const App = () => {
               <Route path="lost-found" element={<LostFoundPage />} />
               <Route path="good-hand" element={<InGoodHandPage />} />
               <Route path="sell" element={<SellPage />} />
-              <Route path="favorite" element={<FavoritePage />} />
-              <Route path="my-ads" element={<MyAdsPage />} />
+              <Route
+                path="favorite"
+                element={
+                  <PrivateRout
+                    redirectTo="/news"
+                    component={<FavoritePage />}
+                  />
+                }
+              />
+              <Route
+                path="my-ads"
+                element={
+                  <PrivateRout redirectTo="/news" component={<MyAdsPage />} />
+                }
+              />
             </Route>
             <Route path="/friends" element={<FriendsPage />} />
             <Route path="/login" element={<LoginPage />} />
