@@ -1,6 +1,13 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { ThunkDispatch } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { AnyAction } from 'redux';
 import { Layout } from '../Layout/Layout';
+import { useAuth } from '../../huks/useAuth';
+import { refreshUser } from '../../redux/auth/authOperations';
+import { Loader } from '../Loader/Loader';
+
 // import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 
 const NewsPage = lazy(() =>
@@ -78,22 +85,34 @@ const SellPage = lazy(() =>
 );
 
 export const App = () => {
+  const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="news" />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/find-pet" element={<FindPetPage />}>
-          <Route path="lost-found" element={<LostFoundPage />} />
-          <Route path="good-hand" element={<InGoodHandPage />} />
-          <Route path="sell" element={<SellPage />} />
-          <Route path="favorite" element={<FavoritePage />} />
-          <Route path="my-ads" element={<MyAdsPage />} />
-        </Route>
-        <Route path="/friends" element={<FriendsPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/registration" element={<RegisterPage />} />
-      </Route>
-    </Routes>
+    <>
+      {isRefreshing ? (
+        <Loader />
+      ) : (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Navigate to="news" />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/find-pet" element={<FindPetPage />}>
+              <Route path="lost-found" element={<LostFoundPage />} />
+              <Route path="good-hand" element={<InGoodHandPage />} />
+              <Route path="sell" element={<SellPage />} />
+              <Route path="favorite" element={<FavoritePage />} />
+              <Route path="my-ads" element={<MyAdsPage />} />
+            </Route>
+            <Route path="/friends" element={<FriendsPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registration" element={<RegisterPage />} />
+          </Route>
+        </Routes>
+      )}
+    </>
   );
 };
