@@ -1,7 +1,7 @@
 export interface ICredentials {
   name?: string;
-  phone?:string;
-  city?:string;
+  phone?: string;
+  city?: string;
   password: string;
   email: string;
 }
