@@ -1,6 +1,6 @@
 import { RegisterForm1 } from "../../components/RegisterForm/RegisterForm1/RegisterForm1";
 import { RegisterForm2 } from "../../components/RegisterForm/RegisterForm2/RegisterForm2";
-import { Modal } from "../../components/Modal/Modal";
+// import { Modal } from "../../components/Modal/Modal";
 import { useState } from "react";
 
 export const RegisterPage = () => {

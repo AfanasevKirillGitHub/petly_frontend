@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 export const RegisterForm1 = ({onToggle, getData}) => {
-
+  const [formValid,
+    //  setFormValid
+    ] = useState(false);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   
@@ -20,6 +22,9 @@ export const RegisterForm1 = ({onToggle, getData}) => {
         return;
     }
   }
+  // if(password === confirmPassword){
+  //   setFormValid(true)
+  // }
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -58,7 +63,7 @@ export const RegisterForm1 = ({onToggle, getData}) => {
         required
       />
 
-      <button type="submit">
+      <button disabled={!formValid} type="submit">
         Next
       </button>
   </form>
