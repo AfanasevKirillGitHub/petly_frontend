@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { newsApi } from './news/newsOperations';
+import { servicesApi } from './services/servicesOperations';
 import { authSlice } from './auth/authReducer';
 
 const authPersistConfig = {
@@ -22,6 +23,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     [newsApi.reducerPath]: newsApi.reducer,
+    [servicesApi.reducerPath]: servicesApi.reducer,
     auth: persistReducer(authPersistConfig, authSlice.reducer)!,
   },
   middleware: getDefaultMiddleware => [
@@ -31,6 +33,7 @@ export const store = configureStore({
       },
     }),
     newsApi.middleware,
+    servicesApi.middleware,
   ],
 });
 

@@ -6,6 +6,8 @@ import {
 interface IData {
   lang: string;
   keyword?: string;
+  page?: string;
+  limit?: string;
 }
 
 export const newsApi = createApi({
@@ -17,9 +19,9 @@ export const newsApi = createApi({
   tagTypes: ['news'],
   endpoints: builder => ({
     fetchNews: builder.query<INews[], IData>({
-      query: ({ lang = 'en', keyword = '' }) => ({
+      query: ({ lang = 'en', keyword = '', page = '1', limit = '20' }) => ({
         method: 'GET',
-        url: `/?lang=${lang}&key=${keyword}`,
+        url: `/?lang=${lang}&key=${keyword}&page=${page}&limit=${limit}`,
       }),
       transformResponse: (response: INewsApi) => response.news,
       providesTags: ['news'],
