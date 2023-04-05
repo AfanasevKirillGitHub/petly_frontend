@@ -18,6 +18,7 @@ export const SearchBar = () => {
 
   const handleFilterChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const { value } = evt.target as HTMLInputElement;
+
     setQuery(value);
     handleSearchParamsChange(value);
   };
