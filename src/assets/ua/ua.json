@@ -18,5 +18,13 @@
   "Search": "Пошук",
   "Example@gmail.com": "Example@gmail.com",
   "Password": "Пароль",
-  "Login": "Залогінитись"
+  "Login": "Залогінитися",
+  "Next": "Далі",
+  "Email": "Пошта",
+  "Confirm Password": "Підтвердити пароль",
+  "Name": "Ім'я",
+  "City, Region": "Місто, Регіон",
+  "Mobile Phone": "Мобільний телефон",
+  "Registration": "Зарееструватися",
+  "Back": "Повернутися назад"
 }
