@@ -84,7 +84,6 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
-        state.token = payload.dataUser.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       }),
