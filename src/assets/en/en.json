@@ -4,7 +4,8 @@
     "Find pet": "Find pet",
     "Our friends": "Our friends",
     "Login": "Login",
-    "Registration": "Registration"
+    "Registration": "Registration",
+    "Account": "Account"
   },
   "find-pet-nav": {
     "sell": "sell",
@@ -19,5 +20,4 @@
   "Example@gmail.com": "Example@gmail.com",
   "Password": "Password",
   "Login": "Login"
-
 }
