@@ -4,8 +4,15 @@ export const pages: mainNav[] = [
   { name: 'News', href: '/news', id: 1 },
   { name: 'Find pet', href: '/find-pet', id: 2 },
   { name: 'Our friends', href: '/friends', id: 3 },
+];
+
+export const authPages: mainNav[] = [
   { name: 'Login', href: '/login', id: 4 },
   { name: 'Registration', href: '/registration', id: 5 },
+];
+
+export const accountPage: mainNav[] = [
+  { name: 'Account', href: '/account', id: 6 },
 ];
 
 export const findPetNan: mainNav[] = [
