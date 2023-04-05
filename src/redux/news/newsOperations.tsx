@@ -13,8 +13,8 @@ interface IData {
 export const newsApi = createApi({
   reducerPath: 'news',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'http://localhost:3000/api/news',
-    baseUrl: 'https://your-pets.onrender.com/api/news',
+    baseUrl: 'http://localhost:3000/api/news',
+    // baseUrl: 'https://your-pets.onrender.com/api/news',
   }),
   tagTypes: ['news'],
   endpoints: builder => ({
