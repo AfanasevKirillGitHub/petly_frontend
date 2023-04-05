@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[48],{8048:function(n,e,t){t.r(e),t.d(e,{AccountPage:function(){return u}});var c=t(3329),u=function(){return(0,c.jsx)("p",{children:"AccountPage"})}}}]);
+//# sourceMappingURL=48.89ebd5af.chunk.js.map
