@@ -24,6 +24,7 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
 
   return (
     <>
+    <h2>{t("Registration")}</h2>
     <form onSubmit={onSubmit} autoComplete="off">
           <input
             id="name"
@@ -51,8 +52,8 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
 
 
       <button type="submit">{t("Registration")}</button>
-      <button onClick={onToggle} type="button">{t("Back")}</button>
     </form>
+    <button onClick={onToggle} type="button">{t("Back")}</button>
     <p>{t("Already have an account")}?<NavLink to='/login'>{t("Login")}</NavLink></p>
     </>
   );
