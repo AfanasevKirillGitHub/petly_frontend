@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import { NavLink } from "react-router-dom";
 
 export const RegisterForm1 = ({onToggle, getData}) => {
   const [formValid,setFormValid] = useState(false);
@@ -42,38 +43,41 @@ export const RegisterForm1 = ({onToggle, getData}) => {
   };
 
   return (
-  <form onSubmit={onSubmit} autoComplete="off">
-      <input
-        type="email"
-        name="email"
-        placeholder={t('Email')}
-        required
-        
-      />
+    <>
+      <form onSubmit={onSubmit} autoComplete="off">
+        <input
+          type="email"
+          name="email"
+          placeholder={t('Email')}
+          required
+          
+        />
 
-      <input
-        type="password"
-        value={password}
-        onChange={inputChange}
-        name="password"
-        placeholder={t('Password')}
+        <input
+          type="password"
+          value={password}
+          onChange={inputChange}
+          name="password"
+          placeholder={t('Password')}
+            required
+            minLength={6}
+          />
+
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={inputChange}
+          name="confirmPassword"
+          placeholder={t('Confirm Password')}
           required
           minLength={6}
         />
 
-      <input
-        type="password"
-        value={confirmPassword}
-        onChange={inputChange}
-        name="confirmPassword"
-        placeholder={t('Confirm Password')}
-        required
-        minLength={6}
-      />
-
-      <button 
-      disabled={!formValid ||password.length<=5 }
-      type="submit">{t("Next")}</button>
-  </form>
+        <button 
+        disabled={!formValid ||password.length<=5 }
+        type="submit">{t("Next")}</button>
+    </form>
+    <p>{t("Already have an account")}?<NavLink to='/login'>{t("Login")}</NavLink></p>
+  </>
   );
 };

@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { signUp } from "../../../redux/auth/authOperations";
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 export const RegisterForm2 = ({onToggle, dataForm1}) => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
   };
 
   return (
+    <>
     <form onSubmit={onSubmit} autoComplete="off">
           <input
             id="name"
@@ -51,5 +53,7 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
       <button type="submit">{t("Registration")}</button>
       <button onClick={onToggle} type="button">{t("Back")}</button>
     </form>
+    <p>{t("Already have an account")}?<NavLink to='/login'>{t("Login")}</NavLink></p>
+    </>
   );
 };

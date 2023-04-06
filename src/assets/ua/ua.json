@@ -27,5 +27,8 @@
   "City, Region": "Місто, Регіон",
   "Mobile Phone": "Мобільний телефон",
   "Registration": "Зарееструватися",
-  "Back": "Повернутися назад"
+  "Back": "Повернутися назад",
+  "Don't have an account": "Ще не зареєстровані",
+  "Register": "Реєстрація",
+  "Already have an account": "Вже зареєстровані"
 }

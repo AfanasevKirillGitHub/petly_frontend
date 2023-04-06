@@ -28,6 +28,10 @@
   "City, Region": "City, Region",
   "Mobile Phone": "Mobile Phone",
   "Registration": "Registration",
-  "Back": "Back"
+  "Back": "Back",
+  "Don't have an account": "Don't have an account",
+  "Register": "Register",
+  "Already have an account": "Already have an account"
+
 
 }
