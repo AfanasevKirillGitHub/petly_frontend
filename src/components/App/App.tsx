@@ -8,6 +8,7 @@ import { useAuth } from '../../huks/useAuth';
 import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
+import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
 
 const NewsPage = lazy(() =>
   import('../../pages/NewsPage/NewsPage').then(module => ({
@@ -127,8 +128,21 @@ export const App = () => {
               />
             </Route>
             <Route path="/friends" element={<FriendsPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/registration" element={<RegisterPage />} />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRout redirectTo="/news" component={<LoginPage />} />
+              }
+            />
+            <Route
+              path="/registration"
+              element={
+                <RestrictedRout
+                  redirectTo="/news"
+                  component={<RegisterPage />}
+                />
+              }
+            />
             <Route
               path="/account"
               element={
