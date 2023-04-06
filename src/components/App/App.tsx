@@ -7,7 +7,6 @@ import { Layout } from '../Layout/Layout';
 import { useAuth } from '../../huks/useAuth';
 import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
-
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 
 const NewsPage = lazy(() =>
@@ -28,6 +27,13 @@ const RegisterPage = lazy(() =>
   import('../../pages/RegisterPage/RegisterPage').then(module => ({
     ...module,
     default: module.RegisterPage,
+  }))
+);
+
+const AccountPage = lazy(() =>
+  import('../../pages/AccountPage/AccountPage').then(module => ({
+    ...module,
+    default: module.AccountPage,
   }))
 );
 
@@ -123,6 +129,12 @@ export const App = () => {
             <Route path="/friends" element={<FriendsPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registration" element={<RegisterPage />} />
+            <Route
+              path="/account"
+              element={
+                <PrivateRout redirectTo="/news" component={<AccountPage />} />
+              }
+            />
           </Route>
         </Routes>
       )}
