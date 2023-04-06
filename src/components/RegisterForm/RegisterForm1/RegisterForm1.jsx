@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 export const RegisterForm1 = ({onToggle, getData}) => {
   const [formValid,setFormValid] = useState(false);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  
+  const { t } = useTranslation();
 
   useEffect(()=>{
     if(password === confirmPassword && password!==''){
@@ -43,7 +46,7 @@ export const RegisterForm1 = ({onToggle, getData}) => {
       <input
         type="email"
         name="email"
-        placeholder="Email"
+        placeholder={t('Email')}
         required
         
       />
@@ -53,7 +56,7 @@ export const RegisterForm1 = ({onToggle, getData}) => {
         value={password}
         onChange={inputChange}
         name="password"
-        placeholder="Password"
+        placeholder={t('Password')}
           required
           minLength={6}
         />
@@ -63,16 +66,14 @@ export const RegisterForm1 = ({onToggle, getData}) => {
         value={confirmPassword}
         onChange={inputChange}
         name="confirmPassword"
-        placeholder="Confirm Password"
+        placeholder={t('Confirm Password')}
         required
         minLength={6}
       />
 
       <button 
       disabled={!formValid ||password.length<=5 }
-       type="submit">
-        Next
-      </button>
+      type="submit">{t("Next")}</button>
   </form>
   );
 };

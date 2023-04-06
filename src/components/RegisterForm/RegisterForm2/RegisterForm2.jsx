@@ -1,8 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { signUp } from "../../../redux/auth/authOperations";
+import { useTranslation } from 'react-i18next';
 
 export const RegisterForm2 = ({onToggle, dataForm1}) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -16,7 +18,6 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
         phone: form.elements.phone.value,
       })
     );
-    
     form.reset();
   };
 
@@ -26,7 +27,7 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
             id="name"
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder={t('Name')}
             required
           />
 
@@ -34,7 +35,7 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
             id="city"
             type="text"
             name="city"
-            placeholder="City, Region"
+            placeholder={t("City, Region")}
             required
           />
 
@@ -42,13 +43,13 @@ export const RegisterForm2 = ({onToggle, dataForm1}) => {
             id="phone"
             type="tel"
             name="phone"
-            placeholder="Mobile Phone"
+            placeholder={t("Mobile Phone")}
             required
           />
 
 
-      <button type="submit">Registration</button>
-      <button onClick={onToggle} type="button">Back</button>
+      <button type="submit">{t("Registration")}</button>
+      <button onClick={onToggle} type="button">{t("Back")}</button>
     </form>
   );
 };

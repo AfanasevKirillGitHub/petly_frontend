@@ -19,5 +19,15 @@
   "Search": "Search",
   "Example@gmail.com": "Example@gmail.com",
   "Password": "Password",
-  "Login": "Login"
+
+  "Login": "Login",
+  "Next": "Next",
+  "Email": "Email",
+  "Confirm Password": "Confirm Password",
+  "Name": "Name",
+  "City, Region": "City, Region",
+  "Mobile Phone": "Mobile Phone",
+  "Registration": "Registration",
+  "Back": "Back"
+
 }
