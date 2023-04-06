@@ -5,6 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
+import { NavLink } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
@@ -25,6 +26,7 @@ export const LoginForm = () => {
     form.reset();
   };
   return (
+    <>
     <form onSubmit={handleSubmit} autoComplete="off">
       <input
         id="email"
@@ -43,5 +45,7 @@ export const LoginForm = () => {
 
       <button type="submit">{t("Login")!}</button>
     </form>
+    <p>{t("Don't have an account")!}?<NavLink to="/registration">{t("Register")!}</NavLink></p>
+    </>
   );
 };
