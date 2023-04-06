@@ -14,7 +14,7 @@ export const RegisterPage = () => {
     setDataForm1(data)
   }
   return (
-  <>
+    <>
     {Step1 ? <RegisterForm1 getData={getDataForm1} onToggle={toggleForm}/> : <RegisterForm2 dataForm1={dataForm1} onToggle={toggleForm}/>}
     </>
   );
