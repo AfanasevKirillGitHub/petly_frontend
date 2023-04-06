@@ -6,6 +6,7 @@ export const RegisterForm1 = ({onToggle, getData}) => {
   const [formValid,setFormValid] = useState(false);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState('')
   
   const { t } = useTranslation();
 
@@ -28,25 +29,27 @@ export const RegisterForm1 = ({onToggle, getData}) => {
         setConfirmPassword(value);
         break;
 
+      case 'email':
+        setEmail(value);
+        break;
+
       default:
+
         return;
     }
   }
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const data = await {email: form.elements.email.value.toLowerCase(),
-      password: form.elements.password.value}
-      getData(data)
+  const onNextForm = () => {
+      getData({email, password})
       onToggle()
   };
 
   return (
     <>
-      <form onSubmit={onSubmit} autoComplete="off">
         <input
           type="email"
+          value={email}
+          onChange={inputChange}
           name="email"
           placeholder={t('Email')}
           required
@@ -74,9 +77,8 @@ export const RegisterForm1 = ({onToggle, getData}) => {
         />
 
         <button 
-        disabled={!formValid ||password.length<=5 }
-        type="submit">{t("Next")}</button>
-    </form>
+        disabled={!formValid || password.length<=5 }
+        type="button" onClick={onNextForm}>{t("Next")}</button>
     <p>{t("Already have an account")}?<NavLink to='/login'>{t("Login")}</NavLink></p>
   </>
   );
