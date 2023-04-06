@@ -27,6 +27,7 @@ export const LoginForm = () => {
   };
   return (
     <>
+    <h2>{t("Login")}</h2>
     <form onSubmit={handleSubmit} autoComplete="off">
       <input
         id="email"

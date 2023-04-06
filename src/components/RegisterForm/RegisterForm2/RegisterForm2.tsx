@@ -41,6 +41,7 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
 
   return (
     <>
+      <h2>{t('Registration')}</h2>
       <form onSubmit={onSubmit} autoComplete="off">
         <input
           id="name"

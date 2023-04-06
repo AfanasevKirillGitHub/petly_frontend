@@ -51,6 +51,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
 
   return (
     <>
+      <h2>{t('Registration')}</h2>
       <input
         type="email"
         value={email}
