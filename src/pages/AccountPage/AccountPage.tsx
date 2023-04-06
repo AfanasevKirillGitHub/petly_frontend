@@ -1,3 +1,7 @@
+import { MyInfo } from "../../components/MyInfo/MyInfo";
+
 export const AccountPage = () => {
-  return <p>AccountPage</p>;
+  return (
+  <MyInfo />
+  );
 };
