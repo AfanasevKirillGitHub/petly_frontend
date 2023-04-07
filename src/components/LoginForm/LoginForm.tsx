@@ -6,6 +6,7 @@ import { AnyAction } from 'redux';
 import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { NavLink } from 'react-router-dom';
+import * as SC from "./LoginForm.styled"
 
 export const LoginForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
@@ -26,17 +27,17 @@ export const LoginForm = () => {
     form.reset();
   };
   return (
-    <>
-    <h2>{t("Login")}</h2>
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <input
+    <SC.InnerDiv>
+    <SC.Title>{t("Login")}</SC.Title>
+    <SC.Form onSubmit={handleSubmit} autoComplete="off">
+      <SC.Input
         id="email"
         type="email"
         name="email"
         placeholder={t("Example@gmail.com")!}
         required
       />
-      <input
+      <SC.Input
         id="password"
         type="password"
         name="password"
@@ -44,9 +45,9 @@ export const LoginForm = () => {
         required
       />
 
-      <button type="submit">{t("Login")!}</button>
-    </form>
-    <p>{t("Don't have an account")!}?<NavLink to="/registration">{t("Register")!}</NavLink></p>
-    </>
+      <SC.Button type="submit">{t("Login")!}</SC.Button>
+    </SC.Form>
+    <p>{t("Don't have an account")!}? <NavLink to="/registration">{t("Register")!}</NavLink></p>
+    </SC.InnerDiv>
   );
 };
