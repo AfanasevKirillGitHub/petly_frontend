@@ -4,6 +4,7 @@ import { useFetchNewsQuery } from '../../../redux/news/newsOperations';
 import { useGetSearchParams } from '../../../huks/useGetSearchParams';
 import { Hightlight } from '../../../components/Hightlight/Hightlight';
 import { Loader } from '../../../components/Loader/Loader';
+import * as SC from './NewsList.styled';
 
 export const NewsList = () => {
   const { t } = useTranslation();
@@ -25,13 +26,13 @@ export const NewsList = () => {
   return (
     <>
       {isFetching && <Loader />}
-      <ul>
+      <SC.NewsList>
         {data?.map(({ title, date, description, link, _id, img }) => (
-          <li key={_id}>
+          <SC.NewsListItem key={_id}>
+            <SC.Img src={img} alt={title['en'] ? title['en'] : title['ua']} />
             <h3>
               {ChangeColor((title['en'] ? title['en'] : title['ua']) as string)}
             </h3>
-            <img src={img} alt={title['en'] ? title['en'] : title['ua']} />
             <p>
               {ChangeColor(
                 (description['en']
@@ -42,10 +43,10 @@ export const NewsList = () => {
             <a href={link} target="_blank" rel="noopener noreferrer">
               {t('Read more')}
             </a>
-            <p>{date}</p>
-          </li>
+            <p>{new Date(date).toLocaleDateString('en-GB')}</p>
+          </SC.NewsListItem>
         ))}
-      </ul>
+      </SC.NewsList>
     </>
   );
 };

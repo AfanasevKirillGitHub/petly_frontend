@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { pages, authPages, accountPage } from '../../helpers/pages';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 import { useAuth } from '../../huks/useAuth';
+import * as SC from './Navigation.styled';
 
 export const Navigation = () => {
   const { t } = useTranslation();
@@ -10,26 +11,26 @@ export const Navigation = () => {
   return (
     <div>
       <ChangeLngElem />
-      <nav>
-        <ul>
+      <SC.MainNav>
+        <SC.NavList>
           {pages.map(({ href, name, id }) => (
-            <li key={id}>
+            <SC.NavListItem key={id}>
               <Link to={href}> {t(`navigation.${name}`)}</Link>
-            </li>
+            </SC.NavListItem>
           ))}
           {!isLoggedIn
             ? authPages.map(({ href, name, id }) => (
-                <li key={id}>
+                <SC.NavListItem key={id}>
                   <Link to={href}> {t(`navigation.${name}`)}</Link>
-                </li>
+                </SC.NavListItem>
               ))
             : accountPage.map(({ href, name, id }) => (
-                <li key={id}>
+                <SC.NavListItem key={id}>
                   <Link to={href}> {t(`navigation.${name}`)}</Link>
-                </li>
+                </SC.NavListItem>
               ))}
-        </ul>
-      </nav>
+        </SC.NavList>
+      </SC.MainNav>
     </div>
   );
 };
