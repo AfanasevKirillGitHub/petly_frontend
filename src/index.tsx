@@ -10,6 +10,7 @@ import { App } from './components/App/App';
 
 import './i18n';
 import './index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

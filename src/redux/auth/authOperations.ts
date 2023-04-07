@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import {
   ICredentials,
@@ -27,9 +28,12 @@ export const signUp = createAsyncThunk<
   try {
     const { data } = await axios.post<IAuth>('/register', credentials);
     setAuthHeader(data.dataUser.token);
-    console.log(data)
+    console.log(data);
     return data;
   } catch (error: any) {
+    if (error.message === 'Request failed with status code 409')
+      toast.error('Name or email error');
+
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -44,7 +48,7 @@ export const signIn = createAsyncThunk<
   try {
     const { data } = await axios.post<IAuth>('/login', credentials);
     setAuthHeader(data.dataUser.token);
-    console.log(data)
+    console.log(data);
     return data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.message);
