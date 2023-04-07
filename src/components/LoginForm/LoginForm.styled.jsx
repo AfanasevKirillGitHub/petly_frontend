@@ -36,6 +36,7 @@ border-radius: 40px;
 border: 2px solid #F59256;
 background-color: #F59256;
 color: white;
+cursor: pointer;
 
 @media (max-width: 767px) {
     // padding-top: 11px;
@@ -80,20 +81,24 @@ export const InnerDiv = styled.div`
     align-items: center;
 
 @media (max-width: 767px) {
-    background: #FDF7F2;
     width: 100%;
     height: 100vh
 };
+@media (min-width: 768px) {
+    background-color: #FFF;
+    padding-top: 60px;
+    padding-right: 80px;
+    padding-bottom: 60px;
+    padding-left: 80px;
+    width: 618px;
+    height: 496px;
+    border-radius: 40px;
+}
 @media (min-width: 1280px) {
-    background: #FFFFF;
     width: 608px;
     height: 492px;
 };
-@media (min-width: 768px) {
-    background: #FFFFF;
-    width: 618px;
-    height: 496px;
-}
+
 `
 export const Form = styled.form`
     display: flex;

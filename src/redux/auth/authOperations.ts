@@ -30,8 +30,8 @@ export const signUp = createAsyncThunk<
     setAuthHeader(data.dataUser.token);
     return data;
   } catch (error: any) {
-    if (error.response.data.message === 'Email in use')
-    localStorage.getItem("i18nextLng") === "en" ?  toast.error('This mail is already in use') : toast.error('Ця пошта вже використовується')
+    if (error.response.data.message === 'Email in use') {
+    localStorage.getItem("i18nextLng") === "en" ?  toast.error('This mail is already in use') : toast.error('Ця пошта вже використовується')}
 
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -50,6 +50,10 @@ export const signIn = createAsyncThunk<
     console.log('data', data);
     return data;
   } catch (error: any) {
+    console.log(error)
+    if (error.response.status === 401 || error.response.status === 500) {
+      localStorage.getItem("i18nextLng") === "en" ?  toast.error('incorrect data entered') : toast.error('Введені невірні дані')
+    }
     return thunkAPI.rejectWithValue(error.message);
   }
 });
