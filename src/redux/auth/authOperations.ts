@@ -32,7 +32,7 @@ export const signUp = createAsyncThunk<
     return data;
   } catch (error: any) {
     if (error.message === 'Request failed with status code 409')
-      toast.error('Name or email error');
+    localStorage.getItem("i18nextLng") === "en" ?  toast.error('This mail is already in use') : toast.error('Ця пошта вже використовується')
 
     return thunkAPI.rejectWithValue(error.message);
   }
