@@ -20,7 +20,7 @@ export const SearchBar = () => {
     const { value } = evt.target as HTMLInputElement;
 
     setQuery(value);
-    handleSearchParamsChange(value);
+    handleSearchParamsChange(value.replace(/\\/g, '\\\\').trim());
   };
 
   return (
