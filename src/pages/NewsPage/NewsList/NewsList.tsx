@@ -13,6 +13,7 @@ export const NewsList = () => {
     { lang, keyword },
     {
       refetchOnMountOrArgChange: true,
+      skip: keyword.length >= 1 && keyword.length < 3,
     }
   );
 
