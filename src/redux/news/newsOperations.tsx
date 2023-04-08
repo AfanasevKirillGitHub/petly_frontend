@@ -19,7 +19,7 @@ export const newsApi = createApi({
   tagTypes: ['news'],
   endpoints: builder => ({
     fetchNews: builder.query<INews[], IData>({
-      query: ({ lang = 'en', keyword = '', page = '1', limit = '20' }) => ({
+      query: ({ lang = 'en', keyword = '', page = '1', limit = '12' }) => ({
         method: 'GET',
         url: `/?lang=${lang}&key=${keyword}&page=${page}&limit=${limit}`,
       }),

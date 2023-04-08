@@ -1,6 +1,7 @@
 export interface INewsApi {
   massege: string;
   news: [];
+  total: number;
 }
 
 export interface INews {
