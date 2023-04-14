@@ -1,7 +1,7 @@
 // import { useTranslation } from 'react-i18next';
 // import { useGetSearchParams } from '../../huks/useGetSearchParams';
 // import { useFetchServicesQuery } from '../../redux/services/servicesOperations';
-import { Loader } from '../../components/Loader/Loader';
+// import { Loader } from '../../components/Loader/Loader';
 import * as SC from './FriendsList.styled';
 
 export const FriendsList = () => {
@@ -16,7 +16,7 @@ export const FriendsList = () => {
 
   return (
     <>
-      {isFetching && <Loader />}
+      {/* {isFetching && <Loader />} */}
       <SC.FriendsList>
       </SC.FriendsList>
     </>
