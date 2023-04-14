@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
-  IServicessApi,
+  IServicesApi,
   IServices,
 } from '../../helpers/interfaces/servicesApiInterface/servicesApiInterface';
 interface IData {
@@ -20,7 +20,7 @@ export const servicesApi = createApi({
         method: 'GET',
         url: `/?lang=${lang}`,
       }),
-      transformResponse: (response: IServicessApi) => response.services,
+      transformResponse: (response: IServicesApi) => response.services,
       providesTags: ['services'],
     }),
   }),
