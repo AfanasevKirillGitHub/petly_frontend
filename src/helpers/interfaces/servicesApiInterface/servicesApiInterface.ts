@@ -1,4 +1,4 @@
-export interface IServicessApi {
+export interface IServicesApi {
   massege: string;
   services: [];
 }

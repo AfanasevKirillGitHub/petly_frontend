@@ -1,19 +1,14 @@
-// import { useTranslation } from 'react-i18next';
-// import { useFetchServicesQuery } from '../../redux/services/servicesOperations';
-// import { useGetSearchParams } from '../../huks/useGetSearchParams';
+import { useTranslation } from 'react-i18next';
+import { FriendsList } from '../../components/FriendsList/FriendsList';
+import * as SC from './FriendsPage.styled';
 
 export const FriendsPage = () => {
-  // const { t } = useTranslation();
-  // const { lang } = useGetSearchParams();
-  // const { data } = useFetchServicesQuery(
-  //   { lang },
-  //   {
-  //     refetchOnMountOrArgChange: true,
-  //   }
-  // );
+  const { t } = useTranslation();
+
   return (
-    <>
-      <p>FriendsPage</p>
-    </>
+    <SC.Container>
+      <SC.Title>{t('Our friends')}</SC.Title>
+      <FriendsList />
+    </SC.Container>
   );
 };
