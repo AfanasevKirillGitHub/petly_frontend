@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 
+
 interface IProps {
   onToggle: () => void;
   getData: (data: IFormOneData) => void;

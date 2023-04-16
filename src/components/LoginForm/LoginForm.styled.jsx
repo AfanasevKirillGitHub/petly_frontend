@@ -4,6 +4,8 @@ export const Input = styled.input`
 border-radius: 40px;
 border: 1px solid rgba(245, 146, 86, 0.5);
 background-color: rgba(253, 247, 242, 1);
+outline: none;
+
 
 @media (max-width: 767px) {
     padding-top: 11px;
@@ -123,3 +125,19 @@ export const Title = styled.h2`
 
 
 `
+export const ErrorForm = styled.span`
+    color: red;
+    text-align: left;
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+`
+
+export const SuccesForm = styled.span`
+    color: green;
+    text-align: left;
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+`
+
