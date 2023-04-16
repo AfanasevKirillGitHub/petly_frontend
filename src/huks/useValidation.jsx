@@ -5,7 +5,6 @@ export const useValidation = (value, validations) => {
     const [minLengthError, setMinLengthError] = useState(false)
     const [emailError, setEmailError] = useState(false)
     const [confirmError, isConfirmError] = useState(false)
-  
     
       useEffect(() => {
         for (const validation in validations) {
@@ -25,7 +24,7 @@ export const useValidation = (value, validations) => {
           }
         }
       }, [value, validations])
-    
+      
       return {
         minLengthError,
         emailError,

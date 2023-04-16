@@ -35,6 +35,7 @@ export const LoginForm = () => {
     <SC.InnerDiv>
     <SC.Title>{t("Login")}</SC.Title>
     <SC.Form onSubmit={handleSubmit} autoComplete="off">
+      <SC.Div>
       <SC.Input 
         style={{border: ((email.isDirty && !email.emailError) && "1px solid green") as string || ((email.isDirty && email.emailError) && "1px solid red") as string}}
         onChange={e => email.onChange(e)}
@@ -44,9 +45,10 @@ export const LoginForm = () => {
         placeholder={t("Example@gmail.com")!}
         required
       />
-      {((email.isDirty && email.emailError) && <div style={{color: "red"}}>Enter a valid Email</div>) || 
-      ((email.isDirty && !email.emailError) && <div style={{color: "green"}}>Email is correct</div>)}
-
+      {((email.isDirty && email.emailError) && <SC.Notification style={{color: "red"}}>{t("Enter a valid Email")}</SC.Notification>) || 
+      ((email.isDirty && !email.emailError) && <SC.Notification style={{color: "green"}}>{t("Email is correct")}</SC.Notification>)}
+      </SC.Div>
+      <SC.Div>
       <SC.Input
         style={{border: ((password.isDirty && password.minLengthError) && "1px solid red") as string|| ((password.isDirty && !password.minLengthError) && "1px solid green") as string}}
         onChange={e => password.onChange(e)}
@@ -56,9 +58,9 @@ export const LoginForm = () => {
         placeholder={t("Password")!}
         required
       />
-      {((password.isDirty && password.minLengthError) && <div style={{color: "red"}}>Enter a valid Password</div>)}
-      {((password.isDirty && !password.minLengthError) && <div style={{color: "green"}}>Password is correct</div>)}
-
+      {((password.isDirty && password.minLengthError) && <SC.Notification style={{color: "red"}}>{t("Enter a valid Password")}</SC.Notification>)}
+      {((password.isDirty && !password.minLengthError) && <SC.Notification style={{color: "green"}}>{t("Password is correct")}</SC.Notification>)}
+      </SC.Div>
       <SC.Button type="submit">{t("Login")}</SC.Button>
     </SC.Form>
     <p>{t("Don't have an account")}? <NavLink to="/registration">{t("Register")}</NavLink></p>

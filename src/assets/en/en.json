@@ -36,5 +36,17 @@
   "Our friends":"Our friends",
   "Time": "Time",
   "Address": "Address",
-  "Phone":"Phone"
+  "Phone":"Phone",
+  "Enter a valid Email": "Enter a valid Email",
+  "Email is correct": "Email is correct",
+  "Enter a valid Password": "Enter a valid Password",
+  "Password is correct": "Password is correct",
+  "confirmPassword is correct": "confirmPassword is correct",
+  "confirmPassword is not correct": "confirmPassword is not correct",
+  "Enter your name pls": "Enter your name pls",
+  "Name is valid": "Name is valid",
+  "Enter your city pls": "Enter your city pls",
+  "City is valid": "City is valid",
+  "Enter your phone pls": "Enter your phone pls",
+  "Phone is valid": "Phone is valid"
 }

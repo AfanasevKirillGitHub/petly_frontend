@@ -52,7 +52,7 @@ export const signIn = createAsyncThunk<
   } catch (error: any) {
     console.log(error)
     if (error.response.status === 401 || error.response.status === 500) {
-      localStorage.getItem("i18nextLng") === "en" ?  toast.error('incorrect data entered') : toast.error('Введені невірні дані')
+      localStorage.getItem("i18nextLng") === "en" ?  toast.error('incorrect data entered') : toast.error('Користувач з такими даними не зареєстрован')
     }
     return thunkAPI.rejectWithValue(error.message);
   }
