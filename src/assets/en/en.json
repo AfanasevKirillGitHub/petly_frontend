@@ -31,7 +31,10 @@
   "Back": "Back",
   "Don't have an account": "Don't have an account",
   "Register": "Register",
-  "Already have an account": "Already have an account"
+  "Already have an account": "Already have an account",
 
-
+  "Our friends":"Our friends",
+  "Time": "Time",
+  "Address": "Address",
+  "Phone":"Phone"
 }
