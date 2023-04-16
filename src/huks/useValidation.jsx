@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 export const useValidation = (value, validations) => {
     const [minLengthError, setMinLengthError] = useState(false)
     const [emailError, setEmailError] = useState(false)
+    const [confirmError, isConfirmError] = useState(false)
+  
     
       useEffect(() => {
         for (const validation in validations) {
@@ -15,6 +17,9 @@ export const useValidation = (value, validations) => {
                 const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 re.test(String(value).toLowerCase()) ? setEmailError(false) : setEmailError(true)
                 break
+              case 'isSamePassword':
+                (value === validations[validation] && value !== '') ? isConfirmError(true) : isConfirmError(false)
+                break
               default: console.log("нет такой проверки")
     
           }
@@ -23,6 +28,7 @@ export const useValidation = (value, validations) => {
     
       return {
         minLengthError,
-        emailError
+        emailError,
+        confirmError
       }
     }

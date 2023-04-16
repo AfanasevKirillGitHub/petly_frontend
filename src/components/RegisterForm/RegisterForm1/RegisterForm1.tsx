@@ -1,8 +1,9 @@
-import { useState, useEffect, ChangeEvent } from 'react';
+// import { useState, useEffect, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import * as SC from './RegisterForm1.styled'
+import { useInput} from '../../../huks/useInput'
 
 
 interface IProps {
@@ -11,43 +12,47 @@ interface IProps {
 }
 
 export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
-  const [formValid, setFormValid] = useState(false);
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [email, setEmail] = useState('');
+  // const [formValid, setFormValid] = useState(false);
+  // const [password, setPassword] = useState('');
+  // const [confirmPassword, setConfirmPassword] = useState('');
+  // const [email, setEmail] = useState('');
 
   const { t } = useTranslation();
+  const email = useInput('', {isEmail: true});
+  const password = useInput('', {minLength: 6})
+  const confirmPassword = useInput('', {isSamePassword: password.value})
 
-  useEffect(() => {
-    if (password === confirmPassword && password !== '') {
-      setFormValid(true);
-    } else {
-      setFormValid(false);
-    }
-  }, [confirmPassword, password]);
+  // console.log(confirmPassword)
+  // useEffect(() => {
+  //   if (password === confirmPassword && password !== '') {
+  //     setFormValid(true);
+  //   } else {
+  //     setFormValid(false);
+  //   }
+  // }, [confirmPassword, password]);
 
-  const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.currentTarget;
-    switch (name) {
-      case 'password':
-        setPassword(value);
-        break;
+  // const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.currentTarget;
+  //   switch (name) {
+  //     case 'password':
+  //       setPassword(value);
+  //       break;
 
-      case 'confirmPassword':
-        setConfirmPassword(value);
-        break;
+  //     case 'confirmPassword':
+  //       setConfirmPassword(value);
+  //       break;
 
-      case 'email':
-        setEmail(value);
-        break;
+  //     case 'email':
+  //       setEmail(value);
+  //       break;
 
-      default:
-        return;
-    }
-  };
+  //     default:
+  //       return;
+  //   }
+  // };
 
   const onNextForm = () => {
-    getData({ email, password });
+    getData({ email: email.value, password: password.value});
     onToggle();
   };
 
@@ -55,36 +60,42 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
     <SC.InnerDiv>
       <SC.Title>{t('Registration')}</SC.Title>
       <SC.Input
+        style={{border: ((email.isDirty && !email.emailError) && "1px solid green") as string || ((email.isDirty && email.emailError) && "1px solid red") as string}}
         type="email"
-        value={email}
-        onChange={inputChange}
+        value={email.value}
+        onChange={e => email.onChange(e)}
         name="email"
         placeholder={t('Email')!}
         required
       />
+      {((email.isDirty && email.emailError) && <div style={{color: "red"}}>Enter a valid Email</div>) || 
+      ((email.isDirty && !email.emailError) && <div style={{color: "green"}}>Email is correct</div>)}
 
       <SC.Input
+        style={{border: ((password.isDirty && !password.minLengthError) && "1px solid green") as string || ((password.isDirty && password.minLengthError) && "1px solid red") as string}}
         type="password"
-        value={password}
-        onChange={inputChange}
+        value={password.value}
+        onChange={e => password.onChange(e)}
         name="password"
         placeholder={t('Password')!}
         required
-        minLength={6}
       />
-
+      {((password.isDirty && password.minLengthError) && <div style={{color: "red"}}>Enter a valid Password</div>)}
+      {((password.isDirty && !password.minLengthError) && <div style={{color: "green"}}>Password is correct</div>)}
+      
       <SC.Input
+        style={{border: ((confirmPassword.isDirty && password.value === confirmPassword.value) && "1px solid green") as string || ((confirmPassword.isDirty && password.value !== confirmPassword.value) && "1px solid red") as string}}
         type="password"
-        value={confirmPassword}
-        onChange={inputChange}
+        value={confirmPassword.value}
+        onChange={e => confirmPassword.onChange(e)}
         name="confirmPassword"
         placeholder={t('Confirm Password')!}
         required
-        minLength={6}
       />
-
+      {(confirmPassword.isDirty && password.value === confirmPassword.value) && <div style={{color: "green"}}>Excellent!</div>}
+      {(confirmPassword.isDirty && password.value !== confirmPassword.value) && <div style={{color: "red"}}>Try again!</div>}
       <SC.Button
-        disabled={!formValid || password.length <= 5}
+        disabled={!confirmPassword.confirmError}
         type="button"
         onClick={onNextForm}
       >
