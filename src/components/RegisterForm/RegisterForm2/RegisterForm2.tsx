@@ -7,6 +7,7 @@ import { signUp } from '../../../redux/auth/authOperations';
 import { useTranslation } from 'react-i18next';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import { ICredentials } from '../../../helpers/interfaces/auth/authInterfaces';
+import * as SC from './RegisterForm2.styled'
 
 interface IProps {
   onToggle: () => void;
@@ -40,10 +41,10 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
   };
 
   return (
-    <>
-      <h2>{t('Registration')}</h2>
-      <form onSubmit={onSubmit} autoComplete="off">
-        <input
+    <SC.InnerDiv>
+      <SC.Title>{t('Registration')}</SC.Title>
+      <SC.Form onSubmit={onSubmit} autoComplete="off">
+        <SC.Input
           id="name"
           type="text"
           name="name"
@@ -51,7 +52,7 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
           required
         />
 
-        <input
+        <SC.Input
           id="city"
           type="text"
           name="city"
@@ -59,7 +60,7 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
           required
         />
 
-        <input
+        <SC.Input
           id="phone"
           type="tel"
           name="phone"
@@ -67,15 +68,15 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
           required
         />
 
-        <button type="submit">{t('Registration')}</button>
-        <button onClick={onToggle} type="button">
+        <SC.Button1 type="submit">{t('Registration')}</SC.Button1>
+        <SC.Button2 onClick={onToggle} type="button">
           {t('Back')}
-        </button>
-      </form>
+        </SC.Button2>
+      </SC.Form>
       <p>
         {t('Already have an account')}?
         <NavLink to="/login">{t('Login')}</NavLink>
       </p>
-    </>
+    </SC.InnerDiv>
   );
 };

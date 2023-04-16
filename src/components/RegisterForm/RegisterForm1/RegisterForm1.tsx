@@ -2,6 +2,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
+import * as SC from './RegisterForm1.styled'
 
 
 interface IProps {
@@ -51,9 +52,9 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
   };
 
   return (
-    <>
-      <h2>{t('Registration')}</h2>
-      <input
+    <SC.InnerDiv>
+      <SC.Title>{t('Registration')}</SC.Title>
+      <SC.Input
         type="email"
         value={email}
         onChange={inputChange}
@@ -62,7 +63,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         required
       />
 
-      <input
+      <SC.Input
         type="password"
         value={password}
         onChange={inputChange}
@@ -72,7 +73,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         minLength={6}
       />
 
-      <input
+      <SC.Input
         type="password"
         value={confirmPassword}
         onChange={inputChange}
@@ -82,17 +83,17 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         minLength={6}
       />
 
-      <button
+      <SC.Button
         disabled={!formValid || password.length <= 5}
         type="button"
         onClick={onNextForm}
       >
         {t('Next')}
-      </button>
+      </SC.Button>
       <p>
         {t('Already have an account')}?
         <NavLink to="/login">{t('Login')}</NavLink>
       </p>
-    </>
+    </SC.InnerDiv>
   );
 };

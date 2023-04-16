@@ -32,13 +32,60 @@ outline: none;
     margin-bottom: 40px;
 }
 
-`;
-export const Button = styled.button`
+`
+export const Button1 = styled.button`
 border-radius: 40px;
 border: 2px solid #F59256;
 background-color: #F59256;
 color: white;
 cursor: pointer;
+// margin-bottom:not(:last-child) : 12px
+
+
+@media (max-width: 767px) {
+    // padding-top: 11px;
+    // padding-right: 14px;
+    // padding-bottom: 12px;
+    // padding-left: 14px;
+    height: 44px;
+    width: 280px;
+    font-weight: 500;
+    font-size: 20px;  
+    line-height: 1.35;  
+    margin-bottom: 12px;
+    margin-top: 16px;
+};
+@media (min-width: 768px) {
+    // padding-top: 14px;
+    // padding-right: 32px;
+    // padding-bottom: 13px;
+    // padding-left: 32px;
+    height: 44px;
+    width: 458px;
+    font-weight: 500;
+    font-size: 20px;  
+    line-height: 1.35;
+    margin-bottom: 16px;
+};
+@media (min-width: 1280px) {
+    // padding-top: 14px;
+    // padding-right: 32px;
+    // padding-bottom: 13px;
+    // padding-left: 32px;
+    height: 48px;
+    // width: 458px;
+    // font-weight: 400;
+    // font-size: 18px;  
+    // line-height: 1.39;
+};
+`
+export const Button2 = styled.button`
+border-radius: 40px;
+border: 2px solid #F59256;
+background-color: #F59256;
+color: white;
+cursor: pointer;
+
 
 @media (max-width: 767px) {
     // padding-top: 11px;
@@ -77,6 +124,7 @@ cursor: pointer;
     // line-height: 1.39;
 };
 `
+
 export const InnerDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -93,12 +141,12 @@ export const InnerDiv = styled.div`
     padding-bottom: 60px;
     padding-left: 80px;
     width: 608px;
-    height: 492px;
+    height: 643px;
     border-radius: 40px;
 }
 @media (min-width: 1280px) {
     width: 618px;
-    height: 496px;
+    height: 667px;
 };
 
 `

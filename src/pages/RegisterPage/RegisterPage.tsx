@@ -1,6 +1,7 @@
 import { RegisterForm1 } from '../../components/RegisterForm/RegisterForm1/RegisterForm1';
 import { RegisterForm2 } from '../../components/RegisterForm/RegisterForm2/RegisterForm2';
 import { useState } from 'react';
+import * as SC from './RegisterPage.styled'
 
 export interface IFormOneData {
   email: string;
@@ -19,12 +20,12 @@ export const RegisterPage = () => {
     setDataForm1(data);
   };
   return (
-    <>
+    <SC.Main>
       {Step1 ? (
         <RegisterForm1 getData={getDataForm1} onToggle={toggleForm} />
       ) : (
         <RegisterForm2 dataForm1={dataForm1} onToggle={toggleForm} />
       )}
-    </>
+    </SC.Main>
   );
 };
