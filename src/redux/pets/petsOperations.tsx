@@ -9,7 +9,7 @@ import { RootState } from '../store';
 export const petsApi = createApi({
   reducerPath: 'pets',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'http://localhost:3000/api/news',
+    // baseUrl: 'http://localhost:3000/api/pets',
     baseUrl: 'https://your-pets.onrender.com/api/pets',
     prepareHeaders: (headers, { getState }) => {
       const token: string | null = (getState() as RootState).auth.token;

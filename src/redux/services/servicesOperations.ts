@@ -10,7 +10,7 @@ interface IData {
 export const servicesApi = createApi({
   reducerPath: 'services',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'http://localhost:3000/api/news',
+    // baseUrl: 'http://localhost:3000/api/services',
     baseUrl: 'https://your-pets.onrender.com/api/services',
   }),
   tagTypes: ['services'],

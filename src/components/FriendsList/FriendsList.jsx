@@ -1,23 +1,48 @@
-// import { useTranslation } from 'react-i18next';
-// import { useGetSearchParams } from '../../huks/useGetSearchParams';
-// import { useFetchServicesQuery } from '../../redux/services/servicesOperations';
-// import { Loader } from '../../components/Loader/Loader';
+import { useGetSearchParams } from '../../huks/useGetSearchParams';
+import { useFetchServicesQuery } from '../../redux/services/servicesOperations';
+import { Loader } from '../../components/Loader/Loader';
+import { FriendsItem } from './FriendsItem';
 import * as SC from './FriendsList.styled';
 
-export const FriendsList = () => {
-  // const { t } = useTranslation();
-  // const { lang } = useGetSearchParams();
-  // const { data, isFetching } = useFetchServicesQuery(
-  //   { lang },
-  //   {
-  //     refetchOnMountOrArgChange: true,
-  //   }
-  // );
 
+export const FriendsList = () => {
+  const { lang } = useGetSearchParams();
+  const { data, isFetching } = useFetchServicesQuery(
+    { lang },
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
+  
   return (
     <>
-      {/* {isFetching && <Loader />} */}
+      {isFetching && <Loader />}
       <SC.FriendsList>
+         {data.map(
+        ({
+          _id,
+          title,
+          url,
+          addressUrl,
+          imageUrl, 
+          address,
+          workDays,
+          phone,
+          email,
+        }) => (
+          <FriendsItem
+            key={_id}
+            title={title}
+            url={url}
+            addressUrl={addressUrl}
+            imageUrl={imageUrl}
+            address={address}
+            workDays={workDays}
+            phone={phone}
+            email={email}
+          />
+        ),
+      )}
       </SC.FriendsList>
     </>
   );
