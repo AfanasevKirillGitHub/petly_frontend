@@ -52,6 +52,7 @@ cursor: pointer;
     line-height: 1.35;  
     margin-bottom: 40px;
     margin-top: 16px;
+
 };
 @media (min-width: 768px) {
     // padding-top: 14px;
@@ -92,13 +93,13 @@ export const InnerDiv = styled.div`
     padding-right: 80px;
     padding-bottom: 60px;
     padding-left: 80px;
-    width: 608px;
-    height: 492px;
+    width: 608;
+    height: 583;
     border-radius: 40px;
 }
 @media (min-width: 1280px) {
     width: 618px;
-    height: 496px;
+    // height: 587px;
 };
 
 `
