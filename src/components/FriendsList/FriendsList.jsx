@@ -4,7 +4,6 @@ import { Loader } from '../../components/Loader/Loader';
 import { FriendsItem } from './FriendsItem';
 import * as SC from './FriendsList.styled';
 
-
 export const FriendsList = () => {
   const { lang } = useGetSearchParams();
   const { data, isFetching } = useFetchServicesQuery(
@@ -13,36 +12,36 @@ export const FriendsList = () => {
       refetchOnMountOrArgChange: true,
     }
   );
-  
+
   return (
     <>
       {isFetching && <Loader />}
       <SC.FriendsList>
-         {data.map(
-        ({
-          _id,
-          title,
-          url,
-          addressUrl,
-          imageUrl, 
-          address,
-          workDays,
-          phone,
-          email,
-        }) => (
-          <FriendsItem
-            key={_id}
-            title={title}
-            url={url}
-            addressUrl={addressUrl}
-            imageUrl={imageUrl}
-            address={address}
-            workDays={workDays}
-            phone={phone}
-            email={email}
-          />
-        ),
-      )}
+        {data?.map(
+          ({
+            _id,
+            title,
+            url,
+            addressUrl,
+            imageUrl,
+            address,
+            workDays,
+            phone,
+            email,
+          }) => (
+            <FriendsItem
+              key={_id}
+              title={title}
+              url={url}
+              addressUrl={addressUrl}
+              imageUrl={imageUrl}
+              address={address}
+              workDays={workDays}
+              phone={phone}
+              email={email}
+            />
+          )
+        )}
       </SC.FriendsList>
     </>
   );
