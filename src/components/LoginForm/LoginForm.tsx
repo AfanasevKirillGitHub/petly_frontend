@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-// import { ThunkDispatch } from 'redux-thunk';
-// import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 import { signIn } from '../../redux/auth/authOperations';
-// import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
+import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { NavLink } from 'react-router-dom';
 import * as SC from "./LoginForm.styled"
 // import { use } from 'i18next';
@@ -11,18 +11,20 @@ import { useInput} from '../../huks/useInput'
 
 
 export const LoginForm = () => {
-  const dispatch = useDispatch ();
+  const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const { t } = useTranslation()
 
   const email = useInput('', {isEmail: true});
   const password = useInput('', {minLength: 6})
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    const form = evt.currentTarget;
-    const emailInput = form.elements.email;
-    const passwordInput = form.elements.password;
-    const payload = {
+    const form = evt.currentTarget as HTMLFormElement;
+    const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+    const passwordInput = form.elements.namedItem(
+      'password'
+    ) as HTMLInputElement;
+    const payload: ICredentials = {
       email: emailInput.value.toLowerCase(),
       password: passwordInput.value,
     };
@@ -34,24 +36,24 @@ export const LoginForm = () => {
     <SC.Title>{t("Login")}</SC.Title>
     <SC.Form onSubmit={handleSubmit} autoComplete="off">
       <SC.Input 
-        style={{border: ((email.isDirty && !email.emailError) && "1px solid green") || ((email.isDirty && email.emailError) && "1px solid red")}}
+        style={{border: ((email.isDirty && !email.emailError) && "1px solid green") as string || ((email.isDirty && email.emailError) && "1px solid red") as string}}
         onChange={e => email.onChange(e)}
         type="email"
         value={email.value}
         name="email"
-        placeholder={t("Example@gmail.com")}
+        placeholder={t("Example@gmail.com")!}
         required
       />
       {((email.isDirty && email.emailError) && <div style={{color: "red"}}>Enter a valid Email</div>) || 
       ((email.isDirty && !email.emailError) && <div style={{color: "green"}}>Email is correct</div>)}
 
       <SC.Input
-        style={{border: ((password.isDirty && password.minLengthError) && "1px solid red") || ((password.isDirty && !password.minLengthError) && "1px solid green")}}
+        style={{border: ((password.isDirty && password.minLengthError) && "1px solid red") as string|| ((password.isDirty && !password.minLengthError) && "1px solid green") as string}}
         onChange={e => password.onChange(e)}
         type="password"
         value={password.value}
         name="password"
-        placeholder={t("Password")}
+        placeholder={t("Password")!}
         required
       />
       {((password.isDirty && password.minLengthError) && <div style={{color: "red"}}>Enter a valid Password</div>)}

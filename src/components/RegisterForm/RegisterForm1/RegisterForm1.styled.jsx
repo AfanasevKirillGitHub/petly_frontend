@@ -7,6 +7,7 @@ background-color: rgba(253, 247, 242, 1);
 outline: none;
 
 
+
 @media (max-width: 767px) {
     padding-top: 11px;
     padding-right: 14px;
@@ -39,6 +40,10 @@ border: 2px solid #F59256;
 background-color: #F59256;
 color: white;
 cursor: pointer;
+:disabled {
+    background-color: rgba(245,146,86,0.5);
+    border: 2px solid rgba(245,146,86,0.5)
+}
 
 @media (max-width: 767px) {
     // padding-top: 11px;
