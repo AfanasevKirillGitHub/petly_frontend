@@ -1,7 +1,11 @@
 import { RegisterForm1 } from '../../components/RegisterForm/RegisterForm1/RegisterForm1';
 import { RegisterForm2 } from '../../components/RegisterForm/RegisterForm2/RegisterForm2';
 import { useState } from 'react';
-import * as SC from './RegisterPage.styled'
+import * as SC from './RegisterPage.styled';
+import { signInWhithToken } from '../../redux/auth/authOperations';
+import { useGetSearchParams } from '../../hooks/useGetSearchParams';
+import { useDispatch } from 'react-redux';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 
 export interface IFormOneData {
   email: string;
@@ -9,6 +13,13 @@ export interface IFormOneData {
 }
 
 export const RegisterPage = () => {
+  const { token } = useGetSearchParams();
+  const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
+
+  if (token) {
+    dispatch(signInWhithToken(token));
+  }
+
   const [Step1, setStep1] = useState<boolean>(true);
   const [dataForm1, setDataForm1] = useState<IFormOneData | {}>({});
 

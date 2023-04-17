@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetSearchParams } from '../../huks/useGetSearchParams';
+import { useGetSearchParams } from '../../hooks/useGetSearchParams';
 import US from '../../helpers/photos/us.png';
 import * as SC from './ChangeLngElem.styled';
 

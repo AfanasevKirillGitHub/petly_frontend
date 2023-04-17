@@ -4,7 +4,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { Layout } from '../Layout/Layout';
-import { useAuth } from '../../huks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';

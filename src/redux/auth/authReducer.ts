@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signUp, signIn, logOut, refreshUser } from './authOperations';
+import {
+  signUp,
+  signIn,
+  logOut,
+  refreshUser,
+  signInWhithToken,
+} from './authOperations';
 
 interface IInitialState {
   user: {
@@ -55,6 +61,21 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
       })
       .addCase(signIn.fulfilled, (state, { payload }) => {
+        state.user.name = payload.dataUser.name;
+        state.user.email = payload.dataUser.email;
+        state.user.birthday = payload.dataUser.birthday;
+        state.user.phone = payload.dataUser.phone;
+        state.user.avatarURL = payload.dataUser.avatarURL;
+        state.token = payload.dataUser.token;
+        state.isLoggedIn = true;
+      })
+      .addCase(signInWhithToken.pending, (state, _) => state)
+      .addCase(signInWhithToken.rejected, (state, _) => {
+        state.user = initialState.user;
+        state.token = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(signInWhithToken.fulfilled, (state, { payload }) => {
         state.user.name = payload.dataUser.name;
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;

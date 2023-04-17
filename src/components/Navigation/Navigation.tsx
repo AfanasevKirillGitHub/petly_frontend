@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { pages, authPages, accountPage } from '../../helpers/pages';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
-import { useAuth } from '../../huks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 import * as SC from './Navigation.styled';
 
 export const Navigation = () => {

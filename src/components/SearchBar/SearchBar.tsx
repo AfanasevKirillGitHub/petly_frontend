@@ -2,7 +2,7 @@ import { ChangeEvent, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { debounce } from 'ts-debounce';
 import { GrFormSearch } from 'react-icons/gr';
-import { useGetSearchParams } from '../../huks/useGetSearchParams';
+import { useGetSearchParams } from '../../hooks/useGetSearchParams';
 
 export const SearchBar = () => {
   const { t } = useTranslation();
