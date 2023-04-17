@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import defaultImage from '../../helpers/photos/noImage.JPG';
+import defaultImage from '../../helpers/photos/noImage.jpg';
+import { IServices } from '../../helpers/interfaces/servicesApiInterface/servicesApiInterface';
 import * as SC from './FriendsList.styled';
 
 export const FriendsItem = ({
@@ -9,11 +10,10 @@ export const FriendsItem = ({
   addressUrl,
   imageUrl,
   address,
-//   workDays,
+  //   workDays,
   phone,
   email,
-}) => {
-
+}: IServices) => {
   const { t } = useTranslation();
   return (
     <SC.FriendItem key={_id}>
@@ -78,5 +78,3 @@ export const FriendsItem = ({
     </SC.FriendItem>
   );
 };
-
-

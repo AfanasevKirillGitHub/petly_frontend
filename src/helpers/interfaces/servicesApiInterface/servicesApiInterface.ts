@@ -4,12 +4,17 @@ export interface IServicesApi {
 }
 
 export interface IServices {
-  address: ILang;
-  name: ILang;
-  time: string;
+  // address: ILang;
+  // title: ILang;
+  // workDays:{};
+  address: string;
+  title: string;
+  url: string;
   email: string;
   _id: string;
   phone: string;
+  imageUrl: string;
+  addressUrl: string;
 }
 
 interface ILang {

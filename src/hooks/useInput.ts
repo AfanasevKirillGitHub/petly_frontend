@@ -1,12 +1,16 @@
 import { useValidation } from './useValidation';
 import { useEffect, useState } from 'react';
 
-export const useInput = (initialValue, validations) => {
+interface ISetings {
+  [key: string]: boolean | number | string;
+}
+
+export const useInput = (initialValue: string, validations: ISetings) => {
   const [value, setValue] = useState(initialValue);
   const [isDirty, setIsDirty] = useState(false);
   const valid = useValidation(value, validations);
 
-  const onChange = e => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
