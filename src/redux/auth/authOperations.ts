@@ -31,7 +31,10 @@ export const signUp = createAsyncThunk<
     return data;
   } catch (error: any) {
     if (error.response.data.message === 'Email in use') {
-    localStorage.getItem("i18nextLng") === "en" ?  toast.error('This mail is already in use') : toast.error('Ця пошта вже використовується')}
+      localStorage.getItem('i18nextLng') === 'en'
+        ? toast.error('This mail is already in use')
+        : toast.error('Ця пошта вже використовується');
+    }
 
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -47,12 +50,33 @@ export const signIn = createAsyncThunk<
   try {
     const { data } = await axios.post<IAuth>('/login', credentials);
     setAuthHeader(data.dataUser.token);
-    console.log('data', data);
     return data;
   } catch (error: any) {
-    console.log(error)
     if (error.response.status === 401 || error.response.status === 500) {
-      localStorage.getItem("i18nextLng") === "en" ?  toast.error('incorrect data entered') : toast.error('Користувач з такими даними не зареєстрован')
+      localStorage.getItem('i18nextLng') === 'en'
+        ? toast.error('incorrect data entered')
+        : toast.error('Користувач з такими даними не зареєстрован');
+    }
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const signInWhithToken = createAsyncThunk<
+  IAuth,
+  string,
+  {
+    rejectValue: string;
+  }
+>('auth/signInWhithToken', async (credentials, thunkAPI) => {
+  try {
+    const { data } = await axios.post<IAuth>('/login/with-token', credentials);
+    setAuthHeader(data.dataUser.token);
+    return data;
+  } catch (error: any) {
+    if (error.response.status === 401 || error.response.status === 500) {
+      localStorage.getItem('i18nextLng') === 'en'
+        ? toast.error('incorrect data entered')
+        : toast.error('Користувач з такими даними не зареєстрован');
     }
     return thunkAPI.rejectWithValue(error.message);
   }

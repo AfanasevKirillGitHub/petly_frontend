@@ -1,4 +1,4 @@
-import { useGetSearchParams } from '../../huks/useGetSearchParams';
+import { useGetSearchParams } from '../../hooks/useGetSearchParams';
 import { useFetchServicesQuery } from '../../redux/services/servicesOperations';
 import { Loader } from '../../components/Loader/Loader';
 import { FriendsItem } from './FriendsItem';

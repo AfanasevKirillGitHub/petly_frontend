@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { findPetNan, privateNav } from '../../helpers/pages';
-import { useAuth } from '../../huks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
 export const FindPetNan = () => {
   const { isLoggedIn } = useAuth();

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFetchNewsQuery } from '../../../redux/news/newsOperations';
-import { useGetSearchParams } from '../../../huks/useGetSearchParams';
+import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 import { Hightlight } from '../../../components/Hightlight/Hightlight';
 import { Loader } from '../../../components/Loader/Loader';
 import * as SC from './NewsList.styled';
