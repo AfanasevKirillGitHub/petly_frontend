@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import defaultImage from '../../helpers/photos/noImage.jpg';
+import defaultImage from '../../helpers/photos/noImage.JPG';
 import { IServices } from '../../helpers/interfaces/servicesApiInterface/servicesApiInterface';
 import * as SC from './FriendsList.styled';
 

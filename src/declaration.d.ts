@@ -5,7 +5,7 @@ declare module '*.gif' {
   export default src;
 }
 
-declare module '*.jpg' {
+declare module '*.JPG' {
   const src: string;
   export default src;
 }
