@@ -17,7 +17,7 @@ outline: none;
     font-weight: 400;
     font-size: 14px;  
     line-height: 1.35;  
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
 }
 @media (min-width: 768px) {
     padding-top: 14px;
@@ -29,7 +29,7 @@ outline: none;
     font-weight: 400;
     font-size: 18px;  
     line-height: 1.39;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
 }
 
 `
@@ -40,6 +40,10 @@ background-color: #F59256;
 color: white;
 cursor: pointer;
 // margin-bottom:not(:last-child) : 12px
+:disabled {
+    background-color: rgba(245,146,86,0.5);
+    border: none
+}
 
 
 @media (max-width: 767px) {
@@ -87,6 +91,7 @@ color: white;
 cursor: pointer;
 
 
+
 @media (max-width: 767px) {
     // padding-top: 11px;
     // padding-right: 14px;
@@ -129,6 +134,7 @@ export const InnerDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 
 @media (max-width: 767px) {
     width: 100%;
@@ -170,8 +176,21 @@ export const Title = styled.h2`
     font-size: 36px;
     line-height: 1.36;
 };
-
-
+`
+export const Div = styled.div`
+position: relative;
+@media (max-width: 767px) { 
+    margin-bottom: 24px;
+};
+@media (min-width: 768px) { 
+    margin-bottom: 40px;
+};
+`
+export const Notification = styled.span`
+position: absolute;
+font-size: 12px;
+left: 20px;
+bottom: -40%;
 `
 
 

@@ -59,6 +59,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
   return (
     <SC.InnerDiv>
       <SC.Title>{t('Registration')}</SC.Title>
+      <SC.Div>
       <SC.Input
         style={{border: ((email.isDirty && !email.emailError) && "1px solid green") as string || ((email.isDirty && email.emailError) && "1px solid red") as string}}
         type="email"
@@ -68,9 +69,10 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         placeholder={t('Email')!}
         required
       />
-      {((email.isDirty && email.emailError) && <div style={{color: "red"}}>Enter a valid Email</div>) || 
-      ((email.isDirty && !email.emailError) && <div style={{color: "green"}}>Email is correct</div>)}
-
+      {((email.isDirty && email.emailError) && <SC.Notification style={{color: "red"}}>{t("Enter a valid Email")}</SC.Notification>) || 
+      ((email.isDirty && !email.emailError) && <SC.Notification style={{color: "green"}}>{t("Email is correct")}</SC.Notification>)}
+      </SC.Div>
+      <SC.Div>
       <SC.Input
         style={{border: ((password.isDirty && !password.minLengthError) && "1px solid green") as string || ((password.isDirty && password.minLengthError) && "1px solid red") as string}}
         type="password"
@@ -80,9 +82,10 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         placeholder={t('Password')!}
         required
       />
-      {((password.isDirty && password.minLengthError) && <div style={{color: "red"}}>Enter a valid Password</div>)}
-      {((password.isDirty && !password.minLengthError) && <div style={{color: "green"}}>Password is correct</div>)}
-      
+      {((password.isDirty && password.minLengthError) && <SC.Notification style={{color: "red"}}>{t("Enter a valid Password")}</SC.Notification>)}
+      {((password.isDirty && !password.minLengthError) && <SC.Notification style={{color: "green"}}>{t("Password is correct")}</SC.Notification>)}
+      </SC.Div>
+      <SC.Div>
       <SC.Input
         style={{border: ((confirmPassword.isDirty && password.value === confirmPassword.value) && "1px solid green") as string || ((confirmPassword.isDirty && password.value !== confirmPassword.value) && "1px solid red") as string}}
         type="password"
@@ -92,8 +95,9 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         placeholder={t('Confirm Password')!}
         required
       />
-      {(confirmPassword.isDirty && password.value === confirmPassword.value) && <div style={{color: "green"}}>Excellent!</div>}
-      {(confirmPassword.isDirty && password.value !== confirmPassword.value) && <div style={{color: "red"}}>Try again!</div>}
+      {(confirmPassword.isDirty && password.value === confirmPassword.value) && <SC.Notification style={{color: "green"}}>{t("confirmPassword is correct")}</SC.Notification>}
+      {(confirmPassword.isDirty && password.value !== confirmPassword.value) && <SC.Notification style={{color: "red"}}>{t("confirmPassword is not correct")}</SC.Notification>}
+      </SC.Div>
       <SC.Button
         disabled={!confirmPassword.confirmError}
         type="button"
