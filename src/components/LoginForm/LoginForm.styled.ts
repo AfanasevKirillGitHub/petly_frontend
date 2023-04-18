@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Input = styled.input`
 border-radius: 40px;
 border: 1px solid rgba(245, 146, 86, 0.5);
