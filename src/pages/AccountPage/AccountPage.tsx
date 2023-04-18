@@ -1,7 +1,14 @@
-import { MyInfo } from "../../components/MyInfo/MyInfo";
+import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
+import { MyInfo } from '../../components/MyInfo/MyInfo';
 
-export const AccountPage = () => {
+export const AccountPage: React.FC = () => {
+  const modalHandler = (): void => {
+    console.log('working');
+  };
   return (
-  <MyInfo />
+    <>
+      <MyInfo />
+      <AddPetBtn toggleModal={modalHandler} />
+    </>
   );
 };
