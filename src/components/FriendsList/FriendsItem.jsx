@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+import { ModalWorkTime } from './ModalWorkTime';
 import defaultImage from '../../helpers/photos/noImage.JPG';
-import { IServices } from '../../helpers/interfaces/servicesApiInterface/servicesApiInterface';
+// import { IServices } from '../../helpers/interfaces/servicesApiInterface/servicesApiInterface';
 import * as SC from './FriendsList.styled';
 
 export const FriendsItem = ({
@@ -10,11 +12,17 @@ export const FriendsItem = ({
   addressUrl,
   imageUrl,
   address,
-  //   workDays,
+  workDays,
   phone,
   email,
-}: IServices) => {
+}) => {
   const { t } = useTranslation();
+
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <SC.FriendItem key={_id}>
       <SC.FriendNameLink href={url} target="_blank" rel="noopener noreferrer">
@@ -26,7 +34,18 @@ export const FriendsItem = ({
 
         <SC.FriendDataList>
           <SC.FriendDataItem>
-            <SC.TextTime>{t('Time')}:</SC.TextTime>
+            <SC.Text>{t('Time')}:</SC.Text>
+            {workDays ? (
+            <SC.WorkTime
+              onMouseEnter={toggleModal}
+              onMouseLeave={toggleModal}>
+                {workDays.find(item => item.isOpen === true).from}-
+                {workDays.find(item => item.isOpen === true).to}
+            </SC.WorkTime>
+            ) : (
+              <SC.Text>-------------</SC.Text>
+            )}
+          {showModal && <ModalWorkTime data={workDays} />}
           </SC.FriendDataItem>
 
           <SC.FriendDataItem>
