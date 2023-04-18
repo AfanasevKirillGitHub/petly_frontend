@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import * as SC from './RegisterForm1.styled';
 import { useInput } from '../../../hooks/useInput';
+import { FcGoogle } from 'react-icons/fc'
+
 
 interface IProps {
   onToggle: () => void;
@@ -58,6 +60,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
   return (
     <SC.InnerDiv>
       <SC.Title>{t('Registration')}</SC.Title>
+      <SC.Google href="https://your-pets.onrender.com/api/users/google"> <FcGoogle style={{width: "1.5em", height: "1.5em" }}/></SC.Google> 
       <SC.Div>
         <SC.Input
           style={{
@@ -155,8 +158,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         {t('Next')}
       </SC.Button>
       <p>
-        {t('Already have an account')}?
-        <NavLink to="/login">{t('Login')}</NavLink>
+        {t('Already have an account')}? <NavLink to="/login">{t('Login')}</NavLink>
       </p>
     </SC.InnerDiv>
   );
