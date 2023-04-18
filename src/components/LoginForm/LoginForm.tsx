@@ -93,7 +93,8 @@ export const LoginForm = () => {
         </SC.Div>
         <SC.Button type="submit">{t('Login')}</SC.Button>
       </SC.Form>
-      <a href='https://your-pets.onrender.com/api/users/google'>google</a>
+      {/* <a href='https://your-pets.onrender.com/api/users/google'>google</a> */}
+      <a href="http://localhost:3000/api/users/google">google</a>
       <p>
         {t("Don't have an account")}?{' '}
         <NavLink to="/registration">{t('Register')}</NavLink>

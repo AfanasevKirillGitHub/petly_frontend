@@ -105,7 +105,7 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="news" />} />
+            <Route index element={<Navigate to="login" />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/find-pet" element={<FindPetPage />}>
               <Route path="lost-found" element={<LostFoundPage />} />
