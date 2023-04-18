@@ -116,7 +116,7 @@ export const Form = styled.form`
 
 `
 export const Title = styled.h2`
-    margin-bottom: 40px;
+    margin-bottom: 13px;
 
 @media (max-width: 767px) {
     font-weight: 700;
@@ -146,5 +146,9 @@ font-size: 12px;
 left: 20px;
 bottom: -40%;
 `
+export const Google = styled.a`
+ margin-bottom: 13px;
+ height: 24px
 
+`
 

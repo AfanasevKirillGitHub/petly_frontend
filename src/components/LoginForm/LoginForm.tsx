@@ -7,6 +7,7 @@ import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { NavLink } from 'react-router-dom';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
+import { FcGoogle } from 'react-icons/fc'
 
 export const LoginForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
@@ -32,6 +33,7 @@ export const LoginForm = () => {
   return (
     <SC.InnerDiv>
       <SC.Title>{t('Login')}</SC.Title>
+      <SC.Google href="https://your-pets.onrender.com/api/users/google"> <FcGoogle style={{width: "1.5em", height: "1.5em" }}/></SC.Google>  
       <SC.Form onSubmit={handleSubmit} autoComplete="off">
         <SC.Div>
           <SC.Input
@@ -93,8 +95,6 @@ export const LoginForm = () => {
         </SC.Div>
         <SC.Button type="submit">{t('Login')}</SC.Button>
       </SC.Form>
-      <a href="https://your-pets.onrender.com/api/users/google">google</a>
-
       <p>
         {t("Don't have an account")}?{' '}
         <NavLink to="/registration">{t('Register')}</NavLink>
