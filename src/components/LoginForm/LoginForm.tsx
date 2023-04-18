@@ -6,7 +6,6 @@ import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { NavLink } from 'react-router-dom';
 import * as SC from './LoginForm.styled';
-// import { use } from 'i18next';
 import { useInput } from '../../hooks/useInput';
 
 export const LoginForm = () => {
@@ -94,6 +93,7 @@ export const LoginForm = () => {
         </SC.Div>
         <SC.Button type="submit">{t('Login')}</SC.Button>
       </SC.Form>
+      <a href='https://your-pets.onrender.com/api/users/google'>google</a>
       <p>
         {t("Don't have an account")}?{' '}
         <NavLink to="/registration">{t('Register')}</NavLink>
