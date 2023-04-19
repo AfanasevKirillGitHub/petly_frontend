@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { NoPetImage } from '../../common/NoPetImage';
 import * as SC from './PetCard.styled';
-import { Container } from '../../common/Container';
 
 export const PetCard = ({
   data: { name, breed, birthday, photo, comments },
