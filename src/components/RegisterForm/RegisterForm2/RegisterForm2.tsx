@@ -26,10 +26,6 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
     event.preventDefault();
     const form = event.currentTarget;
 
-    // const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-    // const city = (form.elements.namedItem('city') as HTMLInputElement).value;
-    // const phone = (form.elements.namedItem('phone') as HTMLInputElement).value;
-
     const payload: ICredentials = {
       ...(dataForm1 as {
         email: string;

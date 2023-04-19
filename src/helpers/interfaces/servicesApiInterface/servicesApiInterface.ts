@@ -6,7 +6,7 @@ export interface IServicesApi {
 export interface IServices {
   // address: ILang;
   // title: ILang;
-  // workDays:{};
+  workDays:[];
   address: string;
   title: string;
   url: string;

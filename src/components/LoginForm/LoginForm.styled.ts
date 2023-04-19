@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Input = styled.input`
 border-radius: 40px;
 border: 1px solid rgba(245, 146, 86, 0.5);
@@ -110,7 +111,7 @@ export const Form = styled.form`
 
 `
 export const Title = styled.h2`
-    margin-bottom: 40px;
+margin-bottom: 13px;
 
 @media (max-width: 767px) {
     font-weight: 700;
@@ -139,4 +140,21 @@ position: absolute;
 font-size: 12px;
 left: 20px;
 bottom: -40%;
+`
+export const Google = styled.a`
+ margin-bottom: 13px;
+ height: 24px
+
+`
+export const Eye = styled.span`
+    position: absolute;
+    right: 15px;
+    top: 55%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #F59256;
+
+    @media (min-width: 768px) {
+        right: 20px;  
+    }
 `

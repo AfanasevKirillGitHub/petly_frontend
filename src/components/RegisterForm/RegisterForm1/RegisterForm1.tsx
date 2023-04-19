@@ -1,9 +1,12 @@
-// import { useState, useEffect, ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import * as SC from './RegisterForm1.styled';
 import { useInput } from '../../../hooks/useInput';
+import { FcGoogle } from 'react-icons/fc'
+import { useState } from 'react';
+import { HiEye, HiEyeOff } from 'react-icons/hi'
+
 
 interface IProps {
   onToggle: () => void;
@@ -11,44 +14,13 @@ interface IProps {
 }
 
 export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
-  // const [formValid, setFormValid] = useState(false);
-  // const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
-  // const [email, setEmail] = useState('');
 
   const { t } = useTranslation();
+  const[passwordType, setPasswordType] = useState('password')
+  const[confirmPasswordType, setConfirmPasswordType] = useState('password')
   const email = useInput('', { isEmail: true });
   const password = useInput('', { minLength: 6 });
   const confirmPassword = useInput('', { isSamePassword: password.value });
-
-  // console.log(confirmPassword)
-  // useEffect(() => {
-  //   if (password === confirmPassword && password !== '') {
-  //     setFormValid(true);
-  //   } else {
-  //     setFormValid(false);
-  //   }
-  // }, [confirmPassword, password]);
-
-  // const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.currentTarget;
-  //   switch (name) {
-  //     case 'password':
-  //       setPassword(value);
-  //       break;
-
-  //     case 'confirmPassword':
-  //       setConfirmPassword(value);
-  //       break;
-
-  //     case 'email':
-  //       setEmail(value);
-  //       break;
-
-  //     default:
-  //       return;
-  //   }
-  // };
 
   const onNextForm = () => {
     getData({ email: email.value, password: password.value });
@@ -58,6 +30,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
   return (
     <SC.InnerDiv>
       <SC.Title>{t('Registration')}</SC.Title>
+      <SC.Google href="https://your-pets.onrender.com/api/users/google"> <FcGoogle style={{width: "1.5em", height: "1.5em" }}/></SC.Google> 
       <SC.Div>
         <SC.Input
           style={{
@@ -98,7 +71,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
                 password.minLengthError &&
                 '1px solid red') as string),
           }}
-          type="password"
+          type={passwordType}
           value={password.value}
           onChange={e => password.onChange(e)}
           name="password"
@@ -115,6 +88,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
             {t('Password is correct')}
           </SC.Notification>
         )}
+        <SC.Eye onClick={() => {passwordType === 'password' ? setPasswordType('text') : setPasswordType('password')}}>{passwordType === 'password' ? <HiEye/> : <HiEyeOff/>}</SC.Eye>
       </SC.Div>
       <SC.Div>
         <SC.Input
@@ -127,7 +101,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
                 password.value !== confirmPassword.value &&
                 '1px solid red') as string),
           }}
-          type="password"
+          type={confirmPasswordType}
           value={confirmPassword.value}
           onChange={e => confirmPassword.onChange(e)}
           name="confirmPassword"
@@ -146,6 +120,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
               {t('confirmPassword is not correct')}
             </SC.Notification>
           )}
+        <SC.Eye onClick={()=> {confirmPasswordType === 'password' ? setConfirmPasswordType('text') : setConfirmPasswordType('password')}}>{confirmPasswordType === 'password' ? <HiEye/> : <HiEyeOff/>}</SC.Eye>
       </SC.Div>
       <SC.Button
         disabled={!confirmPassword.confirmError}
@@ -155,8 +130,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         {t('Next')}
       </SC.Button>
       <p>
-        {t('Already have an account')}?
-        <NavLink to="/login">{t('Login')}</NavLink>
+        {t('Already have an account')}? <NavLink to="/login">{t('Login')}</NavLink>
       </p>
     </SC.InnerDiv>
   );
