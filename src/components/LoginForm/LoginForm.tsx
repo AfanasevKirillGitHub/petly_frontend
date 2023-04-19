@@ -18,7 +18,7 @@ export const LoginForm = () => {
   const[passwordType, setPasswordType] = useState('password')
 
   const email = useInput('', { isEmail: true });
-  const password = useInput('', { minLength: 6 });
+  const password = useInput('', { isPassword: true });
 
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
@@ -52,6 +52,7 @@ export const LoginForm = () => {
                   '1px solid red') as string),
             }}
             onChange={e => email.onChange(e)}
+            onBlur={e => email.onBlur(e)}
             type="email"
             value={email.value}
             name="email"
@@ -74,25 +75,26 @@ export const LoginForm = () => {
             style={{
               border:
                 ((password.isDirty &&
-                  password.minLengthError &&
+                  password.passwordError &&
                   '1px solid red') as string) ||
                 ((password.isDirty &&
-                  !password.minLengthError &&
+                  !password.passwordError &&
                   '1px solid green') as string),
             }}
             onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
             type={passwordType}
             value={password.value}
             name="password"
             placeholder={t('Password')!}
             required
           />
-          {password.isDirty && password.minLengthError && (
+          {password.isDirty && password.passwordError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter a valid Password')}
             </SC.Notification>
           )}
-          {password.isDirty && !password.minLengthError && (
+          {password.isDirty && !password.passwordError && (
             <SC.Notification style={{ color: 'green' }}>
               {t('Password is correct')}
             </SC.Notification>
