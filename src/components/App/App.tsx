@@ -31,10 +31,10 @@ const RegisterPage = lazy(() =>
   }))
 );
 
-const AccountPage = lazy(() =>
-  import('../../pages/AccountPage/AccountPage').then(module => ({
+const UserPage = lazy(() =>
+  import('../../pages/UserPage/UserPage').then(module => ({
     ...module,
-    default: module.AccountPage,
+    default: module.UserPage,
   }))
 );
 
@@ -146,7 +146,7 @@ export const App = () => {
             <Route
               path="/account"
               element={
-                <PrivateRout redirectTo="/news" component={<AccountPage />} />
+                <PrivateRout redirectTo="/news" component={<UserPage />} />
               }
             />
           </Route>

@@ -19,7 +19,6 @@
   "Search": "Search",
   "Example@gmail.com": "Example@gmail.com",
   "Password": "Password",
-
   "Login": "Login",
   "Next": "Next",
   "Email": "Email",
@@ -50,5 +49,17 @@
   "Enter your phone pls": "Enter your phone pls",
   "Phone is valid": "Phone is valid",
 
-  "add pet": "Add pet"
+  "My pets": "My pets",
+  "add pet": "Add pet",
+
+  "pet-card": {
+    "Pet name": "Name",
+    "Date of birth": "Date of birth",
+    "Breed": "Breed",
+    "Comments": "Comments"
+  },
+  "no-pet-image": {
+    "No image": "No image!",
+    "Only Me": "Only Me here!"
+  }
 }
