@@ -151,4 +151,16 @@ export const Google = styled.a`
  height: 24px
 
 `
+export const Eye = styled.span`
+    position: absolute;
+    right: 15px;
+    top: 55%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #F59256;
+
+    @media (min-width: 768px) {
+        right: 20px;  
+    }
+`
 
