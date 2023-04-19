@@ -18,9 +18,9 @@ interface IProps {
 export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const { t } = useTranslation();
-  const name = useInput('', { minLength: 2 });
-  const city = useInput('', { minLength: 3 });
-  const phone = useInput('', { minLength: 10 });
+  const name = useInput('', { isName: true });
+  const city = useInput('', { isCity: true });
+  const phone = useInput('', {isPhone: true});
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,25 +49,26 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
             style={{
               border:
                 ((name.isDirty &&
-                  !name.minLengthError &&
+                  !name.nameError &&
                   '1px solid green') as string) ||
                 ((name.isDirty &&
-                  name.minLengthError &&
+                  name.nameError &&
                   '1px solid red') as string),
             }}
             onChange={e => name.onChange(e)}
+            onBlur={e => name.onBlur(e)}
             value={name.value}
             type="text"
             name="name"
             placeholder={t('Name')!}
             required
           />
-          {name.isDirty && name.minLengthError && (
+          {name.isDirty && name.nameError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter your name pls')}
             </SC.Notification>
           )}
-          {name.isDirty && !name.minLengthError && (
+          {name.isDirty && !name.nameError && (
             <SC.Notification style={{ color: 'green' }}>
               {t('Name is valid')}
             </SC.Notification>
@@ -78,25 +79,26 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
             style={{
               border:
                 ((city.isDirty &&
-                  !city.minLengthError &&
+                  !city.cityError &&
                   '1px solid green') as string) ||
                 ((city.isDirty &&
-                  city.minLengthError &&
+                  city.cityError &&
                   '1px solid red') as string),
             }}
             onChange={e => city.onChange(e)}
+            onBlur={e => city.onBlur(e)}
             value={city.value}
             type="text"
             name="city"
             placeholder={t('City, Region')!}
             required
           />
-          {city.isDirty && city.minLengthError && (
+          {city.isDirty && city.cityError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter your city pls')}
             </SC.Notification>
           )}
-          {city.isDirty && !city.minLengthError && (
+          {city.isDirty && !city.cityError && (
             <SC.Notification style={{ color: 'green' }}>
               {t('City is valid')}
             </SC.Notification>
@@ -107,25 +109,26 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
             style={{
               border:
                 ((phone.isDirty &&
-                  !phone.minLengthError &&
+                  !phone.PhoneError &&
                   '1px solid green') as string) ||
                 ((phone.isDirty &&
-                  phone.minLengthError &&
+                  phone.PhoneError &&
                   '1px solid red') as string),
             }}
             onChange={e => phone.onChange(e)}
+            onBlur={e => phone.onBlur(e)}
             value={phone.value}
             type="tel"
             name="phone"
-            placeholder={t('Mobile Phone')!}
+            placeholder={t('Mobile Phone +380...')!}
             required
           />
-          {phone.isDirty && phone.minLengthError && (
+          {phone.isDirty && phone.PhoneError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter your phone pls')}
             </SC.Notification>
           )}
-          {phone.isDirty && !phone.minLengthError && (
+          {phone.isDirty && !phone.PhoneError && (
             <SC.Notification style={{ color: 'green' }}>
               {t('Phone is valid')}
             </SC.Notification>
@@ -134,7 +137,7 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
 
         <SC.Button1
           disabled={
-            name.minLengthError || city.minLengthError || phone.minLengthError
+            name.nameError || city.cityError || phone.PhoneError
           }
           type="submit"
         >
