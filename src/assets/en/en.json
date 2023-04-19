@@ -19,7 +19,6 @@
   "Search": "Search",
   "Example@gmail.com": "Example@gmail.com",
   "Password": "Password",
-
   "Login": "Login",
   "Next": "Next",
   "Email": "Email",
@@ -33,10 +32,10 @@
   "Register": "Register",
   "Already have an account": "Already have an account",
 
-  "Our friends":"Our friends",
+  "Our friends": "Our friends",
   "Time": "Time",
   "Address": "Address",
-  "Phone":"Phone",
+  "Phone": "Phone",
   "Enter a valid Email": "Enter a valid Email",
   "Email is correct": "Email is correct",
   "Enter a valid Password": "Enter a valid Password",
@@ -48,5 +47,19 @@
   "Enter your city pls": "Enter your city pls",
   "City is valid": "City is valid",
   "Enter your phone pls": "Enter your phone pls",
-  "Phone is valid": "Phone is valid"
+  "Phone is valid": "Phone is valid",
+
+  "My pets": "My pets",
+  "Add pet": "Add pet",
+
+  "pet-card": {
+    "Pet name": "Name",
+    "Date of birth": "Date of birth",
+    "Breed": "Breed",
+    "Comments": "Comments"
+  },
+  "no-pet-image": {
+    "No image": "No image!",
+    "Only Me": "Only Me here!"
+  }
 }
