@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import * as SC from './Logo.styled';
+// import * as SC from './Logo.styled';
 
 export const Logo = () => {
     return (
