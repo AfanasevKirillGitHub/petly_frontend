@@ -13,6 +13,10 @@ export const NavList = styled.ul`
   align-items: center;
 `;
 
+export const Logo = styled.img`
+  margin-right: 80px;
+`;
+
 export const NavListAuth = styled.ul`
   list-style: none;
   display: flex;
@@ -86,3 +90,4 @@ export const LinkAcc = styled(NavLink)`
   }
  
 `;
+

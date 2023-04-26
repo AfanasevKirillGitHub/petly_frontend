@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { pages, authPages, userPage } from '../../helpers/pages';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 import { useAuth } from '../../hooks/useAuth';
 import * as SC from './Navigation.styled';
+import logo from '../../helpers/photos/petly.png';
 
 export const Navigation = () => {
   const { t } = useTranslation();
@@ -12,6 +13,9 @@ export const Navigation = () => {
     <div>
       <SC.MainNav>
         <SC.NavList>
+        <NavLink to="/" style ={{textDecoration: 'none'}}>
+          <SC.Logo src = {logo}/>
+        </NavLink>
           {pages.map(({ href, name, id }) => (
             <SC.NavListItem key={id}>
               <SC.Link to={href}> {t(`navigation.${name}`)}</SC.Link>
