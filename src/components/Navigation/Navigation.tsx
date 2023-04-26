@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { pages, authPages, userPage } from '../../helpers/pages';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 import { useAuth } from '../../hooks/useAuth';
@@ -10,26 +10,28 @@ export const Navigation = () => {
   const { isLoggedIn } = useAuth();
   return (
     <div>
-      <ChangeLngElem />
       <SC.MainNav>
         <SC.NavList>
           {pages.map(({ href, name, id }) => (
             <SC.NavListItem key={id}>
-              <Link to={href}> {t(`navigation.${name}`)}</Link>
+              <SC.Link to={href}> {t(`navigation.${name}`)}</SC.Link>
             </SC.NavListItem>
           ))}
+          </SC.NavList>
+          <SC.NavListAuth>
           {!isLoggedIn
             ? authPages.map(({ href, name, id }) => (
-                <SC.NavListItem key={id}>
-                  <Link to={href}> {t(`navigation.${name}`)}</Link>
-                </SC.NavListItem>
+                <SC.NavListItemAuth key={id}>
+                  <SC.LinkAuth to={href}> {t(`navigation.${name}`)}</SC.LinkAuth>
+                </SC.NavListItemAuth>
               ))
             : userPage.map(({ href, name, id }) => (
-                <SC.NavListItem key={id}>
-                  <Link to={href}> {t(`navigation.${name}`)}</Link>
-                </SC.NavListItem>
+                <SC.NavListItemAuth key={id}>
+                  <SC.LinkAcc to={href}> {t(`navigation.${name}`)}</SC.LinkAcc>
+                </SC.NavListItemAuth>
               ))}
-        </SC.NavList>
+              <ChangeLngElem />
+            </SC.NavListAuth>
       </SC.MainNav>
     </div>
   );
