@@ -1,4 +1,5 @@
 interface DealInfo {
+  type: 'sell' | 'lostfound' | 'free';
   sex: 'male' | 'female';
   location: string;
   price: string;
@@ -11,6 +12,7 @@ type StepTwoProps = DealInfo & {
 };
 
 export const StepTwo = ({
+  type,
   sex,
   location,
   price,
@@ -48,16 +50,18 @@ export const StepTwo = ({
           }}
         />
       </label>
-      <label>
-        Price:
-        <input
-          type="text"
-          value={price}
-          onChange={evt => {
-            updateFields({ price: evt.target.value });
-          }}
-        />
-      </label>
+      {type === 'sell' && (
+        <label>
+          Price:
+          <input
+            type="text"
+            value={price}
+            onChange={evt => {
+              updateFields({ price: evt.target.value });
+            }}
+          />
+        </label>
+      )}
       <label>
         Load the pet’s image:
         <input
