@@ -24,33 +24,42 @@ export const StepOne = ({
         Don't wait any longer, give your furry friend the care and love they
         deserve by adding them to our family today!
       </p>
-      <input
-        type="radio"
-        name="type"
-        value="sell"
-        onChange={evt => {
-          updateFields({ type: 'sell' });
-        }}
-        checked={type === 'sell'}
-      />
-      <input
-        type="radio"
-        name="type"
-        value="lostfound"
-        onChange={evt => {
-          updateFields({ type: 'lostfound' });
-        }}
-        checked={type === 'lostfound'}
-      />
-      <input
-        type="radio"
-        name="type"
-        value="free"
-        onChange={evt => {
-          updateFields({ type: 'free' });
-        }}
-        checked={type === 'free'}
-      />
+      <label>
+        sell
+        <input
+          type="radio"
+          name="type"
+          value="sell"
+          onChange={() => {
+            updateFields({ type: 'sell' });
+          }}
+          checked={type === 'sell'}
+        />
+      </label>
+      <label>
+        lost/found
+        <input
+          type="radio"
+          name="type"
+          value="lostfound"
+          onChange={() => {
+            updateFields({ type: 'lostfound' });
+          }}
+          checked={type === 'lostfound'}
+        />
+      </label>
+      <label>
+        in good hands
+        <input
+          type="radio"
+          name="type"
+          value="free"
+          onChange={() => {
+            updateFields({ type: 'free' });
+          }}
+          checked={type === 'free'}
+        />
+      </label>
       <label>
         Tittle of ad
         <input

@@ -22,24 +22,30 @@ export const StepTwo = ({
 }: StepTwoProps) => {
   return (
     <>
-      <input
-        type="radio"
-        name="sex"
-        value="male"
-        onChange={evt => {
-          updateFields({ sex: 'male' });
-        }}
-        checked={sex === 'male'}
-      />
-      <input
-        type="radio"
-        name="sex"
-        value="female"
-        onChange={evt => {
-          updateFields({ sex: 'female' });
-        }}
-        checked={sex === 'female'}
-      />
+      <label>
+        Male
+        <input
+          type="radio"
+          name="sex"
+          value="male"
+          onChange={() => {
+            updateFields({ sex: 'male' });
+          }}
+          checked={sex === 'male'}
+        />
+      </label>
+      <label>
+        Female
+        <input
+          type="radio"
+          name="sex"
+          value="female"
+          onChange={() => {
+            updateFields({ sex: 'female' });
+          }}
+          checked={sex === 'female'}
+        />
+      </label>
       <label>
         Location:
         <input
