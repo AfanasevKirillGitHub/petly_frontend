@@ -26,8 +26,8 @@ export const FriendItem = styled.li`
     min-height: 246px;
     flex-basis: calc(100% / 2 - 32px);
     border-radius: ${props => props.theme.radii.big};
-    &:not(:last-child) {
     margin-bottom: ${props => props.theme.space[5]}px;
+    &:not(:last-child) {
     margin-right: ${props => props.theme.space[5]}px;
     }
   }
@@ -119,11 +119,16 @@ export const Text = styled.p`
   }
 `;
 
-export const TextTime = styled.p`
+export const FriendDataLink = styled.a`
+  text-decoration: none;
   font-size: ${props => props.theme.fontSizes.xxs};
   font-weight: ${props => props.theme.fontWeights.medium};
-  color: ${props => props.theme.colors.mainText};
   line-height: ${props => props.theme.lineHeights.l};
+  color: ${props => props.theme.colors.black};
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accent};
+  }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     font-size: ${props => props.theme.fontSizes.xs};
   }
@@ -132,16 +137,43 @@ export const TextTime = styled.p`
   }
 `;
 
-export const FriendDataLink = styled.a`
-  text-decoration: none;
+export const WorkTime = styled.p`
+  cursor: pointer;
   font-size: ${props => props.theme.fontSizes.xxs};
   font-weight: ${props => props.theme.fontWeights.medium};
-  line-height: ${props => props.theme.lineHeights.l};
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.mainText};
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accent};
+  }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     font-size: ${props => props.theme.fontSizes.xs};
   }
   @media screen and (min-width: 1280px) {
     font-size: ${props => props.theme.fontSizes.s};
   }
+`;
+
+export const ModalTime = styled.ul`
+  list-style: none;
+  z-index: 5;
+  position: absolute;
+  width: 120px;
+  padding: 12px;
+  color: ${props => props.theme.colors.black};
+  background-color: ${props => props.theme.colors.white};
+  box-shadow: 4px 4px 8px 0px #00000040;
+  border: ${props => props.theme.borders.orangeSmall};
+  border-radius: 8px;
+`;
+
+export const DaysItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+`;
+
+export const Time = styled.p`
+  font-size: ${props => props.theme.fontSizes.xxs};
+  font-weight: ${props => props.theme.fontWeights.medium};
 `;

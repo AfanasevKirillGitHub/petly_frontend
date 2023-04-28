@@ -63,7 +63,7 @@ export const signIn = createAsyncThunk<
 
 export const signInWhithToken = createAsyncThunk<
   IAuth,
-  string,
+  { token: string },
   {
     rejectValue: string;
   }

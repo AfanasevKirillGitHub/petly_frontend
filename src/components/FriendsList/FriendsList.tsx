@@ -25,7 +25,7 @@ export const FriendsList = () => {
             addressUrl,
             imageUrl,
             address,
-            // workDays,
+            workDays,
             phone,
             email,
           }) => (
@@ -36,7 +36,7 @@ export const FriendsList = () => {
               addressUrl={addressUrl}
               imageUrl={imageUrl}
               address={address}
-              // workDays={workDays}
+              workDays={workDays}
               phone={phone}
               email={email}
               _id={_id}

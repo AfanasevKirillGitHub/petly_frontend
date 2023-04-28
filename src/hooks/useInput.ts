@@ -1,5 +1,5 @@
 import { useValidation } from './useValidation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface ISetings {
   [key: string]: boolean | number | string;
@@ -14,15 +14,19 @@ export const useInput = (initialValue: string, validations: ISetings) => {
     setValue(e.target.value);
   };
 
-  useEffect(() => {
-    if (value === '') {
-      setIsDirty(false);
-    } else setIsDirty(true);
-  }, [value]);
+  const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsDirty(true)
+  }
+  // useEffect(() => {
+  //   if (value === '') {
+  //     setIsDirty(false);
+  //   } else setIsDirty(true);
+  // }, [value]);
 
   return {
     value,
     onChange,
+    onBlur,
     isDirty,
     ...valid,
   };

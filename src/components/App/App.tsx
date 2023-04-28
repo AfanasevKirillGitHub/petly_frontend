@@ -10,6 +10,13 @@ import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
 
+const HomePage = lazy(() =>
+  import('../../pages/HomePage/HomePage').then(module => ({
+    ...module,
+    default: module.HomePage,
+  }))
+);
+
 const NewsPage = lazy(() =>
   import('../../pages/NewsPage/NewsPage').then(module => ({
     ...module,
@@ -31,10 +38,10 @@ const RegisterPage = lazy(() =>
   }))
 );
 
-const AccountPage = lazy(() =>
-  import('../../pages/AccountPage/AccountPage').then(module => ({
+const UserPage = lazy(() =>
+  import('../../pages/UserPage/UserPage').then(module => ({
     ...module,
-    default: module.AccountPage,
+    default: module.UserPage,
   }))
 );
 
@@ -105,7 +112,8 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="news" />} />
+            <Route index element={<Navigate to="home" />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/find-pet" element={<FindPetPage />}>
               <Route path="lost-found" element={<LostFoundPage />} />
@@ -146,7 +154,7 @@ export const App = () => {
             <Route
               path="/account"
               element={
-                <PrivateRout redirectTo="/news" component={<AccountPage />} />
+                <PrivateRout redirectTo="/news" component={<UserPage />} />
               }
             />
           </Route>

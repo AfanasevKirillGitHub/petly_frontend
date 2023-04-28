@@ -5,7 +5,8 @@
     "Our friends": "Партнери",
     "Login": "Логін",
     "Registration": "Реєстрація",
-    "Account": "Кабінет"
+    "Account": "Кабінет",
+    "Home": "Головна"
   },
   "find-pet-nav": {
     "sell": "продати",
@@ -38,7 +39,7 @@
   "Phone": "Номер телефону",
   "Enter a valid Email": "Введіть коректну адресу пошти",
   "Email is correct": "Адресу пошти прийнято",
-  "Enter a valid Password": "Введіть пароль від 6 символів",
+  "Enter a valid Password": "Введіть коректний пароль",
   "Password is correct": "Пароль прийнято",
   "confirmPassword is correct": "Паролі співпадають",
   "confirmPassword is not correct": "Паролі не співпадають",
@@ -49,5 +50,17 @@
   "Enter your phone pls": "Введіть номер мобільного телефону",
   "Phone is valid": "Номер телефону прийнято",
 
-  "add pet": "Додати"
+  "My pets": "Мої улюбленці",
+  "add pet": "Додати",
+
+  "pet-card": {
+    "Pet name": "Кличка",
+    "Date of birth": "Дата народження",
+    "Breed": "Порода",
+    "Comments": "Коментарі"
+  },
+  "no-pet-image": {
+    "No image": "Картинки немає!",
+    "Only Me": "Тільки є Я!"
+  }
 }
