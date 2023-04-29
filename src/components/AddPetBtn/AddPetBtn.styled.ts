@@ -24,8 +24,22 @@ export const Button = styled.button`
   transition: background-color 250ms ease, color 250ms ease;
 
   :hover {
+    background-color: #ff6101;
+    color: #fff;
+
+    & > div {
+      background-color: #ff6101;
+    }
+  }
+
+  :active {
+    transform: scale(0.98);
     background-color: #f59256;
     color: #fff;
+
+    & > div {
+      background-color: #f59256;
+    }
   }
 `;
 
@@ -43,4 +57,6 @@ export const Wrapper = styled.div`
   height: 44px;
   border-radius: 50%;
   background-color: #f59256;
+
+  transition: background-color 250ms ease;
 `;
