@@ -2,7 +2,9 @@ import { ChangeEvent, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { debounce } from 'ts-debounce';
 import { GrFormSearch } from 'react-icons/gr';
+import { RxCross2 } from 'react-icons/rx';
 import { useGetSearchParams } from '../../hooks/useGetSearchParams';
+import * as SC from './SearchBar.styled';
 
 export const SearchBar = () => {
   const { t } = useTranslation();
@@ -23,15 +25,28 @@ export const SearchBar = () => {
     handleSearchParamsChange(value.replace(/\\/g, '\\\\').trim());
   };
 
+  const onClear = () => {
+    setQuery('');
+    setSearchParams({ query: '' });
+  };
+
   return (
-    <>
-      <input
+    <SC.Form>
+      <SC.Input
         type="text"
         placeholder={t('Search')!}
         value={query}
         onChange={handleFilterChange}
       />
-      <div>{<GrFormSearch size={24} />}</div>
-    </>
+      {query?.length > 0 ? (
+          <SC.Button type="button">
+            <RxCross2 size={24}  onClick={onClear} />
+          </SC.Button>
+        ) : (
+          <SC.Button type="button">
+           <GrFormSearch size={24} />
+          </SC.Button>
+        )}
+    </SC.Form>
   );
 };

@@ -31,20 +31,22 @@ export const NewsList = () => {
         {data?.map(({ title, date, description, link, _id, img }) => (
           <SC.NewsListItem key={_id}>
             <SC.Img src={img} alt={title['en'] ? title['en'] : title['ua']} />
-            <h3>
-              {ChangeColor((title['en'] ? title['en'] : title['ua']) as string)}
-            </h3>
-            <p>
+            <SC.Title>
+              {ChangeColor((title['en'] ? title['en']?.slice(0,40)+ '...' : title['ua']?.slice(0,40)+ '...') as string)}
+            </SC.Title>
+            <SC.Subtitle>
               {ChangeColor(
                 (description['en']
-                  ? description['en']
-                  : description['ua']) as string
+                  ? description['en']?.slice(0,300)+ '...'
+                  : description['ua']?.slice(0,300)+ '...') as string
               )}
-            </p>
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            </SC.Subtitle>
+            <SC.Wrapper>
+            <SC.Date>{new Date(date).toLocaleDateString('en-GB')}</SC.Date>
+            <SC.Link href={link} target="_blank" rel="noopener noreferrer">
               {t('Read more')}
-            </a>
-            <p>{new Date(date).toLocaleDateString('en-GB')}</p>
+            </SC.Link>
+            </SC.Wrapper>
           </SC.NewsListItem>
         ))}
       </SC.NewsList>

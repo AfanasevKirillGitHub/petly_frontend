@@ -10,6 +10,13 @@ import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
 
+const HomePage = lazy(() =>
+  import('../../pages/HomePage/HomePage').then(module => ({
+    ...module,
+    default: module.HomePage,
+  }))
+);
+
 const NewsPage = lazy(() =>
   import('../../pages/NewsPage/NewsPage').then(module => ({
     ...module,
@@ -105,7 +112,8 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="login" />} />
+            <Route index element={<Navigate to="home" />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/find-pet" element={<FindPetPage />}>
               <Route path="lost-found" element={<LostFoundPage />} />

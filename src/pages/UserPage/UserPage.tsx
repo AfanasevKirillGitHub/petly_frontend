@@ -1,16 +1,25 @@
-import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
 import { UserData } from '../../components/UserData/UserData';
+import { PetsData } from '../../components/PetsData';
+import { Wrapper } from '../../components/common';
 
+import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
 import * as SC from './UserPage.styled'
 
 export const UserPage: React.FC = () => {
-  const modalHandler = (): void => {
+
+const modalHandler = (): void => {
     console.log('working');
   };
+
   return (
-    <SC.Main>
+    <Wrapper>
       <UserData />
-      <AddPetBtn toggleModal={modalHandler} />
-    </SC.Main>
+      <PetsData />
+    </Wrapper>
+    
+    // <SC.Main>
+      // <UserData />
+      // <AddPetBtn toggleModal={modalHandler} />
+    // </SC.Main>
   );
 };

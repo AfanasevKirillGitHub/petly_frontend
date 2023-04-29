@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/authOperations';
-
 import * as SC from './UserData.styled';
 
 import defaultAvatar from '../../helpers/photos/default-avatar.png';

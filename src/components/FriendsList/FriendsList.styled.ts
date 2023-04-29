@@ -26,8 +26,8 @@ export const FriendItem = styled.li`
     min-height: 246px;
     flex-basis: calc(100% / 2 - 32px);
     border-radius: ${props => props.theme.radii.big};
-    &:not(:last-child) {
     margin-bottom: ${props => props.theme.space[5]}px;
+    &:not(:last-child) {
     margin-right: ${props => props.theme.space[5]}px;
     }
   }

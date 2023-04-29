@@ -85,26 +85,16 @@ img {
 }
 
 .container {
-  padding: 0 16px;
   margin: 0 auto;
 
-  width: 1280px;
-}
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0 32px;
+  }
 
-/* .container {
-  padding: 0 15px;
-  margin: 0 auto;
-
-  width: 90vw;
-} */
-
-/* @media screen and (min-width: 768px) {
-  .container {
-    width: 100vw;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding: 0 16px;
   }
 }
-@media screen and (min-width: 1200px) {
-  .container {
-    width: 100vw;
-  }
-} */
+

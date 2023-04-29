@@ -4,7 +4,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
-import { NavLink } from 'react-router-dom';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
 import { FcGoogle } from 'react-icons/fc'
@@ -18,7 +17,7 @@ export const LoginForm = () => {
   const[passwordType, setPasswordType] = useState('password')
 
   const email = useInput('', { isEmail: true });
-  const password = useInput('', { minLength: 6 });
+  const password = useInput('', { isPassword: true });
 
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
@@ -52,6 +51,7 @@ export const LoginForm = () => {
                   '1px solid red') as string),
             }}
             onChange={e => email.onChange(e)}
+            onBlur={e => email.onBlur(e)}
             type="email"
             value={email.value}
             name="email"
@@ -74,25 +74,26 @@ export const LoginForm = () => {
             style={{
               border:
                 ((password.isDirty &&
-                  password.minLengthError &&
+                  password.passwordError &&
                   '1px solid red') as string) ||
                 ((password.isDirty &&
-                  !password.minLengthError &&
+                  !password.passwordError &&
                   '1px solid green') as string),
             }}
             onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
             type={passwordType}
             value={password.value}
             name="password"
             placeholder={t('Password')!}
             required
           />
-          {password.isDirty && password.minLengthError && (
+          {password.isDirty && password.passwordError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter a valid Password')}
             </SC.Notification>
           )}
-          {password.isDirty && !password.minLengthError && (
+          {password.isDirty && !password.passwordError && (
             <SC.Notification style={{ color: 'green' }}>
               {t('Password is correct')}
             </SC.Notification>
@@ -101,10 +102,10 @@ export const LoginForm = () => {
         </SC.Div>
         <SC.Button type="submit">{t('Login')}</SC.Button>
       </SC.Form>
-      <p>
+      <SC.Text>
         {t("Don't have an account")}?{' '}
-        <NavLink to="/registration">{t('Register')}</NavLink>
-      </p>
+        <SC.Link to="/registration">{t('Register')}</SC.Link>
+      </SC.Text>
     </SC.InnerDiv>
   );
 };

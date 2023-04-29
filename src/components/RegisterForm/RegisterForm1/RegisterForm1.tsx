@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import * as SC from './RegisterForm1.styled';
 import { useInput } from '../../../hooks/useInput';
@@ -18,8 +17,9 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
   const { t } = useTranslation();
   const[passwordType, setPasswordType] = useState('password')
   const[confirmPasswordType, setConfirmPasswordType] = useState('password')
+  
   const email = useInput('', { isEmail: true });
-  const password = useInput('', { minLength: 6 });
+  const password = useInput('', { isPassword: true });
   const confirmPassword = useInput('', { isSamePassword: password.value });
 
   const onNextForm = () => {
@@ -45,6 +45,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
           type="email"
           value={email.value}
           onChange={e => email.onChange(e)}
+          onBlur={e => email.onBlur(e)}
           name="email"
           placeholder={t('Email')!}
           required
@@ -65,25 +66,26 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
           style={{
             border:
               ((password.isDirty &&
-                !password.minLengthError &&
+                !password.passwordError &&
                 '1px solid green') as string) ||
               ((password.isDirty &&
-                password.minLengthError &&
+                password.passwordError &&
                 '1px solid red') as string),
           }}
           type={passwordType}
           value={password.value}
           onChange={e => password.onChange(e)}
+          onBlur={e => password.onBlur(e)}
           name="password"
           placeholder={t('Password')!}
           required
         />
-        {password.isDirty && password.minLengthError && (
+        {password.isDirty && password.passwordError && (
           <SC.Notification style={{ color: 'red' }}>
             {t('Enter a valid Password')}
           </SC.Notification>
         )}
-        {password.isDirty && !password.minLengthError && (
+        {password.isDirty && !password.passwordError && (
           <SC.Notification style={{ color: 'green' }}>
             {t('Password is correct')}
           </SC.Notification>
@@ -104,6 +106,7 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
           type={confirmPasswordType}
           value={confirmPassword.value}
           onChange={e => confirmPassword.onChange(e)}
+          onBlur={e => confirmPassword.onBlur(e)}
           name="confirmPassword"
           placeholder={t('Confirm Password')!}
           required
@@ -129,9 +132,9 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
       >
         {t('Next')}
       </SC.Button>
-      <p>
-        {t('Already have an account')}? <NavLink to="/login">{t('Login')}</NavLink>
-      </p>
+      <SC.Text>
+        {t('Already have an account')}? <SC.Link to="/login">{t('Login')}</SC.Link>
+      </SC.Text>
     </SC.InnerDiv>
   );
 };
