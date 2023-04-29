@@ -11,8 +11,8 @@ export const authPages: mainNav[] = [
   { name: 'Registration', href: '/registration', id: 5 },
 ];
 
-export const accountPage: mainNav[] = [
-  { name: 'Account', href: '/account', id: 6 },
+export const userPage: mainNav[] = [
+  { name: 'Account', href: '/user', id: 6 },
 ];
 
 export const findPetNan: mainNav[] = [

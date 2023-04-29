@@ -1,13 +1,13 @@
 import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
-import { MyInfo } from '../../components/MyInfo/MyInfo';
+import { UserData } from '../../components/UserData/UserData';
 
-export const AccountPage: React.FC = () => {
+export const UserPage: React.FC = () => {
   const modalHandler = (): void => {
     console.log('working');
   };
   return (
     <>
-      <MyInfo />
+      <UserData />
       <AddPetBtn toggleModal={modalHandler} />
     </>
   );
