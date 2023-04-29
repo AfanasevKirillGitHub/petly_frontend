@@ -9,8 +9,11 @@ interface ITheme {
 export const theme: ITheme = {
   space: [0, 2, 4, 8, 16, 32, 48, 64, 128, 256],
   fontFamily: {
-    body: "'Manrope', sans-serif",
-    logo: "'Poppins', sans-serif",
+    body: "'Manrope-Medium', sans-serif",
+    smallText: "'Manrope-Regular', sans-serif",
+    title: "'Manrope-Bold', sans-serif",
+    input: "'Inter-Medium', sans-serif",
+    logo: "'Poppins-Bold', sans-serif",
   },
   fontSizes: {
     xxs: '12px',
@@ -70,6 +73,6 @@ export const theme: ITheme = {
   shadows: {
     main: '7px 4px 14px 0px rgba(49, 21, 4, 0.07)',
     second: '7px 4px 14px 0px rgba(0, 0, 0, 0.11)',
-    avatar: '0px 4px 14px 0px rgba(0, 0, 0, 0.11)',
+    avatar: '0px 4px 14px rgba(0, 0, 0, 0.11)',
   },
 };

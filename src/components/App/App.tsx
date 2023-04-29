@@ -152,7 +152,7 @@ export const App = () => {
               }
             />
             <Route
-              path="/account"
+              path="/user"
               element={
                 <PrivateRout redirectTo="/news" component={<UserPage />} />
               }
