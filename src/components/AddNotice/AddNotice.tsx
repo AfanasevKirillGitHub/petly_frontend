@@ -62,21 +62,21 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
 
   return (
     <SC.Modal>
-      <h2>Add pet</h2>
+      <SC.Title>Add pet</SC.Title>
       <form onSubmit={handleSubmit}>
         {step}
-        <div>
+        <SC.ButtonWrapper>
           {isFirstStep ? (
-            <button type="button" onClick={toggleModal}>
+            <SC.BtnSecondary type="button" onClick={toggleModal}>
               Cancel
-            </button>
+            </SC.BtnSecondary>
           ) : (
-            <button type="button" onClick={back}>
+            <SC.BtnSecondary type="button" onClick={back}>
               Back
-            </button>
+            </SC.BtnSecondary>
           )}
-          <button>{isLastStep ? 'Done' : 'Next'}</button>
-        </div>
+          <SC.Button>{isLastStep ? 'Done' : 'Next'}</SC.Button>
+        </SC.ButtonWrapper>
       </form>
     </SC.Modal>
   );
