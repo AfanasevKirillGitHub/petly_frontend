@@ -2,7 +2,6 @@ import { FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { AnyAction } from 'redux';
-import { NavLink } from 'react-router-dom';
 import { signUp } from '../../../redux/auth/authOperations';
 import { useTranslation } from 'react-i18next';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
@@ -147,10 +146,9 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
           {t('Back')}
         </SC.Button2>
       </SC.Form>
-      <p>
-        {t('Already have an account')}?
-        <NavLink to="/login">{t('Login')}</NavLink>
-      </p>
+       <SC.Text>
+        {t('Already have an account')}? <SC.Link to="/login">{t('Login')}</SC.Link>
+      </SC.Text>
     </SC.InnerDiv>
   );
 };
