@@ -2,14 +2,14 @@ import { UserData } from '../../components/UserData/UserData';
 import { PetsData } from '../../components/PetsData';
 import { Wrapper } from '../../components/common';
 
-import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
-import * as SC from './UserPage.styled'
+// import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
+// import * as SC from './UserPage.styled'
 
 export const UserPage: React.FC = () => {
 
-const modalHandler = (): void => {
-    console.log('working');
-  };
+// const modalHandler = (): void => {
+//     console.log('working');
+//   };
 
   return (
     <Wrapper>
