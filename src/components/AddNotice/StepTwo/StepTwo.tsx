@@ -1,3 +1,7 @@
+import { ReactComponent as MaleIcon } from '../../../helpers/icons/male.svg';
+import { ReactComponent as FemaleIcon } from '../../../helpers/icons/female.svg';
+import * as SC from './StepTwo.styled';
+
 interface DealInfo {
   type: 'sell' | 'lostfound' | 'free';
   sex: 'male' | 'female';
@@ -22,72 +26,84 @@ export const StepTwo = ({
 }: StepTwoProps) => {
   return (
     <>
-      <label>
-        Male
-        <input
-          type="radio"
-          name="sex"
-          value="male"
-          onChange={() => {
-            updateFields({ sex: 'male' });
-          }}
-          checked={sex === 'male'}
-        />
-      </label>
-      <label>
-        Female
-        <input
-          type="radio"
-          name="sex"
-          value="female"
-          onChange={() => {
-            updateFields({ sex: 'female' });
-          }}
-          checked={sex === 'female'}
-        />
-      </label>
-      <label>
-        Location:
-        <input
+      <SC.FieldTitle>The sex:</SC.FieldTitle>
+      <SC.RadioGroup>
+        <label>
+          <MaleIcon />
+          <SC.RadioInput
+            type="radio"
+            name="sex"
+            value="male"
+            onChange={evt => {
+              updateFields({ sex: evt.currentTarget.value as 'male' });
+            }}
+            checked={sex === 'male'}
+          />
+          <SC.RadioLabelSpan>Male</SC.RadioLabelSpan>
+        </label>
+        <label>
+          <FemaleIcon />
+          <SC.RadioInput
+            type="radio"
+            name="sex"
+            value="female"
+            onChange={evt => {
+              updateFields({ sex: evt.currentTarget.value as 'female' });
+            }}
+            checked={sex === 'female'}
+          />
+          <SC.RadioLabelSpan>Female</SC.RadioLabelSpan>
+        </label>
+      </SC.RadioGroup>
+
+      <SC.Label>
+        <SC.FieldTitle>Location:</SC.FieldTitle>
+        <SC.Input
           type="text"
           value={location}
+          placeholder="Type location"
           onChange={evt => {
             updateFields({ location: evt.target.value });
           }}
         />
-      </label>
+      </SC.Label>
       {type === 'sell' && (
-        <label>
-          Price:
-          <input
+        <SC.Label>
+          <SC.FieldTitle>Price:</SC.FieldTitle>
+          <SC.Input
             type="text"
             value={price}
+            placeholder="Type price"
             onChange={evt => {
               updateFields({ price: evt.target.value });
             }}
           />
-        </label>
+        </SC.Label>
       )}
-      <label>
-        Load the pet’s image:
-        <input
+      <SC.Label>
+        <SC.FieldTitle>Load the pet’s image:</SC.FieldTitle>
+        <SC.LoadImage>
+          <SC.Plus />
+        </SC.LoadImage>
+        <SC.HiddenInput
           type="file"
           value={photo}
           onChange={evt => {
             updateFields({ photo: evt.target.value });
           }}
         />
-      </label>
-      <label>
-        Comments:
-        <input
-          type="textarea"
+      </SC.Label>
+      <SC.Label>
+        <SC.FieldTitle>Comments:</SC.FieldTitle>
+        <SC.Textarea
+          name="comments"
           value={comments}
+          placeholder="Type comment"
           onChange={evt => {
             updateFields({ comments: evt.target.value });
           }}
         />
-      </label>
+      </SC.Label>
     </>
   );
 };

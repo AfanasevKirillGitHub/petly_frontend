@@ -10,7 +10,6 @@ import DogD from '../../helpers/photos/homepage/dogD.png';
 
 import heart from '../../helpers/photos/homepage/heart.png';
 
-
 export const HomePage = styled.div`
   height: 100%;
   position: relative;
@@ -29,7 +28,7 @@ export const HomePage = styled.div`
     background-repeat: no-repeat;
   }
   @media screen and (min-width: 1280px) {
-    height: 100vh;
+    height: calc(100vh - 63px);
     background-image: url(${DogD}), url(${bgD});
     background-position: bottom 0px left 95%, bottom 0px left 0px;
     background-size: 524px, contain;
@@ -40,11 +39,11 @@ export const HomePage = styled.div`
 export const Title = styled.h1`
   width: 280px;
   padding-top: 60px;
-  margin-left:20px;
+  margin-left: 20px;
   font-size: ${props => props.theme.fontSizes.xxxl};
   font-weight: ${props => props.theme.fontWeights.bold};
   line-height: ${props => props.theme.lineHeights.m};
-  color: ${props => props.theme.colors.black}; 
+  color: ${props => props.theme.colors.black};
   @media screen and (min-width: 768px) {
     width: 588px;
     padding-top: 90px;
@@ -66,5 +65,3 @@ export const Heart = styled.div`
     top: 100px;
   }
 `;
-
-
