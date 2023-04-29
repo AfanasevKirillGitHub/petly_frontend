@@ -25,6 +25,11 @@ export const SearchBar = () => {
     handleSearchParamsChange(value.replace(/\\/g, '\\\\').trim());
   };
 
+  const onClear = () => {
+    setQuery('');
+    setSearchParams({ query: '' });
+  };
+
   return (
     <SC.Form>
       <SC.Input
@@ -35,7 +40,7 @@ export const SearchBar = () => {
       />
       {query?.length > 0 ? (
           <SC.Button type="button">
-            <RxCross2 size={24} />
+            <RxCross2 size={24}  onClick={onClear} />
           </SC.Button>
         ) : (
           <SC.Button type="button">
