@@ -4,7 +4,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
-import { NavLink } from 'react-router-dom';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
 import { FcGoogle } from 'react-icons/fc'
@@ -103,10 +102,10 @@ export const LoginForm = () => {
         </SC.Div>
         <SC.Button type="submit">{t('Login')}</SC.Button>
       </SC.Form>
-      <p>
+      <SC.Text>
         {t("Don't have an account")}?{' '}
-        <NavLink to="/registration">{t('Register')}</NavLink>
-      </p>
+        <SC.Link to="/registration">{t('Register')}</SC.Link>
+      </SC.Text>
     </SC.InnerDiv>
   );
 };

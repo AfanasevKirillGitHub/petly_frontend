@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import * as SC from './RegisterForm1.styled';
 import { useInput } from '../../../hooks/useInput';
@@ -133,9 +132,9 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
       >
         {t('Next')}
       </SC.Button>
-      <p>
-        {t('Already have an account')}? <NavLink to="/login">{t('Login')}</NavLink>
-      </p>
+      <SC.Text>
+        {t('Already have an account')}? <SC.Link to="/login">{t('Login')}</SC.Link>
+      </SC.Text>
     </SC.InnerDiv>
   );
 };
