@@ -20,10 +20,10 @@ export const NewsListItem = styled.li`
     margin-bottom: 14px;
     background: linear-gradient(90deg, #ff634e 0%, #ffdf48 105.44%);
     border-radius: ${props => props.theme.radii.big};
-    width: 280px;
+    width: 100%;
   }
   @media screen and (min-width: 320px) {
-    width: 280px;
+    min-width: 280px;
     min-height: 502px;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -36,7 +36,7 @@ export const NewsListItem = styled.li`
     ::before {
     content: ' ';
     height: 8px;
-    width: 336px;
+    width: 100%;
   }
   }
   @media screen and (min-width: 1280px) {
@@ -49,7 +49,7 @@ export const NewsListItem = styled.li`
     ::before {
     content: ' ';
     height: 8px;
-    width: 395px;
+    width: 100%;
   }
 }
 `;
