@@ -1,3 +1,35 @@
+@font-face {
+  font-family: Manrope-Regular;
+  font-style: normal;
+  src: url('./assets/fonts/Manrope-Regular.ttf');
+}
+
+@font-face {
+  font-family: Manrope-Medium;
+  font-style: normal;
+  src: url('./assets/fonts/Manrope-Medium.ttf');
+}
+
+@font-face {
+  font-family: Manrope-Bold;
+  font-style: normal;
+  src: url('./assets/fonts/Manrope-Bold.ttf');
+}
+
+@font-face {
+  font-family: Inter-Medium;
+  font-style: normal;
+  src: url('./assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  font-style: normal;
+  src: url('./assets/fonts/Poppins-Bold.ttf');
+}
+
+@import 'overlayscrollbars/overlayscrollbars.css';
+
 *,
 *::before,
 *::after {
@@ -6,13 +38,10 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Manrope-Medium, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: sans-serif;
-  line-height: 1.5;
+  line-height: 1.38;
   background-color: #fdf7f2;
 }
 
@@ -20,6 +49,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 h1,
 h2,
 h3,
