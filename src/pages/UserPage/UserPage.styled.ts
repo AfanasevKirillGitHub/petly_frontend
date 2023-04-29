@@ -4,7 +4,6 @@ export const Main = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: ${props => props.theme.space[4]}px;
   padding-top: 57px;
 
   /* @media (min-width: 768px) {
