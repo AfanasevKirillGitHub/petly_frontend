@@ -1,21 +1,26 @@
 import { Suspense, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-
 import { Loader } from '../../components/Loader/Loader';
 import { FindPetNan } from '../../components/FindPetNan/FindPetNan';
+import { SearchBar } from '../../components/SearchBar/SearchBar';
+import { useTranslation } from 'react-i18next';
+import * as SC from './FindPetPage.stuled';
 import AddNotice from '../../components/AddNotice/AddNotice';
 import { Modal } from '../../components/Modal/Modal';
 import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
 
 export const FindPetPage = () => {
+  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modalHandler = () => {
     setIsModalOpen(!isModalOpen);
   };
+
   return (
-    <>
-      <h1>FindPetPage</h1>
+    <SC.Main>
+      <SC.Title>{t('Find your favorite pet')}</SC.Title>
+      <SearchBar />
       <FindPetNan />
 
       <AddPetBtn toggleModal={modalHandler} />
@@ -29,6 +34,6 @@ export const FindPetPage = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </>
+    </SC.Main>
   );
 };

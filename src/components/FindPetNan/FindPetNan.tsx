@@ -1,26 +1,26 @@
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { findPetNan, privateNav } from '../../helpers/pages';
 import { useAuth } from '../../hooks/useAuth';
+import * as SC from './FindPetNan.styled';
 
 export const FindPetNan = () => {
   const { isLoggedIn } = useAuth();
   const { t } = useTranslation();
   return (
-    <nav>
-      <ul>
+    <SC.Navigation>
+      <SC.NavList>
         {findPetNan.map(({ id, href, name }) => (
-          <li key={id}>
-            <Link to={href}> {t(`find-pet-nav.${name}`)} </Link>
-          </li>
+          <SC.NavItem key={id}>
+            <SC.Link to={href}> {t(`find-pet-nav.${name}`)} </SC.Link>
+          </SC.NavItem>
         ))}
         {isLoggedIn &&
           privateNav.map(({ id, href, name }) => (
-            <li key={id}>
-              <Link to={href}> {t(`find-pet-nav.${name}`)} </Link>
-            </li>
+            <SC.NavItem key={id}>
+              <SC.Link to={href}> {t(`find-pet-nav.${name}`)} </SC.Link>
+            </SC.NavItem>
           ))}
-      </ul>
-    </nav>
+      </SC.NavList>
+    </SC.Navigation>
   );
 };
