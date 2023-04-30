@@ -8,8 +8,8 @@ import {
 import { selectToken } from './authSelectors';
 import { RootState } from '../store';
 
-// axios.defaults.baseURL = 'http://localhost:3000/api/users';
-axios.defaults.baseURL = 'https://your-pets.onrender.com/api/user';
+axios.defaults.baseURL = 'http://localhost:3000/api/user';
+// axios.defaults.baseURL = 'https://your-pets.onrender.com/api/user';
 
 const setAuthHeader = (token: String): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
