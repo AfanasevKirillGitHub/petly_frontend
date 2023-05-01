@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as SC from './StepOne.styled';
 
-export const StepOne = ({ petName, dateOfBirth, breed, updateFields }) => {
+export const StepOne = ({ name, birthday, breed, updateFields }) => {
   const [isOnFocus, setIsOnFocus] = useState(false);
 
   return (
@@ -10,11 +10,11 @@ export const StepOne = ({ petName, dateOfBirth, breed, updateFields }) => {
         Name pet
         <SC.Input
           type="text"
-          name="petName"
+          name="name"
           placeholder="Type name pet"
-          value={petName}
+          value={name}
           onChange={e => {
-            updateFields({ petName: e.target.value });
+            updateFields({ name: e.target.value });
           }}
         />
       </SC.Label>
@@ -23,13 +23,13 @@ export const StepOne = ({ petName, dateOfBirth, breed, updateFields }) => {
         Date of birth
         <SC.Input
           type={isOnFocus ? 'date' : 'text'}
-          name="dateOfBirth"
+          name="birthday"
           placeholder="Type date of birth"
           onFocus={() => setIsOnFocus(true)}
           onBlur={() => setIsOnFocus(false)}
-          value={dateOfBirth}
+          value={birthday}
           onChange={e => {
-            updateFields({ dateOfBirth: e.target.value });
+            updateFields({ birthday: e.target.value });
           }}
         />
       </SC.Label>

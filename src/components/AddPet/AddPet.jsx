@@ -7,8 +7,8 @@ import * as SC from './AddPet.styled';
 import { useAddPetsMutation } from '../../redux/pets/petsOperations';
 
 const INITIAL_PET_DATA = {
-  petName: '',
-  dateOfBirth: '',
+  name: '',
+  birthday: '',
   breed: '',
   photo: '',
   comments: '',
@@ -16,7 +16,7 @@ const INITIAL_PET_DATA = {
 
 export const AddPet = ({ toggleModal }) => {
   const [data, setData] = useState(INITIAL_PET_DATA);
-  const [addPet, { isLoading }] = useAddPetsMutation();
+  const [addPet, { isLoading, isSuccess }] = useAddPetsMutation();
 
   const updateFields = fields => {
     setData(prev => {
@@ -34,23 +34,23 @@ export const AddPet = ({ toggleModal }) => {
     if (!isLastStep) {
       return next();
     }
-    //   console.log('Pet data :>> ', data);
+    console.log('Pet data :>> ', data);
     const petData = new FormData();
-    petData.append('petName', data.petName);
-    petData.append('dateOfBirth', data.dateOfBirth);
+    petData.append('name', data.name);
+    petData.append('birthday', data.birthday);
     petData.append('breed', data.breed);
     petData.append('photo', data.photo);
     petData.append('comments', data.comments);
 
-    addPet(petData);
+    addPet(data);
 
     // console.log('petData :>> ', petData.get('petName'));
-    // console.log('petData :>> ', petData.get('dateOfBirth'));
+    // console.log('petData :>> ', petData.get('birthday'));
     // console.log('petData :>> ', petData.get('breed'));
     // console.log('petData :>> ', petData.get('photo'));
     // console.log('petData :>> ', petData.get('comments'));
 
-    toggleModal();
+    isSuccess && toggleModal();
   };
 
   return (
