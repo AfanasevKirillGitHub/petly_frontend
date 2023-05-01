@@ -9,7 +9,14 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleInfo = styled.p`
-  margin-bottom: 24px;
   font-size: ${props => props.theme.fontSizes.xxl};
   line-height: 1.36;
+`;
+
+export const PetsDataHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
 `;
