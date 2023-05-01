@@ -4,8 +4,8 @@ export const BurgerMenuBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     padding: 0;
 
     color: ${p => p.theme.colors.black5};
