@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainHeader = styled.header`
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     padding: 16px 20px;
 
     @media screen and (min-width: 320px) {

@@ -6,14 +6,12 @@ export const MenuContainer = styled.div`
     display: none;
     position: fixed;
     z-index: 1;
-    top: 80px;
+    top: 72px;
     left: 0;
     width: 100%;
 
-    overflow-y: scroll;
-
     background-color: ${props => props.theme.colors.background};
-    /* padding: 48px 40px; */
+    padding: 16px 34px;
 
     &.is-open {
       display: flex;
@@ -25,25 +23,28 @@ export const MenuContainer = styled.div`
 `;
 
 export const MainNav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 30px;
-`;
-
-export const NavList = styled.ul`
-  list-style: none;
-  display: flex;
-  align-items: center;
-`;
-
-export const Logo = styled.img`
-  margin-right: 80px;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* padding-top: 30px; */
 `;
 
 export const NavListAuth = styled.ul`
-  list-style: none;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  list-style: none;
+`;
+
+export const NavList = styled.ul`
+  display: flex;
+  align-items: center;
+  list-style: none;
+`;
+
+export const NavListItemAuth = styled.li`
+  :not(:last-child) {
+    margin-right: 20px;
+  }
 `;
 
 export const NavListItem = styled.li`
@@ -52,12 +53,6 @@ export const NavListItem = styled.li`
   }
   :last-child {
     margin-left: auto;
-  }
-`;
-
-export const NavListItemAuth = styled.li`
-  :not(:last-child) {
-    margin-right: 20px;
   }
 `;
 
