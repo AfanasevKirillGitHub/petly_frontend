@@ -1,6 +1,29 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const MenuContainer = styled.div`
+  @media screen and (max-width: 767px) {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 80px;
+    left: 0;
+    width: 100%;
+
+    overflow-y: scroll;
+
+    background-color: ${props => props.theme.colors.background};
+    /* padding: 48px 40px; */
+
+    &.is-open {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+    };
+  };
+`;
+
 export const MainNav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -33,7 +56,7 @@ export const NavListItem = styled.li`
 `;
 
 export const NavListItemAuth = styled.li`
-   :not(:last-child) {
+  :not(:last-child) {
     margin-right: 20px;
   }
 `;
@@ -67,8 +90,7 @@ export const LinkAuth = styled(NavLink)`
   &:focus {
     background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#F59256')};
     color:  ${props => (props.to === '/login' ? '#111111' : '#FFFFFF')};
-  }
- 
+  };
 `;
 
 export const LinkAcc = styled(NavLink)`
@@ -87,7 +109,6 @@ export const LinkAcc = styled(NavLink)`
   &:focus {
     background-color:${props => props.theme.colors.white};
     color: ${props => props.theme.colors.black};
-  }
- 
+  };
 `;
 

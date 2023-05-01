@@ -3,13 +3,14 @@ import { useMultistepForm } from '../../hooks/useMultistepForm';
 import * as SC from './AddNotice.styled';
 import { StepOne } from './StepOne/StepOne';
 import { StepTwo } from './StepTwo/StepTwo';
+import { useAddNoticesMutation } from '../../redux/notices/noticesOperations';
 
 interface IAddNoticeProps {
   toggleModal: () => void;
 }
 
 type FormData = {
-  type: 'sell' | 'lostfound' | 'free';
+  category: 'sell' | 'lost-found' | 'for-free';
   sex: 'male' | 'female';
   title: string;
   name: string;
@@ -22,7 +23,7 @@ type FormData = {
 };
 
 const INITIAL_DATA: FormData = {
-  type: 'sell',
+  category: 'sell',
   title: '',
   name: '',
   date: '',
@@ -35,17 +36,18 @@ const INITIAL_DATA: FormData = {
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
-  const [data, setData] = useState(INITIAL_DATA);
+  const [dispatch, { isSuccess }] = useAddNoticesMutation();
+  const [formData, setFormData] = useState(INITIAL_DATA);
 
   const updateFields = (fields: Partial<FormData>) => {
-    setData(prev => {
+    setFormData(prev => {
       return { ...prev, ...fields };
     });
   };
 
   const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
-    <StepOne {...data} updateFields={updateFields} />,
-    <StepTwo {...data} updateFields={updateFields} />,
+    <StepOne {...formData} updateFields={updateFields} />,
+    <StepTwo {...formData} updateFields={updateFields} />,
   ]);
 
   const handleSubmit = (evt: FormEvent) => {
@@ -55,9 +57,12 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
     }
 
     //Тут має бути діспатч даних
-    console.log(data);
+    console.log(formData);
+    dispatch(formData);
 
-    toggleModal();
+    if (isSuccess) {
+      toggleModal();
+    }
   };
 
   return (
