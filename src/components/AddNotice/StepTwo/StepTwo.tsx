@@ -7,7 +7,7 @@ interface DealInfo {
   sex: 'male' | 'female';
   location: string;
   price: string;
-  photo: string;
+  avatarURL: string;
   comments: string;
 }
 
@@ -20,7 +20,7 @@ export const StepTwo = ({
   sex,
   location,
   price,
-  photo,
+  avatarURL,
   comments,
   updateFields,
 }: StepTwoProps) => {
@@ -87,9 +87,9 @@ export const StepTwo = ({
         </SC.LoadImage>
         <SC.HiddenInput
           type="file"
-          value={photo}
+          value={avatarURL}
           onChange={evt => {
-            updateFields({ photo: evt.target.value });
+            updateFields({ avatarURL: evt.target.value });
           }}
         />
       </SC.Label>
