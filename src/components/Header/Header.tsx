@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
 
     return (
         <SC.MainHeader>
-            <Logo />
+            <Logo toggleBurgerMenu={handleBurgerMenu}/>
             <Navigation toggleBurgerMenu={handleBurgerMenu}/>
             <BurgerMenuBtn toggleBurgerMenu={handleBurgerMenu} isMenuOpen={isMenuOpen}/>
         </SC.MainHeader>
