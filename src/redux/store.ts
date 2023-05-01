@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { newsApi } from './news/newsOperations';
 import { petsApi } from './pets/petsOperations';
+import { noticesApi } from './notices/noticesOperations';
 import { servicesApi } from './services/servicesOperations';
 import { authSlice } from './auth/authReducer';
 
@@ -25,6 +26,7 @@ export const store = configureStore({
   reducer: {
     [newsApi.reducerPath]: newsApi.reducer,
     [petsApi.reducerPath]: petsApi.reducer,
+    [noticesApi.reducerPath]: noticesApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
     auth: persistReducer(authPersistConfig, authSlice.reducer)!,
   },
@@ -37,6 +39,7 @@ export const store = configureStore({
     newsApi.middleware,
     servicesApi.middleware,
     petsApi.middleware,
+    noticesApi.middleware,
   ],
 });
 

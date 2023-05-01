@@ -1,7 +1,7 @@
 import * as SC from './StepOne.styled';
 
 type PetInfo = {
-  type: 'sell' | 'lostfound' | 'free';
+  category: 'sell' | 'lost-found' | 'for-free';
   title: string;
   name: string;
   date: string;
@@ -13,7 +13,7 @@ type StepOneProps = PetInfo & {
 };
 
 export const StepOne = ({
-  type,
+  category,
   title,
   name,
   date,
@@ -30,12 +30,12 @@ export const StepOne = ({
         <SC.RadioLabel style={{ display: 'flex', alignItems: 'center' }}>
           <SC.RadioInput
             type="radio"
-            name="type"
+            name="category"
             value="sell"
             onChange={evt => {
-              updateFields({ type: evt.currentTarget.value as 'sell' });
+              updateFields({ category: evt.currentTarget.value as 'sell' });
             }}
-            checked={type === 'sell'}
+            checked={category === 'sell'}
           />
           <SC.RadioLabelSpan>sell</SC.RadioLabelSpan>
         </SC.RadioLabel>
@@ -43,11 +43,13 @@ export const StepOne = ({
           <SC.RadioInput
             type="radio"
             name="type"
-            value="lostfound"
+            value="lost-found"
             onChange={evt => {
-              updateFields({ type: evt.currentTarget.value as 'lostfound' });
+              updateFields({
+                category: evt.currentTarget.value as 'lost-found',
+              });
             }}
-            checked={type === 'lostfound'}
+            checked={category === 'lost-found'}
           />
           <SC.RadioLabelSpan>lost/found</SC.RadioLabelSpan>
         </SC.RadioLabel>
@@ -55,11 +57,11 @@ export const StepOne = ({
           <SC.RadioInput
             type="radio"
             name="type"
-            value="free"
+            value="for-free"
             onChange={evt => {
-              updateFields({ type: evt.currentTarget.value as 'free' });
+              updateFields({ category: evt.currentTarget.value as 'for-free' });
             }}
-            checked={type === 'free'}
+            checked={category === 'for-free'}
           />
           <SC.RadioLabelSpan>in good hands</SC.RadioLabelSpan>
         </SC.RadioLabel>

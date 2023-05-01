@@ -40,6 +40,8 @@ export const Button = styled.button`
   color: ${p => p.theme.colors.white};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  cursor: pointer;
+
   :hover {
     background-color: ${p => p.theme.colors.accentHover};
     border-color: ${p => p.theme.colors.accentHover};
