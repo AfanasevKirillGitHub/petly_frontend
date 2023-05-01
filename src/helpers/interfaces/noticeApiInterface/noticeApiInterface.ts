@@ -1,5 +1,5 @@
 export interface INotice {
-  type: 'sell' | 'lost-found' | 'for-free';
+  category: 'sell' | 'lost-found' | 'for-free';
   sex: 'male' | 'female';
   title: string;
   name: string;
