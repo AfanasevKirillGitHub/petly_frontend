@@ -1,10 +1,10 @@
 import { UserData } from '../../components/UserData/UserData';
 import { PetsData } from '../../components/PetsData/PetsData';
 
-import * as SC from './UserPage.styled'
+import * as SC from './UserPage.styled';
 
 export const UserPage: React.FC = () => {
-  return (    
+  return (
     <SC.Main>
       <UserData />
       <PetsData />
