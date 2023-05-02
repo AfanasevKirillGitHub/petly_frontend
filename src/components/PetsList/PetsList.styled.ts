@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const PetList = styled.ul`
   list-style: none;
+  align-self: center;
 `;
 export const PetListItem = styled.li`
   &:not(:last-child) {

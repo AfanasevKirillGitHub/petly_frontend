@@ -89,6 +89,8 @@ export const DeleteBtn = styled.button`
 
   padding: 0;
 
+  cursor: pointer;
+
   transition: color 250ms ease;
 
   &:hover,
