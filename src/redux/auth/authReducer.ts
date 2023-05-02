@@ -5,6 +5,7 @@ import {
   logOut,
   refreshUser,
   signInWhithToken,
+  updateInfo,
 } from './authOperations';
 
 interface IInitialState {
@@ -13,6 +14,7 @@ interface IInitialState {
     email: null | string;
     birthday: null | string;
     phone: null | string;
+    city: null | string;
     avatarURL: null | string;
   };
   token: null | string;
@@ -26,6 +28,7 @@ const initialState: IInitialState = {
     email: null,
     birthday: null,
     phone: null,
+    city: null,
     avatarURL: null,
   },
   token: null,
@@ -50,6 +53,7 @@ export const authSlice = createSlice({
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
+        state.user.city = payload.dataUser.city;
         state.user.avatarURL = payload.dataUser.avatarURL;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
@@ -65,6 +69,7 @@ export const authSlice = createSlice({
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
+        state.user.city = payload.dataUser.city;
         state.user.avatarURL = payload.dataUser.avatarURL;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
@@ -80,6 +85,22 @@ export const authSlice = createSlice({
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
+        state.user.city = payload.dataUser.city;
+        state.user.avatarURL = payload.dataUser.avatarURL;
+        state.token = payload.dataUser.token;
+        state.isLoggedIn = true;
+      })
+      .addCase(updateInfo.pending, (state, _) => state)
+      .addCase(updateInfo.rejected, (state, _) => {
+        state.token = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(updateInfo.fulfilled, (state, { payload }) => {
+        state.user.name = payload.dataUser.name;
+        state.user.email = payload.dataUser.email;
+        state.user.birthday = payload.dataUser.birthday;
+        state.user.phone = payload.dataUser.phone;
+        state.user.city = payload.dataUser.city;
         state.user.avatarURL = payload.dataUser.avatarURL;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
@@ -104,6 +125,7 @@ export const authSlice = createSlice({
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
+        state.user.city = payload.dataUser.city;
         state.user.avatarURL = payload.dataUser.avatarURL;
         state.isLoggedIn = true;
         state.isRefreshing = false;
