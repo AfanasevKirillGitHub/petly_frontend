@@ -35,12 +35,7 @@ export const FindPetPage = () => {
           <AddNotice toggleModal={modalHandler} />
         </Modal>
       )}
-      {/* <h2>Notices</h2>
-      <ul>
-        {data?.notices.map(item => (
-          <li key={item._id}>{item.category}</li>
-        ))}
-      </ul> */}
+
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
