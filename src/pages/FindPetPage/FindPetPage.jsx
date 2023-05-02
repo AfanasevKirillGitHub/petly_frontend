@@ -21,7 +21,7 @@ export const FindPetPage = () => {
   const { pathname } = useLocation();
 
   const modalHandler = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(prev => !prev);
   };
 
   return (
@@ -42,12 +42,12 @@ export const FindPetPage = () => {
         !pathname.includes('lost-found') &&
         !pathname.includes('good-hand') &&
         !pathname.includes('favorite') &&
-        !pathname.includes('my-ads') && <AllNoticesPage></AllNoticesPage>}
-      {pathname.includes('sell') && <SellPage></SellPage>}
-      {pathname.includes('lost-found') && <LostFoundPage></LostFoundPage>}
-      {pathname.includes('good-hand') && <InGoodHandPage></InGoodHandPage>}
-      {pathname.includes('favorite') && <FavoritePage></FavoritePage>}
-      {pathname.includes('my-ads') && <MyAdsPage></MyAdsPage>}
+        !pathname.includes('my-ads') && <AllNoticesPage />}
+      {pathname.includes('sell') && <SellPage />}
+      {pathname.includes('lost-found') && <LostFoundPage />}
+      {pathname.includes('good-hand') && <InGoodHandPage />}
+      {pathname.includes('favorite') && <FavoritePage />}
+      {pathname.includes('my-ads') && <MyAdsPage />}
     </SC.Main>
   );
 };

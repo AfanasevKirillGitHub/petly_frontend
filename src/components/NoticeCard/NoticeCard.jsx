@@ -78,7 +78,9 @@ export const NoticeCard = ({ data }) => {
   const onFavoriteClick = () => {
     // console.log(isFavorite);
     if (isFavorite === true) {
-      removeFav(_id); /*                             НЕ ПРАЦЮЄ! */
+      removeFav(
+        _id
+      ); /*                             НЕ ПРАЦЮЄ! перевірити контролер */
     } else addToFav(_id);
   };
 
