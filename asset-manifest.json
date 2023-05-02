@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/petly_frontend/static/css/main.ed7e5fa8.css",
-    "main.js": "/petly_frontend/static/js/main.4812d3c0.js",
+    "main.js": "/petly_frontend/static/js/main.459d380c.js",
     "static/js/812.86bdb31c.chunk.js": "/petly_frontend/static/js/812.86bdb31c.chunk.js",
     "static/js/505.2bc69210.chunk.js": "/petly_frontend/static/js/505.2bc69210.chunk.js",
     "static/js/839.1fc2040f.chunk.js": "/petly_frontend/static/js/839.1fc2040f.chunk.js",
     "static/js/411.1b5fdfbc.chunk.js": "/petly_frontend/static/js/411.1b5fdfbc.chunk.js",
     "static/js/503.47204b67.chunk.js": "/petly_frontend/static/js/503.47204b67.chunk.js",
-    "static/js/425.c8dac001.chunk.js": "/petly_frontend/static/js/425.c8dac001.chunk.js",
+    "static/js/425.389895aa.chunk.js": "/petly_frontend/static/js/425.389895aa.chunk.js",
     "static/js/701.b2fe8b2d.chunk.js": "/petly_frontend/static/js/701.b2fe8b2d.chunk.js",
     "static/js/189.ae3d76e9.chunk.js": "/petly_frontend/static/js/189.ae3d76e9.chunk.js",
     "static/js/976.f1272bd2.chunk.js": "/petly_frontend/static/js/976.f1272bd2.chunk.js",
@@ -16,8 +16,7 @@
     "static/js/625.672040d0.chunk.js": "/petly_frontend/static/js/625.672040d0.chunk.js",
     "static/js/754.df5c6902.chunk.js": "/petly_frontend/static/js/754.df5c6902.chunk.js",
     "static/js/388.fc4d6691.chunk.js": "/petly_frontend/static/js/388.fc4d6691.chunk.js",
-    "static/css/758.eaada2b5.chunk.css": "/petly_frontend/static/css/758.eaada2b5.chunk.css",
-    "static/js/758.2e602348.chunk.js": "/petly_frontend/static/js/758.2e602348.chunk.js",
+    "static/js/888.40bc6486.chunk.js": "/petly_frontend/static/js/888.40bc6486.chunk.js",
     "static/js/881.d3c713ef.chunk.js": "/petly_frontend/static/js/881.d3c713ef.chunk.js",
     "static/media/dogT.png": "/petly_frontend/static/media/dogT.12b3c00ee83a528386fc.png",
     "static/media/dogD.png": "/petly_frontend/static/media/dogD.99ac30f534e1dbf0037d.png",
@@ -44,13 +43,13 @@
     "static/media/burger-menu-close-btn.svg": "/petly_frontend/static/media/burger-menu-close-btn.4046112f466cf49d79f1e2348bf88a83.svg",
     "static/media/burger-menu-open-btn.svg": "/petly_frontend/static/media/burger-menu-open-btn.7d18ce1ebb744eb0839726ecc59d2707.svg",
     "main.ed7e5fa8.css.map": "/petly_frontend/static/css/main.ed7e5fa8.css.map",
-    "main.4812d3c0.js.map": "/petly_frontend/static/js/main.4812d3c0.js.map",
+    "main.459d380c.js.map": "/petly_frontend/static/js/main.459d380c.js.map",
     "812.86bdb31c.chunk.js.map": "/petly_frontend/static/js/812.86bdb31c.chunk.js.map",
     "505.2bc69210.chunk.js.map": "/petly_frontend/static/js/505.2bc69210.chunk.js.map",
     "839.1fc2040f.chunk.js.map": "/petly_frontend/static/js/839.1fc2040f.chunk.js.map",
     "411.1b5fdfbc.chunk.js.map": "/petly_frontend/static/js/411.1b5fdfbc.chunk.js.map",
     "503.47204b67.chunk.js.map": "/petly_frontend/static/js/503.47204b67.chunk.js.map",
-    "425.c8dac001.chunk.js.map": "/petly_frontend/static/js/425.c8dac001.chunk.js.map",
+    "425.389895aa.chunk.js.map": "/petly_frontend/static/js/425.389895aa.chunk.js.map",
     "701.b2fe8b2d.chunk.js.map": "/petly_frontend/static/js/701.b2fe8b2d.chunk.js.map",
     "189.ae3d76e9.chunk.js.map": "/petly_frontend/static/js/189.ae3d76e9.chunk.js.map",
     "976.f1272bd2.chunk.js.map": "/petly_frontend/static/js/976.f1272bd2.chunk.js.map",
@@ -59,12 +58,11 @@
     "625.672040d0.chunk.js.map": "/petly_frontend/static/js/625.672040d0.chunk.js.map",
     "754.df5c6902.chunk.js.map": "/petly_frontend/static/js/754.df5c6902.chunk.js.map",
     "388.fc4d6691.chunk.js.map": "/petly_frontend/static/js/388.fc4d6691.chunk.js.map",
-    "758.eaada2b5.chunk.css.map": "/petly_frontend/static/css/758.eaada2b5.chunk.css.map",
-    "758.2e602348.chunk.js.map": "/petly_frontend/static/js/758.2e602348.chunk.js.map",
+    "888.40bc6486.chunk.js.map": "/petly_frontend/static/js/888.40bc6486.chunk.js.map",
     "881.d3c713ef.chunk.js.map": "/petly_frontend/static/js/881.d3c713ef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ed7e5fa8.css",
-    "static/js/main.4812d3c0.js"
+    "static/js/main.459d380c.js"
   ]
 }
