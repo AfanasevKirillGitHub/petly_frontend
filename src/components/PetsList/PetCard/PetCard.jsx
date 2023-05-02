@@ -1,11 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { NoPetImage } from '../../common/NoPetImage';
 import * as SC from './PetCard.styled';
+import { SVG } from '../../../helpers/icons/index';
+import { useRemovePetsMutation } from '../../../redux/pets/petsOperations';
 
 export const PetCard = ({
-  data: { name, breed, birthday, photo, comments },
+  data: { _id, name, breed, birthday, photo, comments },
 }) => {
   const { t } = useTranslation();
+  const [removePets, { isLoading: isRemoving }] = useRemovePetsMutation();
 
   return (
     //   Уся картка
@@ -14,27 +17,37 @@ export const PetCard = ({
       <SC.ImageThumb>{photo && <NoPetImage />}</SC.ImageThumb>
       <SC.CardData>
         <SC.CardHeader>
-          <div>
-            <p>
-              <span>{t('pet-card.Pet name')}: </span>
+          <ul>
+            <SC.CardDataItem>
+              <SC.CardDataItemTitle>
+                {t('pet-card.Pet name')}:{' '}
+              </SC.CardDataItemTitle>
               {name}
-            </p>
-            <p>
-              <span>{t('pet-card.Date of birth')}: </span>
+            </SC.CardDataItem>
+            <SC.CardDataItem>
+              <SC.CardDataItemTitle>
+                {t('pet-card.Date of birth')}:{' '}
+              </SC.CardDataItemTitle>
               {birthday}
-            </p>
-            <p>
-              <span>{t('pet-card.Breed')}: </span>
+            </SC.CardDataItem>
+            <SC.CardDataItem>
+              <SC.CardDataItemTitle>
+                {t('pet-card.Breed')}:{' '}
+              </SC.CardDataItemTitle>
               {breed}
-            </p>
-          </div>
-          <button>X</button>
+            </SC.CardDataItem>
+          </ul>
+          <SC.DeleteBtn onClick={() => removePets(_id)} disabled={isRemoving}>
+            {<SVG.Delete />}
+          </SC.DeleteBtn>
         </SC.CardHeader>
 
-        <SC.CardComments>
-          <span>{t('pet-card.Comments')}: </span>
+        <div>
+          <SC.CardDataItemTitle>
+            {t('pet-card.Comments')}:{' '}
+          </SC.CardDataItemTitle>
           {comments}
-        </SC.CardComments>
+        </div>
       </SC.CardData>
     </SC.PetCard>
   );

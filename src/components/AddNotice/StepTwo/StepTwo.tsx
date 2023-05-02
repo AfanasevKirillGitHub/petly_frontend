@@ -3,11 +3,11 @@ import { ReactComponent as FemaleIcon } from '../../../helpers/icons/female.svg'
 import * as SC from './StepTwo.styled';
 
 interface DealInfo {
-  type: 'sell' | 'lostfound' | 'free';
+  category: 'sell' | 'lost-found' | 'for-free';
   sex: 'male' | 'female';
   location: string;
   price: string;
-  photo: string;
+  avatarURL: string;
   comments: string;
 }
 
@@ -16,11 +16,11 @@ type StepTwoProps = DealInfo & {
 };
 
 export const StepTwo = ({
-  type,
+  category,
   sex,
   location,
   price,
-  photo,
+  avatarURL,
   comments,
   updateFields,
 }: StepTwoProps) => {
@@ -67,7 +67,7 @@ export const StepTwo = ({
           }}
         />
       </SC.Label>
-      {type === 'sell' && (
+      {category === 'sell' && (
         <SC.Label>
           <SC.FieldTitle>Price:</SC.FieldTitle>
           <SC.Input
@@ -87,9 +87,9 @@ export const StepTwo = ({
         </SC.LoadImage>
         <SC.HiddenInput
           type="file"
-          value={photo}
+          value={avatarURL}
           onChange={evt => {
-            updateFields({ photo: evt.target.value });
+            updateFields({ avatarURL: evt.target.value });
           }}
         />
       </SC.Label>

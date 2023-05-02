@@ -12,6 +12,7 @@ export const Main = styled.main`
     padding-top: 88px;
     padding-bottom: 100px;
   }
+  
   @media (min-width: 1280px) {
     display: flex;
     flex-direction: row;
@@ -19,10 +20,12 @@ export const Main = styled.main`
     padding: 58px 0px 40px 0px;
   }
 
-  /* @media (min-width: 768px) {
-        padding-top: 200px;
-    }
-    @media (min-width: 1280px) {
-        padding-top: 80px;
-    }; */
+  @media (min-width: 768px) {
+    flex-direction: row;
+
+    padding-top: 200px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 80px;
+  }
 `;

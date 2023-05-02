@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as NoPetSvg } from './noPetImage.svg';
+import { SVG } from '../../../helpers/icons';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   width: 100%;
   /* height: 240px; */
 
-  background-color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.colors.petAvatarGrey};
 
   font-size: ${p => p.theme.fontSizes.l};
   font-weight: ${p => p.theme.fontWeights.semiBold};
@@ -33,7 +33,7 @@ export const BottomText = styled.p`
   width: 100%;
 `;
 
-export const Image = styled(NoPetSvg)`
+export const Image = styled(SVG.NoPetSvg)`
   width: 100%;
   height: 100%;
 `;

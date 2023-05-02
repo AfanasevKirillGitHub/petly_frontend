@@ -3,49 +3,52 @@ import { useMultistepForm } from '../../hooks/useMultistepForm';
 import * as SC from './AddNotice.styled';
 import { StepOne } from './StepOne/StepOne';
 import { StepTwo } from './StepTwo/StepTwo';
+import { useAddNoticesMutation } from '../../redux/notices/noticesOperations';
+import defaultAvatar from '../../helpers/photos/default-avatar.png';
 
 interface IAddNoticeProps {
   toggleModal: () => void;
 }
 
 type FormData = {
-  type: 'sell' | 'lostfound' | 'free';
+  category: 'sell' | 'lost-found' | 'for-free';
   sex: 'male' | 'female';
   title: string;
   name: string;
-  date: string;
+  birthdate: string;
   breed: string;
   location: string;
   price: string;
-  photo: string;
+  avatarURL: string;
   comments: string;
 };
 
 const INITIAL_DATA: FormData = {
-  type: 'sell',
+  category: 'sell',
   title: '',
   name: '',
-  date: '',
+  birthdate: '',
   breed: '',
   sex: 'male',
   location: '',
   price: '',
-  photo: '',
+  avatarURL: '',
   comments: '',
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
-  const [data, setData] = useState(INITIAL_DATA);
+  const [dispatch, { isError }] = useAddNoticesMutation();
+  const [formData, setFormData] = useState(INITIAL_DATA);
 
   const updateFields = (fields: Partial<FormData>) => {
-    setData(prev => {
+    setFormData(prev => {
       return { ...prev, ...fields };
     });
   };
 
   const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
-    <StepOne {...data} updateFields={updateFields} />,
-    <StepTwo {...data} updateFields={updateFields} />,
+    <StepOne {...formData} updateFields={updateFields} />,
+    <StepTwo {...formData} updateFields={updateFields} />,
   ]);
 
   const handleSubmit = (evt: FormEvent) => {
@@ -54,10 +57,23 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
       return next();
     }
 
-    //Тут має бути діспатч даних
-    console.log(data);
+    dispatch({
+      ...formData,
+      title: { en: formData.title, ua: 'фваиміваиіваи' },
+      breed: { en: formData.breed, ua: 'фваиміваиіваи' },
+      comments: { en: formData.comments, ua: 'фваиміваиіваи' },
+      location: {
+        city: { en: formData.location.split(', ')[0], ua: 'фваиміваиіваи' },
+        region: { en: formData.location.split(', ')[1], ua: 'фваиміваиіваи' },
+      },
+      price: Number(formData.price),
+      birthdate: new Date(formData.birthdate),
+      avatarURL: formData.avatarURL ? formData.avatarURL : defaultAvatar,
+    });
 
-    toggleModal();
+    if (!isError) {
+      toggleModal();
+    }
   };
 
   return (

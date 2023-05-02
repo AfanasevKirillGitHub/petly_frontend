@@ -1,10 +1,12 @@
+// import { useState } from 'react';
+// import { useInput } from '../../../hooks/useInput';
 import * as SC from './StepOne.styled';
 
 type PetInfo = {
-  type: 'sell' | 'lostfound' | 'free';
+  category: 'sell' | 'lost-found' | 'for-free';
   title: string;
   name: string;
-  date: string;
+  birthdate: string;
   breed: string;
 };
 
@@ -13,10 +15,10 @@ type StepOneProps = PetInfo & {
 };
 
 export const StepOne = ({
-  type,
+  category,
   title,
   name,
-  date,
+  birthdate,
   breed,
   updateFields,
 }: StepOneProps) => {
@@ -30,12 +32,12 @@ export const StepOne = ({
         <SC.RadioLabel style={{ display: 'flex', alignItems: 'center' }}>
           <SC.RadioInput
             type="radio"
-            name="type"
+            name="category"
             value="sell"
             onChange={evt => {
-              updateFields({ type: evt.currentTarget.value as 'sell' });
+              updateFields({ category: evt.currentTarget.value as 'sell' });
             }}
-            checked={type === 'sell'}
+            checked={category === 'sell'}
           />
           <SC.RadioLabelSpan>sell</SC.RadioLabelSpan>
         </SC.RadioLabel>
@@ -43,11 +45,13 @@ export const StepOne = ({
           <SC.RadioInput
             type="radio"
             name="type"
-            value="lostfound"
+            value="lost-found"
             onChange={evt => {
-              updateFields({ type: evt.currentTarget.value as 'lostfound' });
+              updateFields({
+                category: evt.currentTarget.value as 'lost-found',
+              });
             }}
-            checked={type === 'lostfound'}
+            checked={category === 'lost-found'}
           />
           <SC.RadioLabelSpan>lost/found</SC.RadioLabelSpan>
         </SC.RadioLabel>
@@ -55,11 +59,11 @@ export const StepOne = ({
           <SC.RadioInput
             type="radio"
             name="type"
-            value="free"
+            value="for-free"
             onChange={evt => {
-              updateFields({ type: evt.currentTarget.value as 'free' });
+              updateFields({ category: evt.currentTarget.value as 'for-free' });
             }}
-            checked={type === 'free'}
+            checked={category === 'for-free'}
           />
           <SC.RadioLabelSpan>in good hands</SC.RadioLabelSpan>
         </SC.RadioLabel>
@@ -86,17 +90,19 @@ export const StepOne = ({
           }}
         />
       </SC.Label>
+
       <SC.Label>
         <SC.FieldTitle>Date of birth</SC.FieldTitle>
         <SC.Input
           name="birthday"
           type="date"
-          value={date}
+          value={birthdate}
           onChange={evt => {
-            updateFields({ date: evt.target.value });
+            updateFields({ birthdate: evt.target.value });
           }}
         />
       </SC.Label>
+
       <SC.Label>
         <SC.FieldTitle>Breed</SC.FieldTitle>
         <SC.Input

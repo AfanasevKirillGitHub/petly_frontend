@@ -9,6 +9,7 @@ export const Overlay = styled.div`
   z-index: 20;
   background-color: ${p => p.theme.colors.backdropBackground};
   overflow-y: auto;
+  backdrop-filter: blur(5px);
 `;
 
 export const Inner = styled.div`
@@ -24,8 +25,8 @@ export const Inner = styled.div`
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 10px;
   background-color: transparent;
   color: ${p => p.theme.colors.navBcg};
   border: none;

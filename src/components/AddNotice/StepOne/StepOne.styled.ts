@@ -1,13 +1,4 @@
 import styled from 'styled-components';
-// import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
-// interface ICellBirhtDayProps {
-//   birthDay?: boolean;
-//   selected?: Date;
-//   type: string;
-//   input: boolean;
-// }
 
 export const Text = styled.p`
   margin-bottom: 38px;
@@ -104,26 +95,3 @@ export const Input = styled.input`
     outline: 1px solid #ff6101;
   }
 `;
-
-// export const DatePick = styled(DatePicker)<ICellBirhtDayProps>`
-//   width: 299px;
-//   height: 42px;
-//   padding-left: 18px;
-//   margin-top: 8px;
-//   border: ${p =>
-//     (!p.birthDay && p.theme.borders.userInput) ||
-//     (p.birthDay && p.selected === null && '1px solid red') ||
-//     (p.birthDay && p.selected !== null && '1px solid green')};
-//   border-radius: 8px;
-//   background-color: ${p => p.theme.colors.white};
-//   font-family: 'Inter';
-//   font-weight: ${p => p.theme.fontWeights.semiBold};
-//   font-size: ${p => p.theme.fontSizes.s};
-//   line-height: ${p => p.theme.lineHeights.xl};
-//   color: ${p => p.theme.colors.black5};
-//   @media screen and (min-width: 768px) {
-//     width: 354px;
-//     height: 46px;
-//     font-size: ${p => p.theme.fontSizes.m};
-//   }
-// `;
