@@ -58,6 +58,8 @@ export const theme: ITheme = {
     backgroundCardsBlur: 'rgba(255, 255, 255, 0.6)',
     petAvatarGrey: '#efefef99',
     disabledBtn: 'rgba(17, 17, 17, 0.3)',
+    backdropBackground: 'rgba(17, 17, 17, 0.5)',
+    placeholders: 'rgba(27, 27, 27, 0.6)',
   },
   radii: {
     none: '0',
