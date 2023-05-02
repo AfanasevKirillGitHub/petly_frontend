@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/petly_frontend/static/css/main.ed7e5fa8.css",
-    "main.js": "/petly_frontend/static/js/main.459d380c.js",
+    "main.js": "/petly_frontend/static/js/main.12a121c5.js",
     "static/js/812.86bdb31c.chunk.js": "/petly_frontend/static/js/812.86bdb31c.chunk.js",
     "static/js/505.2bc69210.chunk.js": "/petly_frontend/static/js/505.2bc69210.chunk.js",
     "static/js/839.1fc2040f.chunk.js": "/petly_frontend/static/js/839.1fc2040f.chunk.js",
@@ -40,10 +40,10 @@
     "static/media/delete.svg": "/petly_frontend/static/media/delete.3f58ab5a2db324b48ea195a7aa7e4986.svg",
     "index.html": "/petly_frontend/index.html",
     "static/media/plus.svg": "/petly_frontend/static/media/plus.816a6171aa1587710bd9369dea333714.svg",
-    "static/media/burger-menu-close-btn.svg": "/petly_frontend/static/media/burger-menu-close-btn.4046112f466cf49d79f1e2348bf88a83.svg",
-    "static/media/burger-menu-open-btn.svg": "/petly_frontend/static/media/burger-menu-open-btn.7d18ce1ebb744eb0839726ecc59d2707.svg",
+    "static/media/burger-menu-close-btn.svg": "/petly_frontend/static/media/burger-menu-close-btn.f12cb898724a15df5e56d4ebc340b89d.svg",
+    "static/media/burger-menu-open-btn.svg": "/petly_frontend/static/media/burger-menu-open-btn.7262b71893173efb14ebace7cd96a532.svg",
     "main.ed7e5fa8.css.map": "/petly_frontend/static/css/main.ed7e5fa8.css.map",
-    "main.459d380c.js.map": "/petly_frontend/static/js/main.459d380c.js.map",
+    "main.12a121c5.js.map": "/petly_frontend/static/js/main.12a121c5.js.map",
     "812.86bdb31c.chunk.js.map": "/petly_frontend/static/js/812.86bdb31c.chunk.js.map",
     "505.2bc69210.chunk.js.map": "/petly_frontend/static/js/505.2bc69210.chunk.js.map",
     "839.1fc2040f.chunk.js.map": "/petly_frontend/static/js/839.1fc2040f.chunk.js.map",
@@ -63,6 +63,6 @@
   },
   "entrypoints": [
     "static/css/main.ed7e5fa8.css",
-    "static/js/main.459d380c.js"
+    "static/js/main.12a121c5.js"
   ]
 }
