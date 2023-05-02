@@ -3,9 +3,9 @@ import { useFetchByCategoryQuery } from '../../../redux/notices/noticesOperation
 import { Loader } from '../../../components/Loader/Loader';
 import * as SC from '../List.styled';
 
-export const SellPage = () => {
+export const InGoodHandPage = () => {
   const { data, isFetching } = useFetchByCategoryQuery({
-    category: 'sell',
+    category: 'for-free',
     lang: 'en',
   });
 

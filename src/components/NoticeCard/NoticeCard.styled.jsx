@@ -54,6 +54,10 @@ export const HeartWrapper = styled.div`
   cursor: pointer;
 `;
 export const HeartIcon = styled(HiOutlineHeart)`
+  /* fill: ${p => {
+    return p.isfavorite === 'true' ? 'red' : '#ffffff';
+  }}; */
+
   fill: #ffffff;
   stroke: #f59256;
   &:hover,

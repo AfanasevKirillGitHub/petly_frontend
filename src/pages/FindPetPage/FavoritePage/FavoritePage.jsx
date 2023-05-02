@@ -1,11 +1,10 @@
 import { NoticeCard } from '../../../components/NoticeCard/NoticeCard';
-import { useFetchByCategoryQuery } from '../../../redux/notices/noticesOperations';
+import { useFetchFavoriteQuery } from '../../../redux/notices/noticesOperations';
 import { Loader } from '../../../components/Loader/Loader';
 import * as SC from '../List.styled';
 
-export const SellPage = () => {
-  const { data, isFetching } = useFetchByCategoryQuery({
-    category: 'sell',
+export const FavoritePage = () => {
+  const { data, isFetching } = useFetchFavoriteQuery({
     lang: 'en',
   });
 
@@ -13,7 +12,7 @@ export const SellPage = () => {
     <>
       {isFetching && <Loader />}
       <SC.CardsList>
-        {data?.notices.map(notice => (
+        {data?.favoriteNotices.map(notice => (
           <NoticeCard data={notice} key={notice._id}></NoticeCard>
         ))}
       </SC.CardsList>
