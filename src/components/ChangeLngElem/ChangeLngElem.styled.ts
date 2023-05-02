@@ -5,6 +5,10 @@ export const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 64px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const Btn = styled.button`

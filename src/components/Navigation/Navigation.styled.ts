@@ -42,13 +42,13 @@ export const MenuContainerForTablet = styled.div`
 `;
 
 export const MainNav = styled.nav`
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     max-width: 252px;
   }
   
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* padding-top: 30px; */
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const NavListAuth = styled.ul`
@@ -57,6 +57,10 @@ export const NavListAuth = styled.ul`
   justify-content: space-between;
   list-style: none;
   margin-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const NavListItemAuth = styled.li`
