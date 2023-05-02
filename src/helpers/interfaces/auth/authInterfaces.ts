@@ -14,6 +14,7 @@ export interface IAuth {
     token: string;
     birthday: string;
     phone: string;
+    city: string;
     avatarURL: string;
   };
 }

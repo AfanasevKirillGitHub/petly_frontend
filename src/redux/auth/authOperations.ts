@@ -8,7 +8,9 @@ import {
 import { selectToken } from './authSelectors';
 import { RootState } from '../store';
 
-// axios.defaults.baseURL = 'http://localhost:8080/api/users';
+
+// axios.defaults.baseURL = 'http://localhost:8080/api/user';
+
 axios.defaults.baseURL = 'https://your-pets.onrender.com/api/user';
 
 const setAuthHeader = (token: String): void => {
@@ -108,3 +110,18 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateInfo = createAsyncThunk<
+  IAuth,
+  ICredentials,
+  {
+    rejectValue: string;
+  }
+>('/auth/update', async (updatedData, thunkAPI) => {
+  try {
+    const { data } = await axios.patch<IAuth>('/update', updatedData);
+    return data;
+  } catch (error: any) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
