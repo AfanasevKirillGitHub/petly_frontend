@@ -15,5 +15,6 @@ export interface IAuth {
     birthday: string;
     phone: string;
     avatarURL: string;
+    _id: string;
   };
 }

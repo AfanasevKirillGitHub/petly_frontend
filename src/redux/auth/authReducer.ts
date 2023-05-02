@@ -14,6 +14,7 @@ interface IInitialState {
     birthday: null | string;
     phone: null | string;
     avatarURL: null | string;
+    id: null | string;
   };
   token: null | string;
   isLoggedIn: boolean;
@@ -27,6 +28,7 @@ const initialState: IInitialState = {
     birthday: null,
     phone: null,
     avatarURL: null,
+    id: null,
   },
   token: null,
   isLoggedIn: false,
@@ -51,6 +53,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.id = payload.dataUser._id;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
@@ -66,6 +69,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.id = payload.dataUser._id;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
@@ -81,6 +85,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.id = payload.dataUser._id;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
@@ -105,6 +110,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.id = payload.dataUser._id;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       }),
