@@ -1,12 +1,16 @@
 import numWords from 'num-words';
 import { RiDeleteBinFill } from 'react-icons/ri';
+import {
+  useAddNoticesToFavoriteMutation,
+  useRemoveNoticesFromFavoriteMutation,
+} from '../../redux/notices/noticesOperations';
 import * as SC from './NoticeCard.styled';
 
 const defaultPicture = 'https://loremflickr.com/250/250/cat/all';
 
 export const NoticeCard = ({ data }) => {
-  console.log(data);
-  const { title, birthdate, location, breed, price, category } = data;
+  const { title, birthdate, location, breed, price, category, avatarURL, _id } =
+    data;
 
   const getAge = date => {
     const totalMonths = Math.ceil(
@@ -47,16 +51,21 @@ export const NoticeCard = ({ data }) => {
   const resultAge = getAge(birthdate);
   const noticeCategory = getCategory(category);
 
+  const [addToFav, { isLoading: isAdding }] = useAddNoticesToFavoriteMutation();
+  const [removeFromFav, { isLoading: isRemoving }] =
+    useRemoveNoticesFromFavoriteMutation();
+
   return (
     <SC.CardWrapper>
       <SC.ImageWrapper>
         <SC.Image
-          src={data.avatarURL || defaultPicture}
+          src={avatarURL || defaultPicture}
           alt="fds"
           style={{ width: '288px' }}
         />
         <SC.CategoryLabel>{noticeCategory}</SC.CategoryLabel>
-        <SC.HeartWrapper>
+        <SC.HeartWrapper onClick={() => removeFromFav(_id)}>
+          {/* <SC.HeartIcon size={30} isfavorite={'true'} /> */}
           <SC.HeartIcon size={30} />
         </SC.HeartWrapper>
       </SC.ImageWrapper>
@@ -75,7 +84,7 @@ export const NoticeCard = ({ data }) => {
             <SC.TextLineName>Age:</SC.TextLineName>
             <SC.TextLineValue>{resultAge}</SC.TextLineValue>
           </SC.TextLineWrapper>
-          {price && (
+          {price !== 0 && (
             <SC.TextLineWrapper>
               <SC.TextLineName>Price:</SC.TextLineName>
               <SC.TextLineValue>{price}$</SC.TextLineValue>

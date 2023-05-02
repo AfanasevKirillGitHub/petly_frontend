@@ -1,11 +1,10 @@
 import { NoticeCard } from '../../../components/NoticeCard/NoticeCard';
-import { useFetchByCategoryQuery } from '../../../redux/notices/noticesOperations';
+import { useFetchOwnQuery } from '../../../redux/notices/noticesOperations';
 import { Loader } from '../../../components/Loader/Loader';
 import * as SC from '../List.styled';
 
-export const SellPage = () => {
-  const { data, isFetching } = useFetchByCategoryQuery({
-    category: 'sell',
+export const MyAdsPage = () => {
+  const { data, isFetching } = useFetchOwnQuery({
     lang: 'en',
   });
 
