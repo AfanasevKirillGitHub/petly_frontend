@@ -1,7 +1,7 @@
 import numWords from 'num-words';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import {
-  useAddNoticesToFavoriteMutation,
+  /*useAddNoticesToFavoriteMutation,*/
   useRemoveNoticesFromFavoriteMutation,
 } from '../../redux/notices/noticesOperations';
 import * as SC from './NoticeCard.styled';
