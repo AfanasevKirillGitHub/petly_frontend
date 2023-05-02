@@ -64,5 +64,15 @@
     "Only Me": "Тільки Я є..."
   },
 
-  "Find your favorite pet": "Знайди собі улюбленця"
+  "Find your favorite pet": "Знайди собі улюбленця",
+
+  "user": {
+    "sizePhoto": "Розмір зображення має бути не більше 1 Мб",
+    "uploadPhoto": "Завантажити фото",
+    "choisePhoto": "Вибрати фото",
+    "editPhoto": "Змінити фото",
+    "logOut": "Вийти",
+    "birthday": "Д.народж.",
+    "city": "Місто"
+  }
 }

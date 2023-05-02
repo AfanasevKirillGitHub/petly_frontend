@@ -64,5 +64,15 @@
     "Only Me": "Only Me here!"
   },
 
-  "Find your favorite pet": "Find your favorite pet"
+  "Find your favorite pet": "Find your favorite pet",
+
+  "user": {
+    "sizePhoto": "Photo should not be larger than 1 MB",
+    "uploadPhoto": "Upload your photo",
+    "choisePhoto": "Choise your photo",
+    "editPhoto": "Edit photo",
+    "logOut": "Log Out",
+    "birthday": "Birthday",
+    "city": "City"
+  }
 }
