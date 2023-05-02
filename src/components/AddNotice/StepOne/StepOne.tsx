@@ -1,10 +1,12 @@
+// import { useState } from 'react';
+// import { useInput } from '../../../hooks/useInput';
 import * as SC from './StepOne.styled';
 
 type PetInfo = {
   category: 'sell' | 'lost-found' | 'for-free';
   title: string;
   name: string;
-  date: string;
+  birthdate: string;
   breed: string;
 };
 
@@ -16,7 +18,7 @@ export const StepOne = ({
   category,
   title,
   name,
-  date,
+  birthdate,
   breed,
   updateFields,
 }: StepOneProps) => {
@@ -88,17 +90,19 @@ export const StepOne = ({
           }}
         />
       </SC.Label>
+
       <SC.Label>
         <SC.FieldTitle>Date of birth</SC.FieldTitle>
         <SC.Input
           name="birthday"
           type="date"
-          value={date}
+          value={birthdate}
           onChange={evt => {
-            updateFields({ date: evt.target.value });
+            updateFields({ birthdate: evt.target.value });
           }}
         />
       </SC.Label>
+
       <SC.Label>
         <SC.FieldTitle>Breed</SC.FieldTitle>
         <SC.Input

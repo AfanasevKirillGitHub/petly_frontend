@@ -4,6 +4,7 @@ import * as SC from './AddNotice.styled';
 import { StepOne } from './StepOne/StepOne';
 import { StepTwo } from './StepTwo/StepTwo';
 import { useAddNoticesMutation } from '../../redux/notices/noticesOperations';
+import defaultAvatar from '../../helpers/photos/default-avatar.png';
 
 interface IAddNoticeProps {
   toggleModal: () => void;
@@ -14,11 +15,11 @@ type FormData = {
   sex: 'male' | 'female';
   title: string;
   name: string;
-  date: string;
+  birthdate: string;
   breed: string;
   location: string;
   price: string;
-  photo: string;
+  avatarURL: string;
   comments: string;
 };
 
@@ -26,17 +27,17 @@ const INITIAL_DATA: FormData = {
   category: 'sell',
   title: '',
   name: '',
-  date: '',
+  birthdate: '',
   breed: '',
   sex: 'male',
   location: '',
   price: '',
-  photo: '',
+  avatarURL: '',
   comments: '',
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
-  const [dispatch, { isSuccess }] = useAddNoticesMutation();
+  const [dispatch, { isError }] = useAddNoticesMutation();
   const [formData, setFormData] = useState(INITIAL_DATA);
 
   const updateFields = (fields: Partial<FormData>) => {
@@ -56,11 +57,21 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
       return next();
     }
 
-    //Тут має бути діспатч даних
-    console.log(formData);
-    dispatch(formData);
+    dispatch({
+      ...formData,
+      title: { en: formData.title, ua: 'фваиміваиіваи' },
+      breed: { en: formData.breed, ua: 'фваиміваиіваи' },
+      comments: { en: formData.comments, ua: 'фваиміваиіваи' },
+      location: {
+        city: { en: formData.location.split(', ')[0], ua: 'фваиміваиіваи' },
+        region: { en: formData.location.split(', ')[1], ua: 'фваиміваиіваи' },
+      },
+      price: Number(formData.price),
+      birthdate: new Date(formData.birthdate),
+      avatarURL: formData.avatarURL ? formData.avatarURL : defaultAvatar,
+    });
 
-    if (isSuccess) {
+    if (!isError) {
       toggleModal();
     }
   };
