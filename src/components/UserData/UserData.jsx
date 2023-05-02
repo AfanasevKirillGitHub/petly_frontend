@@ -14,7 +14,7 @@ import UserDataItem from '../UserDataItem/UserDataItem';
 const fileTypes = ['png', 'jpg', 'jpeg', 'webp'];
 
 export const UserData = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { user } = useAuth();
   const dispatch = useDispatch();
   const [isDisabledBtn, setIsDisabledBtn] = useState(false);
