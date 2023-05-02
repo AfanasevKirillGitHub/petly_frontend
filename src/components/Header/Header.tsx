@@ -13,7 +13,9 @@ export const Header: React.FC = () => {
 
     const handleBurgerMenu = () => {
         const mobileMenu = document.querySelector('#menu-container') as HTMLElement;
-        mobileMenu.classList.toggle('is-open');
+        const tabletMenu = document.querySelector('#menu-container-for-tablet') as HTMLElement;
+        
+        window.innerWidth <= 767 ? mobileMenu.classList.toggle('is-open') : tabletMenu.classList.toggle('is-open');
         setIsMenuOpen(!isMenuOpen);
     };
 

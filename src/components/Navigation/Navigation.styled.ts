@@ -15,7 +15,31 @@ export const MenuContainer = styled.div`
 
     &.is-open {
       display: flex;
-      /* flex-direction: column; */
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    };
+  };
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  };
+`;
+
+export const MenuContainerForTablet = styled.div`
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 96px;
+    left: 0;
+    width: 100%;
+
+    background-color: ${props => props.theme.colors.background};
+    padding: 48px;
+
+    &.is-open {
+      display: flex;
       justify-content: center;
       height: 100vh;
     };
@@ -23,13 +47,20 @@ export const MenuContainer = styled.div`
 `;
 
 export const MainNav = styled.nav`
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     max-width: 252px;
   }
   
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* padding-top: 30px; */
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-right: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 0;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 `;
 
 export const NavListAuth = styled.ul`
@@ -38,6 +69,14 @@ export const NavListAuth = styled.ul`
   justify-content: space-between;
   list-style: none;
   margin-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: calc(100vw/6);
+  }
 `;
 
 export const NavListItemAuth = styled.li`
@@ -72,6 +111,10 @@ export const LinkAuth = styled(NavLink)`
     color:  ${props => (props.to === '/login' ? '#111111' : '#FFFFFF')};
   };
 
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+
   @media screen and (min-width: 1280px) {
     padding: 10px 28px;
     font-size: ${props => props.theme.fontSizes.l};
@@ -104,7 +147,6 @@ export const NavList = styled.ul`
 
   @media screen and (min-width: 1280px) {
     display: flex;
-    align-items: center;
   }
 `;
 
@@ -113,8 +155,15 @@ export const NavListItem = styled.li`
     margin-bottom: 40px;
   }
 
+  @media screen and (min-width: 768px) {
+    :not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+
   @media screen and (min-width: 1280px) {
     :not(:last-child) {
+      margin-bottom: 0;
       margin-right: 80px;
     }
 
@@ -134,6 +183,11 @@ export const Link = styled(NavLink)`
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.accent}; 
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.bxxl};
+    line-height: ${props => props.theme.lineHeights.m};
   }
 
   @media screen and (min-width: 1280px) {

@@ -36,6 +36,6 @@ export const BurgerMenuBtn = styled.button`
     }
 
     @media screen and (min-width: 1280px) {
-        /* display: none; */
+        display: none;
     }
 `;

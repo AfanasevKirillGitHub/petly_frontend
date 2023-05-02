@@ -1,5 +1,3 @@
-import { NavLink } from 'react-router-dom';
-import logo from '../../../helpers/photos/petly.png';
 import * as SC from './Logo.styled';
 
 interface IProps {
@@ -12,12 +10,18 @@ export const Logo = ({ toggleBurgerMenu }: IProps) => {
             toggleBurgerMenu();
         };
 
+        if (document.querySelector('#menu-container-for-tablet')?.classList.contains('is-open')) {
+            toggleBurgerMenu();
+        };
+
         return;
     };
 
     return (
-        <NavLink to="/" style ={{textDecoration: 'none'}}>
-            <SC.Logo src = {logo} onClick={closerMenuByLogo} />
-        </NavLink>
+        <SC.LogoLink to="/" onClick={closerMenuByLogo}>
+            pe
+            <SC.LogoSpan>t</SC.LogoSpan>
+            ly
+        </SC.LogoLink>
     );
 };
