@@ -27,6 +27,6 @@ export const Btn = styled.button`
   transition: transform 300ms linear;
 
   :hover {
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
 `;

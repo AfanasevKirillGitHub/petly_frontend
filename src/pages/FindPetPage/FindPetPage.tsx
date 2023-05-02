@@ -8,29 +8,39 @@ import * as SC from './FindPetPage.styled';
 import AddNotice from '../../components/AddNotice/AddNotice';
 import { Modal } from '../../components/Modal/Modal';
 import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
+import { useFetchNoticesQuery } from '../../redux/notices/noticesOperations';
 
 export const FindPetPage = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modalHandler = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(prev => !prev);
   };
+
+  const { data } = useFetchNoticesQuery({ lang: 'en' });
+
+  console.log(data);
 
   return (
     <SC.Main>
       <SC.Title>{t('Find your favorite pet')}</SC.Title>
       <SearchBar />
       <SC.Wrapper>
-      <FindPetNan />
-      <AddPetBtn toggleModal={modalHandler} />
+        <FindPetNan />
+        <AddPetBtn toggleModal={modalHandler} />
       </SC.Wrapper>
       {isModalOpen && (
         <Modal toggleModal={modalHandler}>
           <AddNotice toggleModal={modalHandler} />
         </Modal>
       )}
-
+      {/* <h2>Notices</h2>
+      <ul>
+        {data?.notices.map(item => (
+          <li key={item._id}>{item.category}</li>
+        ))}
+      </ul> */}
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

@@ -1,4 +1,5 @@
 export interface INotice {
+  _id: string;
   category: 'sell' | 'lost-found' | 'for-free';
   sex: 'male' | 'female';
   title: string;
