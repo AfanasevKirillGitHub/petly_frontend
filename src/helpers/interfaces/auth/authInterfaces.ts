@@ -16,5 +16,6 @@ export interface IAuth {
     phone: string;
     city: string;
     avatarURL: string;
+    _id: string;
   };
 }
