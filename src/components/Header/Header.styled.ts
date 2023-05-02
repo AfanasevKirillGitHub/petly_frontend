@@ -6,13 +6,8 @@ export const MainHeader = styled.header`
     align-items: center;
     padding: 16px 20px;
 
-    @media screen and (min-width: 320px) {
-        /* width: 320px; */
-    };
-
     @media screen and (min-width: 768px) {
-        /* width: 580px;
-        padding-bottom: 170px; */
+        padding: 24px 32px;
     };
 
     @media screen and (min-width: 1280px) {

@@ -26,12 +26,12 @@ export const MenuContainerForTablet = styled.div`
     display: none;
     position: fixed;
     z-index: 1;
-    top: 72px;
+    top: 96px;
     left: 0;
     width: 100%;
 
     background-color: ${props => props.theme.colors.background};
-    padding: 16px 34px;
+    padding: 48px;
 
     &.is-open {
       display: flex;
@@ -48,6 +48,7 @@ export const MainNav = styled.nav`
   
   @media screen and (min-width: 768px) {
     display: flex;
+    margin-right: 24px;
   }
 `;
 
@@ -95,6 +96,10 @@ export const LinkAuth = styled(NavLink)`
     color:  ${props => (props.to === '/login' ? '#111111' : '#FFFFFF')};
   };
 
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+
   @media screen and (min-width: 1280px) {
     padding: 10px 28px;
     font-size: ${props => props.theme.fontSizes.l};
@@ -136,6 +141,12 @@ export const NavListItem = styled.li`
     margin-bottom: 40px;
   }
 
+  @media screen and (min-width: 768px) {
+    :not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+
   @media screen and (min-width: 1280px) {
     :not(:last-child) {
       margin-right: 80px;
@@ -157,6 +168,11 @@ export const Link = styled(NavLink)`
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.accent}; 
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.bxxl};
+    line-height: ${props => props.theme.lineHeights.m};
   }
 
   @media screen and (min-width: 1280px) {
