@@ -18,11 +18,11 @@ export const ChangeLngElem = () => {
   return (
     <SC.Wrap>
       <SC.Btn type="button" onClick={onchangeLngClick} name="en">
-        <img src={US} alt="usa flag" style={{ width: '40px' }} />
+        <img src={US} alt="usa flag" style={{ width: '30px' }} />
       </SC.Btn>
       <span>/</span>
       <SC.Btn type="button" onClick={onchangeLngClick} name="ua">
-        <img src={UA} alt="ukraine flag" style={{ width: '40px' }} />
+        <img src={UA} alt="ukraine flag" style={{ width: '30px' }} />
       </SC.Btn>
     </SC.Wrap>
   );
