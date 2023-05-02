@@ -15,6 +15,7 @@ import {
 } from './UserDataItem.styled';
 
 const today = new Date();
+
 const nameSchema = yup.object({
   name: yup
     .string()
@@ -61,6 +62,7 @@ const phoneSchema = yup.object({
       'Incorrect format'
     ),
 });
+
 const birthdaySchema = yup.object({
   birthday: yup
     .date()
@@ -81,6 +83,7 @@ const birthdaySchema = yup.object({
     .min('01.01.1920', 'Date is too early')
     .max(today),
 });
+
 const capitalize = s => (s && s[0].toUpperCase() + s.slice(1)) || '';
 
 export default function UserDataItem({
@@ -92,8 +95,8 @@ export default function UserDataItem({
 }) {
   const [isEdit, setIsEdit] = useState(false);
 
-  const addSchema = f => {
-    switch (f) {
+  const addSchema = field => {
+    switch (field) {
       case 'name':
         return nameSchema;
       case 'email':

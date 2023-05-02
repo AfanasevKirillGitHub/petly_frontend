@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-right: ${props => props.theme.space[5]}px;
-  padding-right: ${props => props.theme.space[4]}px;
-  padding-top: 57px;
-  font-family: ${props => props.theme.fontFamily.body};
-`;
+export const Wrapper = styled.div``;
 
 export const TitleInfo = styled.p`
   margin-bottom: 18px;
@@ -28,18 +21,20 @@ export const TitleInfo = styled.p`
 
 export const UserFrame = styled.div`
   position: relative;
-  min-width: 280px;
+  width: 280px;
+
   padding: 20px 12px 20px 12px;
-  background-color: ${props => props.theme.colors.white};
+  background: ${p => p.theme.colors.white};
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-  border-radius: 20px;
+  border-radius: ${p => p.theme.radii.medium};
   margin-bottom: 40px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     width: 736px;
+    margin-left: -32px;
     padding: 24px 40px 24px 32px;
     border-radius: 0px 40px 40px 0px;
     margin-bottom: 20px;
@@ -48,9 +43,9 @@ export const UserFrame = styled.div`
   @media screen and (min-width: 1280px) {
     flex-direction: column;
     width: 411px;
-    min-height: 541px;
     margin-left: -16px;
-    padding: 20px 16px 18px 16px;
+    margin-right: 32px;
+    padding: 20px 16px;
   }
 `;
 
@@ -63,7 +58,7 @@ export const PhotoContainer = styled.div`
   margin-bottom: 36px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: auto;
+    margin-bottom: 0;
     margin-left: 52px;
   }
   @media screen and (min-width: 1280px) {
@@ -88,14 +83,17 @@ export const Photo = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  scale: 1;
 `;
 
 export const InputWrapper = styled.div`
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -10px;
   margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    bottom: 0;
+  }
 
   &:hover,
   &:focus {
@@ -106,12 +104,13 @@ export const InputWrapper = styled.div`
   &:hover img,
   &:focus img {
     cursor: pointer;
-    transform: scale(1.1);
+    /* transform: scale(1.05); */
   }
 
   &:hover button,
   &:focus button {
     cursor: pointer;
+    /* transform: scale(1.05); */
     color: ${props => props.theme.colors.accent};
   }
 `;
@@ -145,7 +144,7 @@ export const EditPhotoButton = styled.button`
 
   background-color: transparent;
   border: none;
-  transition: color 250ms linear;
+  transition: color 250ms linear, transform 250ms linear;
 `;
 
 export const EditPhotoIcon = styled.img`
@@ -190,6 +189,7 @@ export const LogoutButton = styled.button`
   align-items: center;
   border: none;
   margin-left: auto;
+  font-family: inherit;
   font-weight: ${props => props.theme.fontWeights.medium};
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.38;
@@ -202,7 +202,7 @@ export const LogoutButton = styled.button`
   &:hover,
   :focus {
     color: ${props => props.theme.colors.accent};
-    transform: scale(1.1);
+    /* transform: scale(1.03); */
   }
 
   @media screen and (min-width: 768px) {
