@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const MenuContainer = styled.div`
+export const MenuContainerForMobile = styled.div`
   @media screen and (max-width: 767px) {
     display: none;
     position: fixed;
@@ -15,7 +15,26 @@ export const MenuContainer = styled.div`
 
     &.is-open {
       display: flex;
-      /* flex-direction: column; */
+      justify-content: center;
+      height: 100vh;
+    };
+  };
+`;
+
+export const MenuContainerForTablet = styled.div`
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 72px;
+    left: 0;
+    width: 100%;
+
+    background-color: ${props => props.theme.colors.background};
+    padding: 16px 34px;
+
+    &.is-open {
+      display: flex;
       justify-content: center;
       height: 100vh;
     };

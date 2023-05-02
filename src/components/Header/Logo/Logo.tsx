@@ -8,7 +8,11 @@ interface IProps {
 
 export const Logo = ({ toggleBurgerMenu }: IProps) => {
     const closerMenuByLogo = () => {
-        if (document.querySelector('#menu-container')?.classList.contains('is-open')) {
+        if (document.querySelector('#menu-container-for-mobile')?.classList.contains('is-open')) {
+            toggleBurgerMenu();
+        };
+
+        if (document.querySelector('#menu-container-for-tablet')?.classList.contains('is-open')) {
             toggleBurgerMenu();
         };
 
