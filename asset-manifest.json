@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/petly_frontend/static/css/main.ed7e5fa8.css",
-    "main.js": "/petly_frontend/static/js/main.5643dcfd.js",
+    "main.js": "/petly_frontend/static/js/main.abed6f22.js",
     "static/js/812.86bdb31c.chunk.js": "/petly_frontend/static/js/812.86bdb31c.chunk.js",
     "static/js/457.71917934.chunk.js": "/petly_frontend/static/js/457.71917934.chunk.js",
     "static/js/839.5f09a618.chunk.js": "/petly_frontend/static/js/839.5f09a618.chunk.js",
@@ -34,6 +34,8 @@
     "static/media/Manrope-Regular.ttf": "/petly_frontend/static/media/Manrope-Regular.fc58e53d1024e5b336b7.ttf",
     "static/media/Manrope-Bold.ttf": "/petly_frontend/static/media/Manrope-Bold.f90749d53c89d2780cfb.ttf",
     "static/media/bgT.png": "/petly_frontend/static/media/bgT.8706e7f2cb119fd54b5d.png",
+    "static/media/usa.png": "/petly_frontend/static/media/usa.0533c9838a1213a1ec75.png",
+    "static/media/ukraine.png": "/petly_frontend/static/media/ukraine.2e3c2042a52f18722d17.png",
     "static/media/bgM.png": "/petly_frontend/static/media/bgM.dbc01a36c32a6b91d91d.png",
     "static/media/authBgM.png": "/petly_frontend/static/media/authBgM.159e9d239d6180e6b8b2.png",
     "static/media/noImage.JPG": "/petly_frontend/static/media/noImage.1313068d0a2ae77fabc1.JPG",
@@ -49,7 +51,7 @@
     "static/media/burger-menu-close-btn.svg": "/petly_frontend/static/media/burger-menu-close-btn.f12cb898724a15df5e56d4ebc340b89d.svg",
     "static/media/burger-menu-open-btn.svg": "/petly_frontend/static/media/burger-menu-open-btn.7262b71893173efb14ebace7cd96a532.svg",
     "main.ed7e5fa8.css.map": "/petly_frontend/static/css/main.ed7e5fa8.css.map",
-    "main.5643dcfd.js.map": "/petly_frontend/static/js/main.5643dcfd.js.map",
+    "main.abed6f22.js.map": "/petly_frontend/static/js/main.abed6f22.js.map",
     "812.86bdb31c.chunk.js.map": "/petly_frontend/static/js/812.86bdb31c.chunk.js.map",
     "457.71917934.chunk.js.map": "/petly_frontend/static/js/457.71917934.chunk.js.map",
     "839.5f09a618.chunk.js.map": "/petly_frontend/static/js/839.5f09a618.chunk.js.map",
@@ -73,6 +75,6 @@
   },
   "entrypoints": [
     "static/css/main.ed7e5fa8.css",
-    "static/js/main.5643dcfd.js"
+    "static/js/main.abed6f22.js"
   ]
 }
