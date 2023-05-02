@@ -51,8 +51,8 @@ export const NoticeCard = ({ data }) => {
   const resultAge = getAge(birthdate);
   const noticeCategory = getCategory(category);
 
-  const [addToFav, { isLoading: isAdding }] = useAddNoticesToFavoriteMutation();
-  const [removeFromFav, { isLoading: isRemoving }] =
+  // const [addToFav, { isLoading: isAdding }] = useAddNoticesToFavoriteMutation();
+  const [removeFromFav /*{ isLoading: isRemoving }*/] =
     useRemoveNoticesFromFavoriteMutation();
 
   return (
