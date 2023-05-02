@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 import { updateInfo } from '../../redux/auth/authOperations';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { logOut } from '../../redux/auth/authOperations';
 import defaultAvatar from '../../helpers/photos/default-avatar.png';
 import editPhotoIcon from '../../helpers/photos/editPhotoIcon.png';
