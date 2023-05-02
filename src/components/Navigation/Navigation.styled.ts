@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const MenuContainerForMobile = styled.div`
+export const MenuContainer = styled.div`
   @media screen and (max-width: 767px) {
     display: none;
     position: fixed;
@@ -15,9 +15,14 @@ export const MenuContainerForMobile = styled.div`
 
     &.is-open {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       height: 100vh;
     };
+  };
+
+  @media screen and (min-width: 768px) {
+    display: flex;
   };
 `;
 
@@ -50,6 +55,12 @@ export const MainNav = styled.nav`
     display: flex;
     margin-right: 24px;
   }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 0;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 `;
 
 export const NavListAuth = styled.ul`
@@ -61,6 +72,10 @@ export const NavListAuth = styled.ul`
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: calc(100vw/6);
   }
 `;
 
@@ -132,7 +147,6 @@ export const NavList = styled.ul`
 
   @media screen and (min-width: 1280px) {
     display: flex;
-    align-items: center;
   }
 `;
 
@@ -149,6 +163,7 @@ export const NavListItem = styled.li`
 
   @media screen and (min-width: 1280px) {
     :not(:last-child) {
+      margin-bottom: 0;
       margin-right: 80px;
     }
 

@@ -13,6 +13,9 @@ export const LogoLink = styled(NavLink)`
 
     @media screen and (min-width: 768px) {
         font-size: ${props => props.theme.fontSizes.xxxl};
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
         margin-right: auto;
     }
 `;

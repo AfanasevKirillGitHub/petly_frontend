@@ -46,10 +46,10 @@ export const Navigation = ({ toggleBurgerMenu }: IProps) => {
   };
 
   return (
-    <SC.MenuContainerForMobile id="menu-container-for-mobile">
-      <SC.MainNav>
-        <ChangeLngElem />
+    <SC.MenuContainer id="menu-container">
+      <ChangeLngElem />
 
+      <SC.MainNav>
         <SC.NavListAuth>
           {!isLoggedIn ?
             authPages.map(({ href, name, id }) => (
@@ -75,6 +75,6 @@ export const Navigation = ({ toggleBurgerMenu }: IProps) => {
           </SC.NavList>
         </SC.MenuContainerForTablet>
       </SC.MainNav>
-    </SC.MenuContainerForMobile>
+    </SC.MenuContainer>
   );
 };

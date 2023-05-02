@@ -11,7 +11,6 @@ export const MainHeader = styled.header`
     };
 
     @media screen and (min-width: 1280px) {
-        /* width: 1184px;
-        padding-bottom: 188px; */
+        padding: 20px 16px;
     };
 `;
