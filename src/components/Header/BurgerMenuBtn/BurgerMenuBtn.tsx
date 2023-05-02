@@ -9,7 +9,7 @@ interface IProps {
 export const BurgerMenuBtn = ({ toggleBurgerMenu, isMenuOpen }: IProps) => {
     return (
         <SC.BurgerMenuBtn type="button" onClick={toggleBurgerMenu}>
-            {isMenuOpen ? <SVG.BurgerMenuClose /> : <SVG.BurgerMenuOpen />}
+            {isMenuOpen ? <SVG.BurgerMenuClose id='closeBurgerMenuBtn' /> : <SVG.BurgerMenuOpen id='openBurgerMenuBtn' />}
         </SC.BurgerMenuBtn>
     );
 };

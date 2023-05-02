@@ -31,6 +31,23 @@ export const Navigation = ({ toggleBurgerMenu }: IProps) => {
   return (
     <SC.MenuContainer id="menu-container" data-menu>
       <SC.MainNav>
+        <ChangeLngElem />
+
+        <SC.NavListAuth>
+          {!isLoggedIn ?
+            authPages.map(({ href, name, id }) => (
+              <SC.NavListItemAuth key={id}>
+                <SC.LinkAuth to={href} onClick={navigateByPublicPages}> {t(`navigation.${name}`)}</SC.LinkAuth>
+              </SC.NavListItemAuth>
+            ))
+            : userPage.map(({ href, name, id }) => (
+              <SC.NavListItemAuth key={id}>
+                <SC.LinkAcc to={href} onClick={navigateByPublicPages}> {t(`navigation.${name}`)}</SC.LinkAcc>
+              </SC.NavListItemAuth>
+            ))
+          }
+        </SC.NavListAuth>
+
         <SC.NavList>
           {pages.map(({ href, name, id }) => (
             <SC.NavListItem key={id}>
@@ -38,23 +55,6 @@ export const Navigation = ({ toggleBurgerMenu }: IProps) => {
             </SC.NavListItem>
           ))}
         </SC.NavList>
-
-        <SC.NavListAuth>
-          {!isLoggedIn ?
-            authPages.map(({ href, name, id }) => (
-              <SC.NavListItemAuth key={id}>
-                <SC.LinkAuth to={href}> {t(`navigation.${name}`)}</SC.LinkAuth>
-              </SC.NavListItemAuth>
-            ))
-            : userPage.map(({ href, name, id }) => (
-              <SC.NavListItemAuth key={id}>
-                <SC.LinkAcc to={href}> {t(`navigation.${name}`)}</SC.LinkAcc>
-              </SC.NavListItemAuth>
-            ))
-          }
-
-          <ChangeLngElem />
-        </SC.NavListAuth>
       </SC.MainNav>
     </SC.MenuContainer>
   );

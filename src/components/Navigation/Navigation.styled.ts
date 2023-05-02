@@ -6,91 +6,76 @@ export const MenuContainer = styled.div`
     display: none;
     position: fixed;
     z-index: 1;
-    top: 80px;
+    top: 72px;
     left: 0;
     width: 100%;
 
-    overflow-y: scroll;
-
     background-color: ${props => props.theme.colors.background};
-    /* padding: 48px 40px; */
+    padding: 16px 34px;
 
     &.is-open {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      /* flex-direction: column; */
+      justify-content: center;
       height: 100vh;
     };
   };
 `;
 
 export const MainNav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 30px;
-`;
-
-export const NavList = styled.ul`
-  list-style: none;
-  display: flex;
-  align-items: center;
-`;
-
-export const Logo = styled.img`
-  margin-right: 80px;
+  @media screen and (min-width: 320px) {
+    max-width: 252px;
+  }
+  
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* padding-top: 30px; */
 `;
 
 export const NavListAuth = styled.ul`
-  list-style: none;
   display: flex;
   align-items: center;
-`;
-
-export const NavListItem = styled.li`
-  :not(:last-child) {
-    margin-right: 80px;
-  }
-  :last-child {
-    margin-left: auto;
-  }
+  justify-content: space-between;
+  list-style: none;
+  margin-bottom: 60px;
 `;
 
 export const NavListItemAuth = styled.li`
+  display: inherit;
   :not(:last-child) {
-    margin-right: 20px;
-  }
-`;
+      margin-right: 12px;
+    }
 
-export const Link = styled(NavLink)`
-  text-decoration:none;
-  cursor: pointer;
-  font-size: ${props => props.theme.fontSizes.l};
-  font-weight: ${props => props.theme.fontWeights.medium};
-  line-height: ${props => props.theme.lineHeights.l};
-  color: ${props => props.theme.colors.black}; 
-  &:hover,
-  &:focus {
-    color: ${props => props.theme.colors.accent}; 
+  @media screen and (min-width: 1280px) {
+    :not(:last-child) {
+      margin-right: 20px;
+    }
   }
 `;
 
 export const LinkAuth = styled(NavLink)`
   text-decoration:none;
   cursor: pointer;
-  padding: 10px 28px;
+  padding: 8px 28px;
   border-radius: ${props => props.theme.radii.big};
   border: ${props => props.theme.borders.orange};
   background-color: ${props => (props.to === '/login' ? '#F59256' : '#FFFFFF')};
   color: ${props => (props.to === '/login' ? '#FFFFFF' : '#111111')};
-  font-size: ${props => props.theme.fontSizes.l};
-  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.xs};
   line-height: ${props => props.theme.lineHeights.l};
+  font-weight: ${props => props.theme.fontWeights.medium};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
     background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#F59256')};
     color:  ${props => (props.to === '/login' ? '#111111' : '#FFFFFF')};
   };
+
+  @media screen and (min-width: 1280px) {
+    padding: 10px 28px;
+    font-size: ${props => props.theme.fontSizes.l};
+  }
 `;
 
 export const LinkAcc = styled(NavLink)`
@@ -102,9 +87,10 @@ export const LinkAcc = styled(NavLink)`
   background-color: ${props => props.theme.colors.accent};
   color: ${props => props.theme.colors.white};
   font-size: ${props => props.theme.fontSizes.l};
-  font-weight: ${props => props.theme.fontWeights.medium};
   line-height: ${props => props.theme.lineHeights.l};
+  font-weight: ${props => props.theme.fontWeights.medium};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
   &:hover,
   &:focus {
     background-color:${props => props.theme.colors.white};
@@ -112,3 +98,46 @@ export const LinkAcc = styled(NavLink)`
   };
 `;
 
+export const NavList = styled.ul`
+  list-style: none;
+  text-align: center;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+export const NavListItem = styled.li`
+  :not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    :not(:last-child) {
+      margin-right: 80px;
+    }
+
+    :last-child {
+      margin-left: auto;
+    }
+  }
+`;
+
+export const Link = styled(NavLink)`
+  text-decoration:none;
+  cursor: pointer;
+  font-size: ${props => props.theme.fontSizes.xxxl};
+  line-height: ${props => props.theme.lineHeights.l};
+  font-weight: ${props => props.theme.fontWeights.medium};
+  color: ${props => props.theme.colors.black}; 
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accent}; 
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: ${props => props.theme.fontSizes.l};
+    line-height: ${props => props.theme.lineHeights.m};
+  }
+`;
