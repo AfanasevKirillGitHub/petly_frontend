@@ -1,16 +1,30 @@
 import numWords from 'num-words';
 import { RiDeleteBinFill } from 'react-icons/ri';
+import { useSelector } from 'react-redux';
 import {
-  /*useAddNoticesToFavoriteMutation,*/
+  useAddNoticesToFavoriteMutation,
   useRemoveNoticesFromFavoriteMutation,
+  useRemoveOwnMutation,
 } from '../../redux/notices/noticesOperations';
 import * as SC from './NoticeCard.styled';
 
-const defaultPicture = 'https://loremflickr.com/250/250/cat/all';
-
 export const NoticeCard = ({ data }) => {
-  const { title, birthdate, location, breed, price, category, avatarURL, _id } =
-    data;
+  const {
+    title,
+    birthdate,
+    location,
+    breed,
+    price,
+    category,
+    avatarURL,
+    _id,
+    favorite,
+    owner,
+  } = data;
+
+  const defaultPicture = 'https://loremflickr.com/250/250/cat/all';
+
+  const currentUserId = useSelector(state => state.auth.user.id);
 
   const getAge = date => {
     const totalMonths = Math.ceil(
@@ -36,6 +50,8 @@ export const NoticeCard = ({ data }) => {
     }
   };
 
+  const resultAge = getAge(birthdate);
+
   const getCategory = category => {
     if (category === 'sell') {
       return 'sell';
@@ -48,29 +64,51 @@ export const NoticeCard = ({ data }) => {
     }
   };
 
-  const resultAge = getAge(birthdate);
   const noticeCategory = getCategory(category);
 
-  // const [addToFav, { isLoading: isAdding }] = useAddNoticesToFavoriteMutation();
-  const [removeFromFav /*{ isLoading: isRemoving }*/] =
-    useRemoveNoticesFromFavoriteMutation();
+  const defineFavorite = () => {
+    return favorite.includes(currentUserId) ? true : false;
+  };
+
+  const isFavorite = defineFavorite();
+
+  const [removeFav] = useRemoveNoticesFromFavoriteMutation();
+  const [addToFav] = useAddNoticesToFavoriteMutation();
+
+  const onFavoriteClick = () => {
+    // console.log(isFavorite);
+    if (isFavorite === true) {
+      removeFav(_id); /*                             НЕ ПРАЦЮЄ! */
+    } else addToFav(_id);
+  };
+
+  const defineOwn = () => {
+    // console.log(owner);
+    return owner._id === currentUserId ? true : false;
+  };
+
+  const isOwn = defineOwn();
+
+  const [removeOwn] = useRemoveOwnMutation();
+
+  const onDeleteClick = () => {
+    // console.log(isOwn);
+    removeOwn(_id);
+  };
 
   return (
     <SC.CardWrapper>
       <SC.ImageWrapper>
-        <SC.Image
-          src={avatarURL || defaultPicture}
-          alt="fds"
-          style={{ width: '288px' }}
-        />
+        <SC.Image src={avatarURL || defaultPicture} alt="title" />
         <SC.CategoryLabel>{noticeCategory}</SC.CategoryLabel>
-        <SC.HeartWrapper onClick={() => removeFromFav(_id)}>
-          {/* <SC.HeartIcon size={30} isfavorite={'true'} /> */}
-          <SC.HeartIcon size={30} />
+        <SC.HeartWrapper onClick={onFavoriteClick}>
+          <SC.HeartIcon size={30} favorite={String(isFavorite)} />
         </SC.HeartWrapper>
       </SC.ImageWrapper>
       <SC.TextWrapper>
-        <SC.TextHeader>{title.en}</SC.TextHeader>
+        <SC.HeaderWrapper>
+          <SC.TextHeader>{title.en}</SC.TextHeader>
+        </SC.HeaderWrapper>
         <SC.TextLinesWrapper>
           <SC.TextLineWrapper>
             <SC.TextLineName>Breed:</SC.TextLineName>
@@ -95,11 +133,13 @@ export const NoticeCard = ({ data }) => {
           <li>
             <SC.CardButton type="button">Learn more</SC.CardButton>
           </li>
-          <li>
-            <SC.CardButton type="button">
-              Delete {<RiDeleteBinFill></RiDeleteBinFill>}
-            </SC.CardButton>
-          </li>
+          {isOwn && (
+            <li>
+              <SC.CardButton type="button" onClick={onDeleteClick}>
+                Delete {<RiDeleteBinFill></RiDeleteBinFill>}
+              </SC.CardButton>
+            </li>
+          )}
         </SC.CardbuttonsList>
       </SC.TextWrapper>
     </SC.CardWrapper>
