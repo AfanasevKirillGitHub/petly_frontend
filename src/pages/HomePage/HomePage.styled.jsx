@@ -28,7 +28,7 @@ export const HomePage = styled.div`
     background-repeat: no-repeat;
   }
   @media screen and (min-width: 1280px) {
-    height: calc(100vh - 63px);
+    height: calc(100vh - 91px);
     background-image: url(${DogD}), url(${bgD});
     background-position: bottom 0px left 95%, bottom 0px left 0px;
     background-size: 524px, contain;

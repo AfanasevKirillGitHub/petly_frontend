@@ -14,6 +14,7 @@ import { AllNoticesPage } from './AllNoticesPage/AllNoticesPage';
 import { FavoritePage } from './FavoritePage/FavoritePage';
 import { MyAdsPage } from './MyAdsPage/MyAdsPage';
 
+
 export const FindPetPage = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +24,10 @@ export const FindPetPage = () => {
   const modalHandler = () => {
     setIsModalOpen(prev => !prev);
   };
+
+  const { data } = useFetchNoticesQuery({ lang: 'en' });
+
+  console.log(data);
 
   return (
     <SC.Main>
@@ -37,7 +42,6 @@ export const FindPetPage = () => {
           <AddNotice toggleModal={modalHandler} />
         </Modal>
       )}
-
       {!pathname.includes('sell') &&
         !pathname.includes('lost-found') &&
         !pathname.includes('good-hand') &&
