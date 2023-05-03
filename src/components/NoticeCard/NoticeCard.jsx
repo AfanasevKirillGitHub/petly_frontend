@@ -76,7 +76,6 @@ export const NoticeCard = ({ data }) => {
   const [addToFav] = useAddNoticesToFavoriteMutation();
 
   const onFavoriteClick = () => {
-    // console.log(isFavorite);
     if (isFavorite === true) {
       removeFav(
         _id
@@ -85,16 +84,13 @@ export const NoticeCard = ({ data }) => {
   };
 
   const defineOwn = () => {
-    // console.log(owner);
     return owner._id === currentUserId ? true : false;
   };
-
   const isOwn = defineOwn();
 
   const [removeOwn] = useRemoveOwnMutation();
 
   const onDeleteClick = () => {
-    // console.log(isOwn);
     removeOwn(_id);
   };
 
