@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  margin-bottom: 47px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0;
+    margin-right: 32px;
+  }
+`;
 
 export const TitleInfo = styled.p`
   margin-bottom: 18px;
@@ -27,7 +38,6 @@ export const UserFrame = styled.div`
   background: ${p => p.theme.colors.white};
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   border-radius: ${p => p.theme.radii.medium};
-  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -37,14 +47,12 @@ export const UserFrame = styled.div`
     margin-left: -32px;
     padding: 24px 40px 24px 32px;
     border-radius: 0px 40px 40px 0px;
-    margin-bottom: 20px;
   }
 
   @media screen and (min-width: 1280px) {
     flex-direction: column;
     width: 411px;
     margin-left: -16px;
-    margin-right: 32px;
     padding: 20px 16px;
   }
 `;
