@@ -76,6 +76,10 @@ export const NoticeCard = ({ data }) => {
   const [addToFav] = useAddNoticesToFavoriteMutation();
 
   const onFavoriteClick = () => {
+    if (!currentUserId) {
+      alert('Please log in first');
+      return;
+    }
     if (isFavorite === true) {
       removeFav(
         _id
