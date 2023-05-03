@@ -18,12 +18,17 @@ export const MenuContainer = styled.div`
       flex-direction: column;
       align-items: center;
       height: 100vh;
-    };
-  };
+    }
+  }
 
   @media screen and (min-width: 768px) {
     display: flex;
-  };
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 830px;
+    width: 100%;
+  }
 `;
 
 export const MenuContainerForTablet = styled.div`
@@ -42,31 +47,33 @@ export const MenuContainerForTablet = styled.div`
       display: flex;
       justify-content: center;
       height: 100vh;
-    };
-  };
+    }
+  }
 `;
 
 export const MainNav = styled.nav`
   @media screen and (min-width: 320px) and (max-width: 767px) {
     max-width: 252px;
   }
-  
+
   @media screen and (min-width: 768px) {
     display: flex;
-    margin-right: 24px;
   }
 
   @media screen and (min-width: 1280px) {
     margin-right: 0;
     flex-direction: row-reverse;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 `;
 
 export const NavListAuth = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   list-style: none;
   margin-bottom: 60px;
 
@@ -75,25 +82,19 @@ export const NavListAuth = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: calc(100vw/6);
+    gap: 20px;
   }
 `;
 
 export const NavListItemAuth = styled.li`
   display: inherit;
-  :not(:last-child) {
-      margin-right: 12px;
-    }
 
   @media screen and (min-width: 1280px) {
-    :not(:last-child) {
-      margin-right: 20px;
-    }
   }
 `;
 
 export const LinkAuth = styled(NavLink)`
-  text-decoration:none;
+  text-decoration: none;
   cursor: pointer;
   padding: 8px 28px;
   border-radius: ${props => props.theme.radii.big};
@@ -107,9 +108,10 @@ export const LinkAuth = styled(NavLink)`
 
   &:hover,
   &:focus {
-    background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#F59256')};
-    color:  ${props => (props.to === '/login' ? '#111111' : '#FFFFFF')};
-  };
+    background-color: ${props =>
+      props.to === '/login' ? '#FFFFFF' : '#F59256'};
+    color: ${props => (props.to === '/login' ? '#111111' : '#FFFFFF')};
+  }
 
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.l};
@@ -122,7 +124,7 @@ export const LinkAuth = styled(NavLink)`
 `;
 
 export const LinkAcc = styled(NavLink)`
-  text-decoration:none;
+  text-decoration: none;
   cursor: pointer;
   padding: 10px 28px;
   border-radius: ${props => props.theme.radii.big};
@@ -133,12 +135,12 @@ export const LinkAcc = styled(NavLink)`
   line-height: ${props => props.theme.lineHeights.l};
   font-weight: ${props => props.theme.fontWeights.medium};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   &:hover,
   &:focus {
-    background-color:${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.white};
     color: ${props => props.theme.colors.black};
-  };
+  }
 `;
 
 export const NavList = styled.ul`
@@ -174,15 +176,15 @@ export const NavListItem = styled.li`
 `;
 
 export const Link = styled(NavLink)`
-  text-decoration:none;
+  text-decoration: none;
   cursor: pointer;
   font-size: ${props => props.theme.fontSizes.xxxl};
   line-height: ${props => props.theme.lineHeights.l};
   font-weight: ${props => props.theme.fontWeights.medium};
-  color: ${props => props.theme.colors.black}; 
+  color: ${props => props.theme.colors.black};
   &:hover,
   &:focus {
-    color: ${props => props.theme.colors.accent}; 
+    color: ${props => props.theme.colors.accent};
   }
 
   @media screen and (min-width: 768px) {
