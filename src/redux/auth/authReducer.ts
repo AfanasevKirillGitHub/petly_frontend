@@ -91,6 +91,7 @@ export const authSlice = createSlice({
         state.user.phone = payload.dataUser.phone;
         state.user.city = payload.dataUser.city;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        // state.user.id = payload.dataUser._id;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })

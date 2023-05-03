@@ -54,21 +54,29 @@ export const HeartWrapper = styled.div`
   cursor: pointer;
 `;
 export const HeartIcon = styled(HiOutlineHeart)`
-  /* fill: ${p => {
-    return p.isfavorite === 'true' ? 'red' : '#ffffff';
-  }}; */
-
-  fill: #ffffff;
+  fill: ${p => {
+    return p.favorite === 'true' ? '#f59256' : '#ffffff';
+  }};
   stroke: #f59256;
   &:hover,
   &:focus {
     fill: #f59256;
+    fill: ${p => {
+      return p.favorite === 'true' ? '#ffffff' : '#f59256';
+    }};
   }
 `;
 
 export const TextWrapper = styled.div`
   padding: 20px 20px 12px;
 `;
+
+export const HeaderWrapper = styled.div`
+  height: 77px;
+  display: flex;
+  align-items: center;
+`;
+
 export const TextHeader = styled.h2`
   margin-bottom: 20px;
   font-family: Manrope-Medium;
@@ -110,8 +118,10 @@ export const TextLineValue = styled.p`
 export const TextLinesWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-bottom: 20px;
   gap: 8px;
+  height: 107px;
 `;
 
 export const CardbuttonsList = styled.ul`
@@ -121,6 +131,7 @@ export const CardbuttonsList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 12px;
+  height: 88px;
 `;
 
 export const CardButton = styled.button`
