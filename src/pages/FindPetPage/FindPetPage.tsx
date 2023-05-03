@@ -1,6 +1,5 @@
-import { Suspense, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Loader } from '../../components/Loader/Loader';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FindPetNan } from '../../components/FindPetNan/FindPetNan';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { useTranslation } from 'react-i18next';
@@ -8,19 +7,22 @@ import * as SC from './FindPetPage.styled';
 import AddNotice from '../../components/AddNotice/AddNotice';
 import { Modal } from '../../components/Modal/Modal';
 import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
-import { useFetchNoticesQuery } from '../../redux/notices/noticesOperations';
+import { SellPage } from './SellPage/SellPage';
+import { LostFoundPage } from './LostFoundPage/LostFoundPage';
+import { InGoodHandPage } from './InGoodHandPage/InGoodHandPage';
+import { AllNoticesPage } from './AllNoticesPage/AllNoticesPage';
+import { FavoritePage } from './FavoritePage/FavoritePage';
+import { MyAdsPage } from './MyAdsPage/MyAdsPage';
 
 export const FindPetPage = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const { pathname } = useLocation();
+
   const modalHandler = () => {
     setIsModalOpen(prev => !prev);
   };
-
-  const { data } = useFetchNoticesQuery({ lang: 'en' });
-
-  console.log(data);
 
   return (
     <SC.Main>
@@ -35,10 +37,16 @@ export const FindPetPage = () => {
           <AddNotice toggleModal={modalHandler} />
         </Modal>
       )}
-
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      {!pathname.includes('sell') &&
+        !pathname.includes('lost-found') &&
+        !pathname.includes('good-hand') &&
+        !pathname.includes('favorite') &&
+        !pathname.includes('my-ads') && <AllNoticesPage />}
+      {pathname.includes('sell') && <SellPage />}
+      {pathname.includes('lost-found') && <LostFoundPage />}
+      {pathname.includes('good-hand') && <InGoodHandPage />}
+      {pathname.includes('favorite') && <FavoritePage />}
+      {pathname.includes('my-ads') && <MyAdsPage />}
     </SC.Main>
   );
 };

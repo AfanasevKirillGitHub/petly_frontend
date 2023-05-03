@@ -73,6 +73,18 @@
     "editPhoto": "Edit photo",
     "logOut": "Log Out",
     "birthday": "Birthday",
-    "city": "City"
+    "phone": "Phone",
+    "city": "City",
+    "myInformation": "My information",
+    "incorrectFormat": "Incorrect format",
+    "tooShort": "Too short!",
+    "tooLong": "Too long!",
+    "fieldIsRequired": "Field is required!",
+    "minCharactersNr": "Min characters - ",
+    "maxCharactersNr": "Max characters - ",
+    "dateMustBeExactly": "Must be exactly DD.MM.YYYY",
+    "enterValidDateError": "Please enter a valid date: dd.MM.yyyy",
+    "dateTooEarlyError": "Date is too early",
+    "fieldFormatIsCorrect": "Field format is correct"
   }
 }

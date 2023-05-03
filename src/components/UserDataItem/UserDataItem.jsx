@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form, Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { parse, isDate } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 import {
   BtnImage,
@@ -16,76 +17,6 @@ import {
 
 const today = new Date();
 
-const nameSchema = yup.object({
-  name: yup
-    .string()
-    .min(2, 'Too short!')
-    .max(18, 'Too long!')
-    .matches(
-      /^[a-zA-Zа-яіїєА-ЯІЇЄ'""\s? ][a-zA-Zа-яіїєА-ЯІЇЄ'""-\s? ]*$/,
-      'Incorrect format'
-    )
-    .required('Field is required!'),
-});
-
-const emailSchema = yup.object().shape({
-  email: yup
-    .string()
-    .required('Email field is required')
-    .matches(
-      /^([a-zA-Z0-9]{1}[a-zA-Z0-9_\-.]{1,})@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,4})$/,
-      'Incorrect format'
-    )
-    .max(70, 'Maximum 70 characters')
-    .min(7, 'Minimum 10 characters')
-    .email(),
-});
-
-const citySchema = yup.object({
-  city: yup
-    .string()
-    .min(2, 'Min 2 characters')
-    .max(18, 'Max 18 characters')
-    .matches(
-      /^[a-zA-Zа-яіїєА-ЯІЇЄ'\s? ][a-zA-Zа-яіїєА-ЯІЇЄ'-\s? ]*$/,
-      'Incorrect format'
-    ),
-});
-
-const phoneSchema = yup.object({
-  phone: yup
-    .string()
-    .min(9, 'Min 9 characters')
-    .max(15, 'Max 15 characters')
-    .matches(
-      /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-      'Incorrect format'
-    ),
-});
-
-const birthdaySchema = yup.object({
-  birthday: yup
-    .date()
-    .test('len', 'Must be exactly DD.MM.YYYY', (value, { originalValue }) => {
-      if (originalValue) {
-        return originalValue.length === 10;
-      }
-    })
-    .transform(function (_, originalValue) {
-      const parsedDate = isDate(originalValue)
-        ? originalValue
-        : parse(originalValue, 'dd.MM.yyyy', new Date());
-
-      return parsedDate;
-    })
-    .typeError('Please enter a valid date: dd.MM.yyyy')
-    .required()
-    .min('01.01.1920', 'Date is too early')
-    .max(today),
-});
-
-const capitalize = s => (s && s[0].toUpperCase() + s.slice(1)) || '';
-
 export default function UserDataItem({
   field,
   initValue,
@@ -93,6 +24,95 @@ export default function UserDataItem({
   isDisabledBtn,
   setUser,
 }) {
+  const { t } = useTranslation();
+
+  const nameSchema = yup.object({
+    name: yup
+      .string()
+      .min(2, t('user.tooShort'))
+      .max(18, t('user.tooLong'))
+      .matches(
+        /^[a-zA-Zа-яіїєА-ЯІЇЄ'""\s? ][a-zA-Zа-яіїєА-ЯІЇЄ'""-\s? ]*$/,
+        t('user.incorrectFormat')
+      )
+      .required(t('user.fieldIsRequired')),
+  });
+
+  const emailSchema = yup.object().shape({
+    email: yup
+      .string()
+      .required(t('user.fieldIsRequired'))
+      .matches(
+        /^([a-zA-Z0-9]{1}[a-zA-Z0-9_\-.]{1,})@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,4})$/,
+        t('user.incorrectFormat')
+      )
+      .max(70, t('user.maxCharactersNr') + '70')
+      .min(7, t('user.minCharactersNr') + '10')
+      .email(),
+  });
+
+  const citySchema = yup.object({
+    city: yup
+      .string()
+      .min(2, t('user.minCharactersNr') + '2')
+      .max(18, t('user.maxCharactersNr') + '18')
+      .matches(
+        /^[a-zA-Zа-яіїєА-ЯІЇЄ'\s? ][a-zA-Zа-яіїєА-ЯІЇЄ'-\s? ]*$/,
+        t('user.incorrectFormat')
+      ),
+  });
+
+  const phoneSchema = yup.object({
+    phone: yup
+      .string()
+      .min(9, t('user.minCharactersNr') + '9')
+      .max(15, t('user.maxCharactersNr') + '15')
+      .matches(
+        /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
+        t('user.incorrectFormat')
+      ),
+  });
+
+  const birthdaySchema = yup.object({
+    birthday: yup
+      .date()
+      .test('len', t('user.dateMustBeExactly'), (value, { originalValue }) => {
+        if (originalValue) {
+          return originalValue.length === 10;
+        }
+      })
+      .transform(function (_, originalValue) {
+        const parsedDate = isDate(originalValue)
+          ? originalValue
+          : parse(originalValue, 'dd.MM.yyyy', new Date());
+
+        return parsedDate;
+      })
+      .typeError(t('user.enterValidDateError'))
+      .required()
+      .min('01.01.1920', t('user.dateTooEarlyError'))
+      .max(today),
+  });
+
+  // const capitalize = s => (s && s[0].toUpperCase() + s.slice(1)) || '';
+
+  const translateFieldTitle = field => {
+    switch (field) {
+      case 'name':
+        return t('Name');
+      case 'email':
+        return t('Email');
+      case 'birthday':
+        return t('user.birthday');
+      case 'phone':
+        return t('user.phone');
+      case 'city':
+        return t('user.city');
+      default:
+        return 'unexpected value';
+    }
+  };
+
   const [isEdit, setIsEdit] = useState(false);
 
   const addSchema = field => {
@@ -143,7 +163,7 @@ export default function UserDataItem({
       {({ values, handleSubmit, errors, touched }) => (
         <Form>
           <Wrapper>
-            <FieldText>{capitalize(field)}:</FieldText>
+            <FieldText>{translateFieldTitle(field)}:</FieldText>
             {isEdit ? (
               <StyledInput autoComplete="off" name={field} />
             ) : (
@@ -224,7 +244,7 @@ export default function UserDataItem({
                 height: '20px',
               }}
             >
-              {field} field is correct
+              {t('user.fieldFormatIsCorrect')}
             </div>
           ) : null}
         </Form>

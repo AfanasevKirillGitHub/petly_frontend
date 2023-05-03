@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 import { updateInfo } from '../../redux/auth/authOperations';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { logOut } from '../../redux/auth/authOperations';
 import defaultAvatar from '../../helpers/photos/default-avatar.png';
 import editPhotoIcon from '../../helpers/photos/editPhotoIcon.png';
@@ -14,7 +14,7 @@ import UserDataItem from '../UserDataItem/UserDataItem';
 const fileTypes = ['png', 'jpg', 'jpeg', 'webp'];
 
 export const UserData = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const { user } = useAuth();
   const dispatch = useDispatch();
   const [isDisabledBtn, setIsDisabledBtn] = useState(false);
@@ -43,7 +43,7 @@ export const UserData = () => {
 
   return (
     <SC.Wrapper>
-      <SC.TitleInfo>My information:</SC.TitleInfo>
+      <SC.TitleInfo>{t('user.myInformation')}:</SC.TitleInfo>
       <SC.UserFrame>
         <SC.PhotoContainer>
           <SC.PhotoWrapper>
@@ -67,7 +67,7 @@ export const UserData = () => {
             />
             <SC.EditPhotoButton>
               <SC.EditPhotoIcon src={editPhotoIcon} alt="Edit avatar icon" />
-              <SC.EditPhotoText>Edit photo</SC.EditPhotoText>
+              <SC.EditPhotoText>{t('user.editPhoto')}</SC.EditPhotoText>
             </SC.EditPhotoButton>
           </SC.InputWrapper>
         </SC.PhotoContainer>
@@ -146,7 +146,8 @@ export const UserData = () => {
               document.location.reload();
             }}
           >
-            <SC.LogoutIcon alt="logout user" src={logoutIcon} /> Log Out
+            <SC.LogoutIcon alt="logout user" src={logoutIcon} />{' '}
+            {t('user.logOut')}
           </SC.LogoutButton>
         </SC.UserItemWrapper>
       </SC.UserFrame>
