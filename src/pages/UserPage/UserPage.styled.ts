@@ -4,28 +4,21 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 61px 20px 80px 20px;
+  padding: 61px 0 80px 0;
 
   @media (min-width: 768px) {
-    align-items: start;
+    flex-direction: column;
     padding: 0;
     padding-top: 88px;
     padding-bottom: 100px;
   }
-  
+
   @media (min-width: 1280px) {
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: start;
-    padding: 58px 0px 40px 0px;
-  }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-
-    padding-top: 200px;
-  }
-  @media (min-width: 1280px) {
-    padding-top: 80px;
+    justify-content: space-between;
+    padding: 58px 0px 0px 0px;
   }
 `;
