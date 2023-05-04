@@ -6,7 +6,7 @@ export const StepTwo = ({ photo, comments, updateFields }) => {
 
   useEffect(() => {
     updateFields({ photo: file });
-  }, [file, updateFields]);
+  }, [file]);
 
   const handelChanhe = e => {
     const { name, files } = e.target;
@@ -31,7 +31,6 @@ export const StepTwo = ({ photo, comments, updateFields }) => {
           type="file"
           name="photo"
           alt="Pet image"
-          //   value={photo}
           onChange={handelChanhe}
           accept="image/*,.png,.jpg,.jpeg,.webp"
         />

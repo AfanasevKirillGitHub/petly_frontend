@@ -34,8 +34,6 @@ export const UserData = () => {
 
     const imageFile = event.target.files[0];
 
-    console.log('imageFile :>> ', imageFile);
-
     if (imageFile) {
       const formData = new FormData();
       formData.append('avatarURL', imageFile);

@@ -19,7 +19,6 @@ export const AddPet = ({ toggleModal }) => {
   const [addPet, { isLoading, isError }] = useAddPetsMutation();
 
   const updateFields = fields => {
-    console.log('updateFields fields :>> ', fields);
     setData(prev => {
       return { ...prev, ...fields };
     });
