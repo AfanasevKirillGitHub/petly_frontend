@@ -1,4 +1,5 @@
 import numWords from 'num-words';
+import { useState } from 'react';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import {
@@ -6,6 +7,8 @@ import {
   useRemoveNoticesFromFavoriteMutation,
   useRemoveOwnMutation,
 } from '../../redux/notices/noticesOperations';
+import { FullNoticeInfo } from '../FullNoticeInfo/FullNoticeInfo';
+import { Modal } from '../Modal/Modal';
 import * as SC from './NoticeCard.styled';
 
 export const NoticeCard = ({ data }) => {
@@ -21,6 +24,12 @@ export const NoticeCard = ({ data }) => {
     favorite,
     owner,
   } = data;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modalHandler = () => {
+    setIsModalOpen(prev => !prev);
+  };
 
   const defaultPicture = 'https://loremflickr.com/250/250/cat/all';
 
@@ -81,9 +90,7 @@ export const NoticeCard = ({ data }) => {
       return;
     }
     if (isFavorite === true) {
-      removeFav(
-        _id
-      ); /*                             НЕ ПРАЦЮЄ! перевірити контролер */
+      removeFav(_id);
     } else addToFav(_id);
   };
 
@@ -100,8 +107,17 @@ export const NoticeCard = ({ data }) => {
 
   return (
     <SC.CardWrapper>
+      {isModalOpen && (
+        <Modal toggleModal={modalHandler}>
+          <FullNoticeInfo
+            id={_id}
+            noticeCategory={noticeCategory}
+            isFavorite={String(isFavorite)}
+          />
+        </Modal>
+      )}
       <SC.ImageWrapper>
-        <SC.Image src={avatarURL || defaultPicture} alt="title" />
+        <SC.Image src={avatarURL || defaultPicture} alt={title.en} />
         <SC.CategoryLabel>{noticeCategory}</SC.CategoryLabel>
         <SC.HeartWrapper onClick={onFavoriteClick}>
           <SC.HeartIcon size={30} favorite={String(isFavorite)} />
@@ -111,7 +127,7 @@ export const NoticeCard = ({ data }) => {
         <SC.HeaderWrapper>
           <SC.TextHeader>{title.en}</SC.TextHeader>
         </SC.HeaderWrapper>
-        <SC.TextLinesWrapper>
+        <SC.TextLinesWrapper style={{ height: '107px' }}>
           <SC.TextLineWrapper>
             <SC.TextLineName>Breed:</SC.TextLineName>
             <SC.TextLineValue>{breed.en}</SC.TextLineValue>
@@ -133,7 +149,9 @@ export const NoticeCard = ({ data }) => {
         </SC.TextLinesWrapper>
         <SC.CardbuttonsList>
           <li>
-            <SC.CardButton type="button">Learn more</SC.CardButton>
+            <SC.CardButton type="button" onClick={modalHandler}>
+              Learn more
+            </SC.CardButton>
           </li>
           {isOwn && (
             <li>
