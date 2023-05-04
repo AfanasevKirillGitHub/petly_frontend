@@ -73,6 +73,7 @@
     "editPhoto": "Edit photo",
     "logOut": "Log Out",
     "birthday": "Birthday",
+
     "phone": "Phone",
     "city": "City",
     "myInformation": "My information",
@@ -87,5 +88,6 @@
     "dateTooEarlyError": "Date is too early",
     "fieldFormatIsCorrect": "Field format is correct"
   },
-  "fix": "fix"
+  "noPetsInList": "I'm sad - I don't have a pet..."
+
 }

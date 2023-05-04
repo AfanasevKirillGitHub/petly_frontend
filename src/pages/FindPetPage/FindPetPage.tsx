@@ -37,6 +37,7 @@ export const FindPetPage = () => {
           <AddNotice toggleModal={modalHandler} />
         </Modal>
       )}
+
       {!pathname.includes('sell') &&
         !pathname.includes('lost-found') &&
         !pathname.includes('good-hand') &&

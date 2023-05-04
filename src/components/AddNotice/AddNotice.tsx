@@ -24,15 +24,15 @@ type FormInputs = {
 
 const INITIAL_DATA: FormInputs = {
   category: 'sell',
-  title: '',
-  name: '',
+  title: 'weqweqw',
+  name: 'eqeqw',
   birthdate: '',
-  breed: '',
+  breed: 'qee',
   sex: 'male',
-  location: '',
-  price: '',
+  location: 'ewqeqwe, qeqe',
+  price: '133',
   avatarURL: null,
-  comments: '',
+  comments: 'weqweqqeq',
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
@@ -50,28 +50,60 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
     <StepTwo {...formInputs} updateFields={updateFields} />,
   ]);
 
+  console.log(formInputs.avatarURL);
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
     if (!isLastStep) {
       return next();
     }
 
-    dispatch({
-      ...formInputs,
-      title: { en: formInputs.title, ua: 'Шукаю гуся' },
-      breed: { en: formInputs.breed, ua: 'Гусь Мотивуючий' },
-      comments: {
-        en: formInputs.comments,
-        ua: 'Будь ласка, допоможіть знайти',
-      },
-      location: {
-        city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
-        region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
-      },
-      price: Number(formInputs.price),
-      avatarURL:
-        'https://preview.redd.it/2oxv62gme7u71.png?auto=webp&s=1197fa2f96d47e01988714065202432298b87d21',
+    const formData = new FormData();
+
+    formData.append(
+      'title',
+      // @ts-ignore
+      { en: formInputs.title, ua: 'Шукаю гуся' }
+    );
+    formData.append('name', formInputs.name as string);
+    formData.append('category', formInputs.category as string);
+    formData.append('birthdate', formInputs.birthdate as string);
+    formData.append('breed', {
+      // @ts-ignore
+      en: formInputs.breed,
+      ua: 'Гусь Мотивуючий',
     });
+    formData.append('sex', formInputs.sex as string);
+    formData.append('location', {
+      // @ts-ignore
+      city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
+      region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
+    });
+    formData.append('price', formInputs.price as string);
+    formData.append('comments', {
+      // @ts-ignore
+      en: formInputs.comments,
+      ua: 'Будь ласка, допоможіть знайти',
+    });
+    formData.append('avatarURL', formInputs.avatarURL as File);
+
+    dispatch(formData);
+
+    // dispatch({
+    //   ...formInputs,
+    //   title: { en: formInputs.title, ua: 'Шукаю гуся' },
+    //   breed: { en: formInputs.breed, ua: 'Гусь Мотивуючий' },
+    //   comments: {
+    //     en: formInputs.comments,
+    //     ua: 'Будь ласка, допоможіть знайти',
+    //   },
+    //   location: {
+    //     city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
+    //     region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
+    //   },
+    //   price: Number(formInputs.price),
+    //   avatarURL:
+    //     'https://preview.redd.it/2oxv62gme7u71.png?auto=webp&s=1197fa2f96d47e01988714065202432298b87d21',
+    // });
 
     console.log(formInputs);
 
@@ -103,3 +135,36 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
 };
 
 export default AddNotice;
+
+// const formData = new FormData();
+
+// formData.append('avatarURL', formInputs.avatarURL as File);
+// formData.append(
+//   'title',
+//   JSON.stringify({ en: formInputs.title, ua: 'Шукаю гуся' })
+// );
+// formData.append('name', formInputs.name as string);
+// formData.append('category', formInputs.category as string);
+// formData.append('birthdate', formInputs.birthdate as string);
+// formData.append(
+//   'breed',
+//   JSON.stringify({ en: formInputs.breed, ua: 'Гусь Мотивуючий' })
+// );
+// formData.append('sex', formInputs.sex as string);
+// formData.append(
+//   'location',
+//   JSON.stringify({
+//     city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
+//     region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
+//   })
+// );
+// formData.append('price', formInputs.price as string);
+// formData.append(
+//   'comments',
+//   JSON.stringify({
+//     en: formInputs.comments,
+//     ua: 'Будь ласка, допоможіть знайти',
+//   })
+// );
+
+// dispatch(formInputs);

@@ -55,6 +55,13 @@ export const ImageThumb = styled.div`
   }
 `;
 
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+`;
+
 export const CardData = styled.div`
   width: 100%;
 `;

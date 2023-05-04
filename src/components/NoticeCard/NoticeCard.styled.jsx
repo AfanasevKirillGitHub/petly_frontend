@@ -17,6 +17,7 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+  aspect-ratio: 1/1;
   object-fit: cover;
 `;
 
@@ -53,6 +54,7 @@ export const HeartWrapper = styled.div`
   border-radius: 50%;
   cursor: pointer;
 `;
+
 export const HeartIcon = styled(HiOutlineHeart)`
   fill: ${p => {
     return p.favorite === 'true' ? '#f59256' : '#ffffff';
@@ -78,8 +80,9 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const TextHeader = styled.h2`
-  margin-bottom: 20px;
   font-family: Manrope-Medium;
+  margin-bottom: 20px;
+
   font-weight: 700;
   font-size: 28px;
   line-height: 1.36;
@@ -121,7 +124,7 @@ export const TextLinesWrapper = styled.div`
   justify-content: center;
   margin-bottom: 20px;
   gap: 8px;
-  height: 107px;
+  /* height: 107px; */
 `;
 
 export const CardbuttonsList = styled.ul`
