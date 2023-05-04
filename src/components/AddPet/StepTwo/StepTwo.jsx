@@ -6,7 +6,7 @@ export const StepTwo = ({ photo, comments, updateFields }) => {
 
   useEffect(() => {
     updateFields({ photo: file });
-  }, [file]);
+  }, [file, updateFields]);
 
   const handelChanhe = e => {
     const { name, files } = e.target;
