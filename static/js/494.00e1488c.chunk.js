@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[494],{6494:function(n,e,t){t.r(e),t.d(e,{SellPage:function(){return u}});var r=t(5650),a=t(7205),l=t(2092),i=t(7127),s=t(6549),c=t(3329),u=function(){var n=(0,s.E)(),e=n.lang,t=n.keyword,u=(0,a.Fp)({category:"sell",lang:e,key:t}),d=u.data,o=u.isFetching;return(0,c.jsxs)(c.Fragment,{children:[o&&(0,c.jsx)(l.a,{}),(0,c.jsx)(i.X,{children:null===d||void 0===d?void 0:d.notices.map((function(n){return(0,c.jsx)(r.O,{data:n},n._id)}))})]})}}}]);
+//# sourceMappingURL=494.00e1488c.chunk.js.map
