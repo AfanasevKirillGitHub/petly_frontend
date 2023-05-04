@@ -86,5 +86,6 @@
     "enterValidDateError": "Please enter a valid date: dd.MM.yyyy",
     "dateTooEarlyError": "Date is too early",
     "fieldFormatIsCorrect": "Field format is correct"
-  }
+  },
+  "fix": "fix"
 }

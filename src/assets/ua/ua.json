@@ -86,5 +86,6 @@
     "enterValidDateError": "Введіть дату у форматі ДД.ММ.РРРР",
     "dateTooEarlyError": "Дата занадто рання",
     "fieldFormatIsCorrect": "Запис коректний"
-  }
+  },
+  "fix": "fix"
 }
