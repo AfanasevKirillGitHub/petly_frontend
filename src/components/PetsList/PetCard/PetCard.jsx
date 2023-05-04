@@ -14,7 +14,9 @@ export const PetCard = ({
     //   Уся картка
     <SC.PetCard>
       {/* Врапер для внутрянки */}
-      <SC.ImageThumb>{photo && <NoPetImage />}</SC.ImageThumb>
+      <SC.ImageThumb>
+        {!photo ? <NoPetImage /> : <SC.Image src={photo} alt={name} />}
+      </SC.ImageThumb>
       <SC.CardData>
         <SC.CardHeader>
           <ul>

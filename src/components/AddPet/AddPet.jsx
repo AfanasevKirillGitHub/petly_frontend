@@ -16,9 +16,10 @@ const INITIAL_PET_DATA = {
 
 export const AddPet = ({ toggleModal }) => {
   const [data, setData] = useState(INITIAL_PET_DATA);
-  const [addPet, { isLoading, isSuccess }] = useAddPetsMutation();
+  const [addPet, { isLoading, isError }] = useAddPetsMutation();
 
   const updateFields = fields => {
+    console.log('updateFields fields :>> ', fields);
     setData(prev => {
       return { ...prev, ...fields };
     });
@@ -34,7 +35,7 @@ export const AddPet = ({ toggleModal }) => {
     if (!isLastStep) {
       return next();
     }
-    console.log('Pet data :>> ', data);
+    // console.log('Pet data :>> ', data);
     const petData = new FormData();
     petData.append('name', data.name);
     petData.append('birthday', data.birthday);
@@ -42,7 +43,7 @@ export const AddPet = ({ toggleModal }) => {
     petData.append('photo', data.photo);
     petData.append('comments', data.comments);
 
-    addPet(data);
+    addPet(petData);
 
     // console.log('petData :>> ', petData.get('petName'));
     // console.log('petData :>> ', petData.get('birthday'));
@@ -50,7 +51,9 @@ export const AddPet = ({ toggleModal }) => {
     // console.log('petData :>> ', petData.get('photo'));
     // console.log('petData :>> ', petData.get('comments'));
 
-    isSuccess && toggleModal();
+    if (!isError) {
+      toggleModal();
+    }
   };
 
   return (

@@ -74,5 +74,6 @@
     "logOut": "Log Out",
     "birthday": "Birthday",
     "city": "City"
-  }
+  },
+  "noPetsInList": "I'm sad - I don't have a pet..."
 }

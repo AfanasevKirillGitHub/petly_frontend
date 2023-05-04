@@ -36,6 +36,15 @@ export const LoadImage = styled.div`
   cursor: pointer;
   background-color: ${p => p.theme.colors.background};
   border-radius: ${p => p.theme.radii.normal};
+
+  overflow: hidden;
+`;
+
+export const PetImg = styled.img`
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
 `;
 
 export const Plus = styled(IoAddSharp)`
