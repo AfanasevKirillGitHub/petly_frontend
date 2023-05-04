@@ -2,10 +2,14 @@ import { NoticeCard } from '../../../components/NoticeCard/NoticeCard';
 import { useFetchFavoriteQuery } from '../../../redux/notices/noticesOperations';
 import { Loader } from '../../../components/Loader/Loader';
 import * as SC from '../List.styled';
+import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 export const FavoritePage = () => {
+  const { lang, keyword } = useGetSearchParams();
+
   const { data, isFetching } = useFetchFavoriteQuery({
-    lang: 'en',
+    lang,
+    key: keyword,
   });
 
   return (

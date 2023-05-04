@@ -5,7 +5,7 @@ import { RootState } from '../store';
 export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'http://localhost:8080/api/notices',
+    // baseUrl: 'http://localhost:3666/api/notices',
     baseUrl: 'https://your-pets.onrender.com/api/notices',
     prepareHeaders: (headers, { getState }) => {
       const token: string | null = (getState() as RootState).auth.token;
@@ -20,9 +20,9 @@ export const noticesApi = createApi({
   tagTypes: ['notices'],
   endpoints: builder => ({
     fetchNotices: builder.query<INotice[] | [], any>({
-      query: ({ lang = 'en', page = '1', limit = '20' }) => ({
+      query: ({ lang = 'en', page = '1', limit = '20', key = '' }) => ({
         method: 'GET',
-        url: `/?lang=${lang}&page=${page}&limit=${limit}`,
+        url: `/?key=${key}&lang=${lang}&page=${page}&limit=${limit}`,
       }),
       providesTags: ['notices'],
     }),
@@ -36,9 +36,9 @@ export const noticesApi = createApi({
       invalidatesTags: ['notices'],
     }),
     fetchById: builder.query<INotice, any>({
-      query: ({ lang = 'en', page = '1', limit = '20', id }) => ({
+      query: ({ lang = 'en', id }) => ({
         method: 'GET',
-        url: `/card/${id}?lang=${lang}&page=${page}&limit=${limit}`,
+        url: `/card/${id}?lang=${lang}`,
       }),
       providesTags: ['notices'],
     }),
@@ -53,29 +53,35 @@ export const noticesApi = createApi({
     removeNoticesFromFavorite: builder.mutation<any, any>({
       query: id => ({
         method: 'DELETE',
-        url: `/favorites/${id}`,
+        url: `/favorite/${id}`,
       }),
 
       invalidatesTags: ['notices'],
     }),
     fetchFavorite: builder.query<INotice[] | [], any>({
-      query: ({ lang = 'en', page = '1', limit = '20' }) => ({
+      query: ({ lang = 'en', page = '1', limit = '20', key = '' }) => ({
         method: 'GET',
-        url: `/favorite?lang=${lang}&page=${page}&limit=${limit}`,
+        url: `/favorite?lang=${lang}&key=${key}&page=${page}&limit=${limit}`,
       }),
       providesTags: ['notices'],
     }),
     fetchOwn: builder.query<INotice[] | [], any>({
-      query: ({ lang = 'en', page = '1', limit = '20' }) => ({
+      query: ({ lang = 'en', page = '1', limit = '20', key = '' }) => ({
         method: 'GET',
-        url: `/own?lang=${lang}&page=${page}&limit=${limit}`,
+        url: `/own?lang=${lang}&key=${key}&page=${page}&limit=${limit}`,
       }),
       providesTags: ['notices'],
     }),
     fetchByCategory: builder.query<INotice[] | [], any>({
-      query: ({ lang = 'en', page = '1', limit = '20', category }) => ({
+      query: ({
+        lang = 'en',
+        page = '1',
+        limit = '20',
+        category,
+        key = '',
+      }) => ({
         method: 'GET',
-        url: `/${category}?lang=${lang}&page=${page}&limit=${limit}`,
+        url: `/${category}?lang=${lang}&key=${key}&page=${page}&limit=${limit}`,
       }),
       providesTags: ['notices'],
     }),
