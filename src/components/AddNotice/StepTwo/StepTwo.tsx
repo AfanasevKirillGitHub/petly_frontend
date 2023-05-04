@@ -7,7 +7,7 @@ interface DealInfo {
   sex: 'male' | 'female';
   location: string;
   price: string;
-  avatarURL: string;
+  avatarURL: File | string | null;
   comments: string;
 }
 
@@ -24,6 +24,19 @@ export const StepTwo = ({
   comments,
   updateFields,
 }: StepTwoProps) => {
+  // const [avatarURL, setAvatarURL] = useState<File | null>(null);
+
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = evt.target;
+    switch (name) {
+      case 'avatarURL':
+        updateFields({ avatarURL: files![0] as File });
+        return;
+      default:
+        return;
+    }
+  };
+
   return (
     <>
       <SC.FieldTitle>The sex:</SC.FieldTitle>
@@ -85,12 +98,20 @@ export const StepTwo = ({
         <SC.LoadImage>
           <SC.Plus />
         </SC.LoadImage>
-        <SC.HiddenInput
+        {/* <SC.HiddenInput
           type="file"
           value={avatarURL}
           onChange={evt => {
             updateFields({ avatarURL: evt.target.value });
           }}
+        /> */}
+
+        <SC.HiddenInput
+          id="avatar"
+          type="file"
+          onChange={handleChange}
+          accept="image/*,.png,.jpg,.jpeg,.webp"
+          name="avatarURL"
         />
       </SC.Label>
       <SC.Label>

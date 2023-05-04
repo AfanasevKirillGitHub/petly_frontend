@@ -4,12 +4,19 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 320px;
+  width: 100%;
+  max-width: 280px;
 
-  padding-top: 57px;
   font-family: ${props => props.theme.fontFamily.body};
 
   @media screen and (min-width: 768px) {
+    width: 100%;
+    max-width: 768px;
+    padding-top: 0px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 821px;
     padding-top: 0px;
   }
 `;
@@ -25,13 +32,23 @@ export const TitleInfo = styled.p`
 `;
 
 export const PetsDataHeader = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
 
   margin-bottom: 24px;
+
+  & > button {
+    position: absolute;
+    right: 0;
+    top: -9px;
+
+    @media screen and (min-width: 768px) {
+      top: 0;
+    }
+  }
 
   @media screen and (min-width: 768px) {
     padding-top: 0px;

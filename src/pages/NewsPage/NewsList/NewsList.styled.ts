@@ -3,17 +3,27 @@ import styled from 'styled-components';
 export const NewsList = styled.ul`
   list-style: none;
   justify-content: center;
+  padding-bottom: 100px;
+  @media screen and (max-width: 767px) {
+    max-width: 280px;
+  }
   @media screen and (min-width: 768px) {
   display: flex;
   flex-wrap: wrap;
   margin-right: -32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: -16px;
+    padding-bottom: 200px;
   }
 `;
 
 export const NewsListItem = styled.li`
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
   ::before {
     content: ' ';
     height: 6px;
@@ -29,9 +39,12 @@ export const NewsListItem = styled.li`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     min-height: 522px;
     flex-basis: calc(100% / 2 - 32px);
-    margin-bottom: 60px;
-    &:not(:last-child) {
     margin-right: ${props => props.theme.space[5]}px;
+    &:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 60px;
+    }
+    &:nth-last-child(-n + 2) {
+    margin-bottom: 0;
     }
     ::before {
     content: ' ';
@@ -41,10 +54,16 @@ export const NewsListItem = styled.li`
   }
   @media screen and (min-width: 1280px) {
     min-height: 544px;
-    flex-basis: calc(100% / 3 - 32px);
-    &:not(:last-child) {
-    margin-bottom: 60px;
+    flex-basis: calc(100%/3 - (32px * 2 + 16px)/3);
     margin-right: ${props => props.theme.space[5]}px;
+    &:nth-child(3n) {
+      margin-right: ${props => props.theme.space[4]}px;
+    }
+    &:not(:nth-last-child(-n + 3)) {
+    margin-bottom: 60px;
+    }
+    &:nth-last-child(-n + 3) {
+    margin-bottom: 0;
     }
     ::before {
     content: ' ';

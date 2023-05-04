@@ -4,13 +4,12 @@ import * as SC from './AddNotice.styled';
 import { StepOne } from './StepOne/StepOne';
 import { StepTwo } from './StepTwo/StepTwo';
 import { useAddNoticesMutation } from '../../redux/notices/noticesOperations';
-import defaultAvatar from '../../helpers/photos/default-avatar.png';
 
 interface IAddNoticeProps {
   toggleModal: () => void;
 }
 
-type FormData = {
+type FormInputs = {
   category: 'sell' | 'lost-found' | 'for-free';
   sex: 'male' | 'female';
   title: string;
@@ -19,11 +18,11 @@ type FormData = {
   breed: string;
   location: string;
   price: string;
-  avatarURL: string;
+  avatarURL: File | string | null;
   comments: string;
 };
 
-const INITIAL_DATA: FormData = {
+const INITIAL_DATA: FormInputs = {
   category: 'sell',
   title: '',
   name: '',
@@ -32,23 +31,23 @@ const INITIAL_DATA: FormData = {
   sex: 'male',
   location: '',
   price: '',
-  avatarURL: '',
+  avatarURL: null,
   comments: '',
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
-  const [dispatch, { isError }] = useAddNoticesMutation();
-  const [formData, setFormData] = useState(INITIAL_DATA);
+  const [dispatch, { isError, isLoading }] = useAddNoticesMutation();
+  const [formInputs, setFormInputs] = useState(INITIAL_DATA);
 
-  const updateFields = (fields: Partial<FormData>) => {
-    setFormData(prev => {
+  const updateFields = (fields: Partial<FormInputs>) => {
+    setFormInputs(prev => {
       return { ...prev, ...fields };
     });
   };
 
   const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
-    <StepOne {...formData} updateFields={updateFields} />,
-    <StepTwo {...formData} updateFields={updateFields} />,
+    <StepOne {...formInputs} updateFields={updateFields} />,
+    <StepTwo {...formInputs} updateFields={updateFields} />,
   ]);
 
   const handleSubmit = (evt: FormEvent) => {
@@ -58,20 +57,25 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
     }
 
     dispatch({
-      ...formData,
-      title: { en: formData.title, ua: 'фваиміваиіваи' },
-      breed: { en: formData.breed, ua: 'фваиміваиіваи' },
-      comments: { en: formData.comments, ua: 'фваиміваиіваи' },
-      location: {
-        city: { en: formData.location.split(', ')[0], ua: 'фваиміваиіваи' },
-        region: { en: formData.location.split(', ')[1], ua: 'фваиміваиіваи' },
+      ...formInputs,
+      title: { en: formInputs.title, ua: 'Шукаю гуся' },
+      breed: { en: formInputs.breed, ua: 'Гусь Мотивуючий' },
+      comments: {
+        en: formInputs.comments,
+        ua: 'Будь ласка, допоможіть знайти',
       },
-      price: Number(formData.price),
-      birthdate: new Date(formData.birthdate),
-      avatarURL: formData.avatarURL ? formData.avatarURL : defaultAvatar,
+      location: {
+        city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
+        region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
+      },
+      price: Number(formInputs.price),
+      avatarURL:
+        'https://preview.redd.it/2oxv62gme7u71.png?auto=webp&s=1197fa2f96d47e01988714065202432298b87d21',
     });
 
-    if (!isError) {
+    console.log(formInputs);
+
+    if (!isLoading && !isError) {
       toggleModal();
     }
   };

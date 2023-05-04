@@ -11,6 +11,7 @@ export const NavList = styled.ul`
   list-style: none;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 `;
 
 export const NavItem = styled.li``;
