@@ -56,47 +56,19 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
       return next();
     }
 
-    // const formData = new FormData();
-
-    // formData.append('category', formInputs.category);
-    // formData.append('sex', formInputs.sex);
-    // formData.append('price', formInputs.price);
-    // formData.append('birthdate', formInputs.birthdate);
-    // formData.append(
-    //   'title',
-    //   JSON.stringify({ en: formInputs.title, ua: 'Шукаю гуся' })
-    // );
-    // formData.append(
-    //   'breed',
-    //   JSON.stringify({ en: formInputs.breed, ua: 'Шукаю гуся' })
-    // );
-    // formData.append(
-    //   'comments',
-    //   JSON.stringify({ en: formInputs.comments, ua: 'Шукаю гуся' })
-    // );
-    // formData.append(
-    //   'location',
-    //   JSON.stringify({
-    //     city: { en: formInputs.location.split(', ')[0], ua: 'фваиміваиіваи' },
-    //     region: { en: formInputs.location.split(', ')[1], ua: 'фваиміваиіваи' },
-    //   })
-    // );
-    // formData.append(
-    //   'avatarURL',
-    //   formInputs.avatarURL
-    //     ? (formInputs.avatarURL as File)
-    //     : (defaultAvatar as string)
-    // );
-
     dispatch({
       ...formInputs,
       title: { en: formInputs.title, ua: 'Шукаю гуся' },
-      breed: { en: formInputs.breed, ua: 'Шукаю гуся' },
-      comments: { en: formInputs.comments, ua: 'Шукаю гуся' },
-      location: {
-        city: { en: formInputs.location.split(', ')[0], ua: 'фваиміваиіваи' },
-        region: { en: formInputs.location.split(', ')[1], ua: 'фваиміваиіваи' },
+      breed: { en: formInputs.breed, ua: 'Гусь Мотивуючий' },
+      comments: {
+        en: formInputs.comments,
+        ua: 'Будь ласка, допоможіть знайти',
       },
+      location: {
+        city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
+        region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
+      },
+      price: Number(formInputs.price),
       avatarURL:
         'https://preview.redd.it/2oxv62gme7u71.png?auto=webp&s=1197fa2f96d47e01988714065202432298b87d21',
     });
@@ -131,16 +103,3 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
 };
 
 export default AddNotice;
-
-/*
-
-title: { en: formInputs.title, ua: 'фваиміваиіваи' },
-      breed: { en: formInputs.breed, ua: 'фваиміваиіваи' },
-      comments: { en: formInputs.comments, ua: 'фваиміваиіваи' },
-      location: {
-        city: { en: formInputs.location.split(', ')[0], ua: 'фваиміваиіваи' },
-        region: { en: formInputs.location.split(', ')[1], ua: 'фваиміваиіваи' },
-      },
-      price: Number(formInputs.price),
-      
-      */
