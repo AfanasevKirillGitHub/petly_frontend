@@ -73,6 +73,11 @@
     "editPhoto": "Змінити фото",
     "logOut": "Вийти",
     "birthday": "Д.народж.",
+<<<<<<< HEAD
+    "city": "Місто"
+  },
+  "noPetsInList": "Не маю тварин - тому я сумний..."
+=======
     "phone": "Телефон",
     "city": "Місто",
     "myInformation": "Моя інформація",
@@ -87,4 +92,5 @@
     "dateTooEarlyError": "Дата занадто рання",
     "fieldFormatIsCorrect": "Запис коректний"
   }
+>>>>>>> main
 }
