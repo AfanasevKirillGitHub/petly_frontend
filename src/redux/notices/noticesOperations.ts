@@ -5,8 +5,8 @@ import { RootState } from '../store';
 export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/api/notices',
-    // baseUrl: 'https://your-pets.onrender.com/api/notices',
+    // baseUrl: 'http://localhost:4000/api/notices',
+    baseUrl: 'https://your-pets.onrender.com/api/notices',
     prepareHeaders: (headers, { getState }) => {
       const token: string | null = (getState() as RootState).auth.token;
       if (token) {
