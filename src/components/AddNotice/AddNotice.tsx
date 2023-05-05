@@ -59,31 +59,15 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
 
     const formData = new FormData();
 
-    formData.append(
-      'title',
-      // @ts-ignore
-      { en: formInputs.title, ua: 'Шукаю гуся' }
-    );
+    formData.append('title', formInputs.title as string);
     formData.append('name', formInputs.name as string);
     formData.append('category', formInputs.category as string);
     formData.append('birthdate', formInputs.birthdate as string);
-    formData.append('breed', {
-      // @ts-ignore
-      en: formInputs.breed,
-      ua: 'Гусь Мотивуючий',
-    });
+    formData.append('breed', formInputs.breed as string);
     formData.append('sex', formInputs.sex as string);
-    formData.append('location', {
-      // @ts-ignore
-      city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
-      region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
-    });
+    formData.append('location', formInputs.location as string);
     formData.append('price', formInputs.price as string);
-    formData.append('comments', {
-      // @ts-ignore
-      en: formInputs.comments,
-      ua: 'Будь ласка, допоможіть знайти',
-    });
+    formData.append('comments', formInputs.comments as string);
     formData.append('avatarURL', formInputs.avatarURL as File);
 
     dispatch(formData);

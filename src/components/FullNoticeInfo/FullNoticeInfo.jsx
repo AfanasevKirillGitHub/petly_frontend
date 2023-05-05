@@ -45,7 +45,7 @@ export const FullNoticeInfo = ({ id, noticeCategory, isFavorite }) => {
             </SC.ImageWrapper>
             <SC.TextWrapper>
               <SC.HeaderWrapper>
-                <SC.TextHeader>{data.fullNotice.title.en}</SC.TextHeader>
+                <SC.TextHeader>{data.fullNotice.title}</SC.TextHeader>
               </SC.HeaderWrapper>
               <SC.TextLinesWrapper>
                 <SC.TextLineWrapper>
@@ -62,14 +62,12 @@ export const FullNoticeInfo = ({ id, noticeCategory, isFavorite }) => {
                 </SC.TextLineWrapper>
                 <SC.TextLineWrapper>
                   <SC.TextLineName>Breed:</SC.TextLineName>
-                  <SC.TextLineValue>
-                    {data.fullNotice.breed.en}
-                  </SC.TextLineValue>
+                  <SC.TextLineValue>{data.fullNotice.breed}</SC.TextLineValue>
                 </SC.TextLineWrapper>
                 <SC.TextLineWrapper>
                   <SC.TextLineName>Place:</SC.TextLineName>
                   <SC.TextLineValue>
-                    {data.fullNotice.location.city.en}
+                    {data.fullNotice.location}
                   </SC.TextLineValue>
                 </SC.TextLineWrapper>
                 <SC.TextLineWrapper>
@@ -104,7 +102,7 @@ export const FullNoticeInfo = ({ id, noticeCategory, isFavorite }) => {
 
           <SC.CommentsWrapper>
             <SC.CommentLabel>Comments: </SC.CommentLabel>
-            <SC.Comment>{data.fullNotice.comments.en}</SC.Comment>
+            <SC.Comment>{data.fullNotice.comments}</SC.Comment>
           </SC.CommentsWrapper>
 
           <SC.ButtonList>
