@@ -109,7 +109,7 @@ export const ContactValue = styled.a`
   width: 100%;
   font-family: Manrope-Medium;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.37;
   color: #f59256;
   &:hover,
