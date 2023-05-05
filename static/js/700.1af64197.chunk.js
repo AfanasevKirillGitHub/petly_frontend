@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpetly_frontend=self.webpackChunkpetly_frontend||[]).push([[700],{7700:function(n,e,t){t.r(e),t.d(e,{LostFoundPage:function(){return i}});var r=t(5650),o=t(7205),s=t(2092),u=t(7127),a=t(6549),d=t(3329),i=function(){var n=(0,a.E)().keyword,e=(0,o.Fp)({category:"lost-found",key:n}),t=e.data,i=e.isFetching;return(0,d.jsxs)(d.Fragment,{children:[i&&(0,d.jsx)(s.a,{}),(0,d.jsx)(u.X,{children:null===t||void 0===t?void 0:t.notices.map((function(n){return(0,d.jsx)(r.O,{data:n},n._id)}))})]})}}}]);
+//# sourceMappingURL=700.1af64197.chunk.js.map
