@@ -13,22 +13,21 @@ import heart from '../../helpers/photos/homepage/heart.png';
 export const HomePage = styled.div`
   height: 100%;
   position: relative;
+  height: calc(100vh - 74px);
   @media screen and (max-width: 767px) {
-    height: 600px;
     background: url(${DogM}), url(${bgM});
     background-size: 280px auto, 620px auto;
     background-position: bottom 0px left 50%, bottom -50px left 25%;
     background-repeat: no-repeat;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    height: 1100px;
     background: url(${DogT}), url(${bgT});
     background-size: 636px auto, 1400px auto;
     background-position: bottom 0px left 50%, bottom -140px left 25%;
     background-repeat: no-repeat;
   }
   @media screen and (min-width: 1280px) {
-    height: calc(100vh - 91px);
+    height: calc(100vh - 81px);
     background-image: url(${DogD}), url(${bgD});
     background-position: bottom 0px left 95%, bottom 0px left 0px;
     background-size: 524px, contain;
