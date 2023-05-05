@@ -25,6 +25,8 @@ export const NoticeCard = ({ data }) => {
     owner,
   } = data;
 
+  console.log(data);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modalHandler = () => {
@@ -117,7 +119,7 @@ export const NoticeCard = ({ data }) => {
         </Modal>
       )}
       <SC.ImageWrapper>
-        <SC.Image src={avatarURL || defaultPicture} alt={title.en} />
+        <SC.Image src={avatarURL || defaultPicture} alt={title} />
         <SC.CategoryLabel>{noticeCategory}</SC.CategoryLabel>
         <SC.HeartWrapper onClick={onFavoriteClick}>
           <SC.HeartIcon size={30} favorite={String(isFavorite)} />
@@ -125,16 +127,16 @@ export const NoticeCard = ({ data }) => {
       </SC.ImageWrapper>
       <SC.TextWrapper>
         <SC.HeaderWrapper>
-          <SC.TextHeader>{title.en}</SC.TextHeader>
+          <SC.TextHeader>{title}</SC.TextHeader>
         </SC.HeaderWrapper>
         <SC.TextLinesWrapper style={{ height: '107px' }}>
           <SC.TextLineWrapper>
             <SC.TextLineName>Breed:</SC.TextLineName>
-            <SC.TextLineValue>{breed.en}</SC.TextLineValue>
+            <SC.TextLineValue>{breed}</SC.TextLineValue>
           </SC.TextLineWrapper>
           <SC.TextLineWrapper>
             <SC.TextLineName>Place:</SC.TextLineName>
-            <SC.TextLineValue>{location.city.en}</SC.TextLineValue>
+            <SC.TextLineValue>{location}</SC.TextLineValue>
           </SC.TextLineWrapper>
           <SC.TextLineWrapper>
             <SC.TextLineName>Age:</SC.TextLineName>

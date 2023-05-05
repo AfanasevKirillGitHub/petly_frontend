@@ -5,11 +5,10 @@ import * as SC from '../List.styled';
 import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 export const LostFoundPage = () => {
-  const { lang, keyword } = useGetSearchParams();
+  const { keyword } = useGetSearchParams();
 
   const { data, isFetching } = useFetchByCategoryQuery({
     category: 'lost-found',
-    lang,
     key: keyword,
   });
 

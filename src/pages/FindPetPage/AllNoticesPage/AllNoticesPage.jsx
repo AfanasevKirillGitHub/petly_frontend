@@ -5,10 +5,9 @@ import * as SC from '../List.styled';
 import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 export const AllNoticesPage = () => {
-  const { lang, keyword } = useGetSearchParams();
+  const { keyword } = useGetSearchParams();
 
   const { data, isFetching } = useFetchNoticesQuery({
-    lang,
     key: keyword,
   });
 

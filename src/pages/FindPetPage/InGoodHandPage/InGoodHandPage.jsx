@@ -5,11 +5,10 @@ import * as SC from '../List.styled';
 import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 export const InGoodHandPage = () => {
-  const { lang, keyword } = useGetSearchParams();
+  const { keyword } = useGetSearchParams();
 
   const { data, isFetching } = useFetchByCategoryQuery({
     category: 'for-free',
-    lang,
     key: keyword,
   });
 
