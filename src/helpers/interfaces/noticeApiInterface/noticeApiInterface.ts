@@ -11,3 +11,9 @@ export interface INotice {
   photo: string;
   comments: string;
 }
+
+export interface INoticesApi {
+  massege: string;
+  notices: [];
+  total: number;
+}

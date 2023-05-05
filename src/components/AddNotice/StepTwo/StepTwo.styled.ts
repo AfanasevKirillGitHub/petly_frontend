@@ -110,20 +110,76 @@ export const HiddenInput = styled.input`
   width: max-content;
 `;
 
+// export const LoadImage = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   width: 140px;
+//   height: 140px;
+//   cursor: pointer;
+//   background-color: ${p => p.theme.colors.background};
+//   border-radius: ${p => p.theme.radii.normal};
+// `;
+
+// export const Plus = styled(IoAddSharp)`
+//   width: 70px;
+//   height: 70px;
+//   color: ${p => p.theme.colors.greyText};
+// `;
+
+//======================================================
+
+export const PhotoLabel = styled(Label)`
+  gap: 20px;
+`;
+
+export const PhotoTitle = styled.span`
+  font-size: ${p => p.theme.fontSizes.s};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  line-height: ${p => p.theme.lineHeights.m};
+`;
+
 export const LoadImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: 140px;
-  height: 140px;
+  align-self: center;
+
+  width: 208px;
+  height: 208px;
+
   cursor: pointer;
   background-color: ${p => p.theme.colors.background};
   border-radius: ${p => p.theme.radii.normal};
+
+  overflow: hidden;
+`;
+
+export const PetImg = styled.img`
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
 `;
 
 export const Plus = styled(IoAddSharp)`
   width: 70px;
   height: 70px;
   color: ${p => p.theme.colors.greyText};
+`;
+
+export const InputImage = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 `;

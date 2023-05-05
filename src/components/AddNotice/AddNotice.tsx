@@ -23,16 +23,16 @@ type FormInputs = {
 };
 
 const INITIAL_DATA: FormInputs = {
-  category: 'sell',
-  title: '',
-  name: '',
-  birthdate: '',
-  breed: '',
+  category: 'lost-found',
+  title: 'Шукаю гуся',
+  name: 'Бандерогусь',
+  birthdate: '2023-03-06',
+  breed: 'Гусь Мотивуючий',
   sex: 'male',
-  location: '',
+  location: 'Київ',
   price: '',
   avatarURL: null,
-  comments: '',
+  comments: 'Допоможіть знайти, будь ласка',
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
@@ -50,7 +50,6 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
     <StepTwo {...formInputs} updateFields={updateFields} />,
   ]);
 
-  console.log(formInputs.avatarURL);
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
     if (!isLastStep) {
@@ -72,12 +71,12 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
 
     dispatch(formData);
 
-    console.log(formInputs);
-
     if (!isLoading && !isError) {
       toggleModal();
     }
   };
+
+  console.log(formInputs);
 
   return (
     <SC.Modal>
