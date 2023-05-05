@@ -76,8 +76,6 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
     }
   };
 
-  console.log(formInputs);
-
   return (
     <SC.Modal>
       <SC.Title>Add pet</SC.Title>
