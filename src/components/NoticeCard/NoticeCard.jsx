@@ -25,8 +25,6 @@ export const NoticeCard = ({ data }) => {
     owner,
   } = data;
 
-  console.log(data);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modalHandler = () => {

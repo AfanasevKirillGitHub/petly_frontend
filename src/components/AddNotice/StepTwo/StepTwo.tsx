@@ -1,6 +1,7 @@
 import { ReactComponent as MaleIcon } from '../../../helpers/icons/male.svg';
 import { ReactComponent as FemaleIcon } from '../../../helpers/icons/female.svg';
 import * as SC from './StepTwo.styled';
+import { useEffect, useState } from 'react';
 
 interface DealInfo {
   category: 'sell' | 'lost-found' | 'for-free';
@@ -24,18 +25,30 @@ export const StepTwo = ({
   comments,
   updateFields,
 }: StepTwoProps) => {
-  // const [avatarURL, setAvatarURL] = useState<File | null>(null);
+  const [file, setFile] = useState<File | null>(null);
 
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, files } = evt.target;
-    switch (name) {
-      case 'avatarURL':
-        updateFields({ avatarURL: files![0] as File });
-        return;
-      default:
-        return;
+  useEffect(() => {
+    updateFields({ avatarURL: file });
+  }, [file, updateFields]);
+
+  const handelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = e.target;
+
+    if (name === 'avatarURL') {
+      setFile(files![0] as File);
     }
   };
+
+  // const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, files } = evt.target;
+  //   switch (name) {
+  //     case 'avatarURL':
+  //       updateFields({ avatarURL: files![0] as File });
+  //       return;
+  //     default:
+  //       return;
+  //   }
+  // };
 
   return (
     <>
@@ -93,18 +106,11 @@ export const StepTwo = ({
           />
         </SC.Label>
       )}
-      <SC.Label>
+      {/* <SC.Label>
         <SC.FieldTitle>Load the pet’s image:</SC.FieldTitle>
         <SC.LoadImage>
           <SC.Plus />
         </SC.LoadImage>
-        {/* <SC.HiddenInput
-          type="file"
-          value={avatarURL}
-          onChange={evt => {
-            updateFields({ avatarURL: evt.target.value });
-          }}
-        /> */}
 
         <SC.HiddenInput
           id="avatar"
@@ -113,7 +119,26 @@ export const StepTwo = ({
           accept="image/*,.png,.jpg,.jpeg,.webp"
           name="avatarURL"
         />
-      </SC.Label>
+      </SC.Label> */}
+
+      <SC.PhotoLabel>
+        <SC.PhotoTitle>Add photo and some comments</SC.PhotoTitle>
+        <SC.LoadImage>
+          {!file ? (
+            <SC.Plus />
+          ) : (
+            <SC.PetImg alt="My pet" src={URL.createObjectURL(file)} />
+          )}
+        </SC.LoadImage>
+        <SC.InputImage
+          type="file"
+          name="avatarURL"
+          alt="Pet image"
+          onChange={handelChange}
+          accept="image/*,.png,.jpg,.jpeg,.webp"
+        />
+      </SC.PhotoLabel>
+
       <SC.Label>
         <SC.FieldTitle>Comments:</SC.FieldTitle>
         <SC.Textarea
