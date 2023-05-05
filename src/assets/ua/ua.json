@@ -73,24 +73,22 @@
     "editPhoto": "Змінити фото",
     "logOut": "Вийти",
     "birthday": "Д.народж.",
-<<<<<<< HEAD
     "city": "Місто"
   },
-  "noPetsInList": "Не маю тварин - тому я сумний..."
-=======
-    "phone": "Телефон",
-    "city": "Місто",
-    "myInformation": "Моя інформація",
-    "incorrectFormat": "Неправильний формат",
-    "tooShort": "Запис занадто короткий!",
-    "tooLong": "Запис занадто довгий!",
-    "fieldIsRequired": "Поле обов'язкове!",
-    "minCharactersNr": "Мінімум символів - ",
-    "maxCharactersNr": "Максимум символів - ",
-    "dateMustBeExactly": "Має відповідати ДД.ММ.РРРР",
-    "enterValidDateError": "Введіть дату у форматі ДД.ММ.РРРР",
-    "dateTooEarlyError": "Дата занадто рання",
-    "fieldFormatIsCorrect": "Запис коректний"
-  }
->>>>>>> main
+
+  "noPetsInList": "Не маю тварин - тому я сумний...",
+
+  "phone": "Телефон",
+  "city": "Місто",
+  "myInformation": "Моя інформація",
+  "incorrectFormat": "Неправильний формат",
+  "tooShort": "Запис занадто короткий!",
+  "tooLong": "Запис занадто довгий!",
+  "fieldIsRequired": "Поле обов'язкове!",
+  "minCharactersNr": "Мінімум символів - ",
+  "maxCharactersNr": "Максимум символів - ",
+  "dateMustBeExactly": "Має відповідати ДД.ММ.РРРР",
+  "enterValidDateError": "Введіть дату у форматі ДД.ММ.РРРР",
+  "dateTooEarlyError": "Дата занадто рання",
+  "fieldFormatIsCorrect": "Запис коректний"
 }
