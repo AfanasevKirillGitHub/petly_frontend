@@ -24,15 +24,15 @@ type FormInputs = {
 
 const INITIAL_DATA: FormInputs = {
   category: 'sell',
-  title: 'weqweqw',
-  name: 'eqeqw',
+  title: '',
+  name: '',
   birthdate: '',
-  breed: 'qee',
+  breed: '',
   sex: 'male',
-  location: 'ewqeqwe, qeqe',
-  price: '133',
+  location: '',
+  price: '',
   avatarURL: null,
-  comments: 'weqweqqeq',
+  comments: '',
 };
 
 const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
@@ -71,23 +71,6 @@ const AddNotice = ({ toggleModal }: IAddNoticeProps) => {
     formData.append('avatarURL', formInputs.avatarURL as File);
 
     dispatch(formData);
-
-    // dispatch({
-    //   ...formInputs,
-    //   title: { en: formInputs.title, ua: 'Шукаю гуся' },
-    //   breed: { en: formInputs.breed, ua: 'Гусь Мотивуючий' },
-    //   comments: {
-    //     en: formInputs.comments,
-    //     ua: 'Будь ласка, допоможіть знайти',
-    //   },
-    //   location: {
-    //     city: { en: formInputs.location.split(', ')[0], ua: 'Київ' },
-    //     region: { en: formInputs.location.split(', ')[1], ua: 'Україна' },
-    //   },
-    //   price: Number(formInputs.price),
-    //   avatarURL:
-    //     'https://preview.redd.it/2oxv62gme7u71.png?auto=webp&s=1197fa2f96d47e01988714065202432298b87d21',
-    // });
 
     console.log(formInputs);
 
